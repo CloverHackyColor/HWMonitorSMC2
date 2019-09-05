@@ -1,0 +1,131 @@
+/*
+ Localizable.strings
+ HWMonitorSMC
+ 
+ Created by vector sigma on 25/02/18.
+ Copyright © 2018 HWSensor. All rights reserved.
+ */
+
+// translated by ???
+
+"Core Frequencies" = "Core Frequencies";   // CPU or GPU sub group
+"Core Temperatures" = "Core Temperatures"; // CPU or GPU sub group
+"Temperature" = "Temperature";   // singular
+"Temperatures" = "Temperatures"; // plural
+"Frequency"   = "Frequency";     // singular
+"Frequencies" = "Frequencies";   // plural
+"Package Core" = "Package Core";
+"Package Total" = "Package Total";
+"Package IGPU" = "Package IGPU";
+"Multipliers" = "Multipliers";
+"Voltage" = "Voltage";   // singular
+"Voltages" = "Voltages"; // plural
+"Amperage" = "Amperage";
+"Battery" = "Battery"; // singular
+"Batteries" = "Batteries"; // plural
+"Media health" = "Media health";
+"Life" = "Life"; // hdd/ssd life
+"IGPU Frequency" = "IGPU Frequency";
+"IGPU Max Frequency" = "IGPU Max Frequency";
+"IGPU Utilization" = "IGPU Utilization";
+
+// Intel Power Gadget
+"Intel® Power Gadget info" = "Intel® Power Gadget info";
+"DRAM" = "DRAM";
+"Package Temperature" = "Package Temperature";
+"Package Power Limit (TDP)" = "TDP";
+"Max Temperature"  = "Max Temperature";
+"Thresholds"       = "Thresholds";
+"Base Frequency"   = "Base Frequency";
+"Max Frequency" = "Max Frequency";
+
+// GPU, when taken from PerformanceStatistics
+"GPUs" = "GPUs";
+"Core Clock" = "Core Clock";
+"Memory Clock" = "Memory Clock";
+"Fan/Pump speed" = "Fan/Pump speed";
+"Fan/Pump speed rate" = "Fan/Pump speed rate";
+"Utilization" = "Utilization";
+"Activity" = "Activity";
+"Core Utilization" = "Core Utilization";
+"Device Unit %d Utilization" = "Device Unit %d Utilization";
+"Video Engine Utilization" = "Video Engine Utilization";
+"Used VRAM" = "Used VRAM";
+"Free VRAM" = "Free VRAM";
+"Total Power" = "Total Power";
+
+// RAM
+"RAM" = "ОЗУ";
+"Total" = "Total";
+"Active" = "Active";
+"Inactive" = "Inactive";
+"Free" = "Free";
+"Used" = "Used";
+"Purgeable" = "Purgeable";
+"Wired" = "Wired";
+
+"CPU" = "CPU";
+"Proximity" = "Proximity"; // CPU or GPU
+"Heatsink" = "Heatsink";  // CPU or GPU
+"DIMM 0" = "DIMM 0"; // RAM
+"DIMM 1" = "DIMM 1"; // RAM
+"Ambient" = "Ambient"; // Motherboard
+"GPU %d Board" = "GPU %d Board";
+"GPU %d Proximity" = "GPU %d Proximity";
+"Core %d" = "Core %d";   // CPU or GPU
+"Diode %d" = "Diode %d"; // CPU or GPU
+"CPU %d" = "CPU %d";
+"GPU %d Core" = "GPU %d Core";
+"GPU %d Shaders" = "GPU %d Shaders";
+"GPU %d Memory" = "GPU %d Memory";
+"GPU %d Voltage" = "GPU %d Voltage";
+"Core %d Multiplier" = "Core %d Multiplier";
+"Package Multiplier" = "Package Multiplier";
+
+// Motherboard
+"Motherboard" = "Main Logic Board";  // MLB (Main Logic Board)
+"North Bridge" = "North Bridge";
+"PRAM Battery" = "Battery"; // PRAM Battery (..or CMOS)
+"VRM Voltage" = "VRM Voltage";
+"DIMM Voltage" = "DIMM Voltage";
+"+12V Bus Voltage" = "+12V Bus Voltage";
+"+5V Bus Voltage" = "+5V Bus Voltage";
+"-12V Bus Voltage" = "-12V Bus Voltage";
+"-5V Bus Voltage" = "-5V Bus Voltage";
+"3.3 VCC Voltage" = "3.3 VCC Voltage";
+"3.3 VSB Voltage" = "3.3 VSB Voltage";
+"3.3 AVCC Voltage" = "3.3 AVCC Voltage";
+
+// Fans
+"Fans or Pumps" = "Fans or Pumps";
+"Fan %d" = "Fan %d";
+"speed" = "speed"; // rpm, all in lower case letters
+"min speed" = "min speed"; // rpm, all in lower case letters
+"max speed" = "max speed"; // rpm, all in lower case letters
+
+// Units of measurement
+"GHz" = "GHz"; // Giga Hertz
+"MHz" = "MHz"; // Mega Hertz
+"MB"  = "MB";  // Mega byte
+"GB"  = "GB";  // Giga byte
+"°C"  = "°C";  // Celsius
+"W"   = "W";   // Watt
+"mWh" = "mWh"; // milli Watt per hour
+"J"   = "J";   // Joule
+"V"   = "V";   // Volt
+"mV"  = "mV";  // milli Volt
+"mA"  = "mA";  // milli Ampere
+"rpm" = "rpm"; // revolutions per minute
+
+"log copied to clip board!" = "log copied to clip board!";
+
+// Themes
+"Default" = "Default"; // View Size as well
+"Classic" = "Classic";
+"Dashed Horizontally" = "Dashed Horizontally";
+"No Grid" = "No Grid";
+"With Grid, clear background" = "With Grid, clear background";
+
+// View Size
+"Medium" = "Medium";
+"Large"  = "Large";

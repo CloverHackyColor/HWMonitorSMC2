@@ -1,0 +1,132 @@
+/* 
+  Localizable.strings
+  HWMonitorSMC
+
+  Created by vector sigma on 25/02/18.
+  Copyright © 2018 HWSensor. All rights reserved.
+*/
+
+// translated by vector sigma
+
+"Core Frequencies" = "Frequenze dei Core";    // CPU or GPU sub group
+"Core Temperatures" = "Temperature dei Core"; // CPU or GPU sub group
+"Temperature" = "Temperatura";  // singular
+"Temperatures" = "Temperature"; // plural
+"Frequency"   = "Frequenza";    // singular
+"Frequencies" = "Frequenze";    // plural
+"Package Core" = "Core Package";
+"Package Total" = "Totale Package";
+"Package IGPU" = "Package IGPU";
+"Multipliers" = "Moltiplicatori";
+"Voltage" = "Voltaggio";  // singular
+"Voltages" = "Voltaggi";  // plural
+"Amperage" = "Amperaggio";
+"Battery" = "Batteria"; // singular
+"Batteries" = "Batterie"; // plural
+"Media health" = "Integrità dei Media";
+"Life" = "Vita"; // hdd/ssd life
+"IGPU Frequency" = "Frequenza IGPU";
+"IGPU Max Frequency" = "Frequenza Max IGPU";
+"IGPU Utilization" = "Utilizzo IGPU";
+
+// Intel Power Gadget
+"Intel® Power Gadget info" = "Intel® Power Gadget info";
+"DRAM"  = "DRAM";
+"Package Temperature" = "Temperatura Package";
+"Package Power Limit (TDP)" = "TDP";
+"Max Temperature"  = "Temperatura Max";
+"Thresholds"       = "Soglie (Thresholds)";
+"Base Frequency"   = "Frequenza Base";
+"Max Frequency" = "Frequenza max";
+
+// GPU, when taken from PerformanceStatistics
+"GPUs" = "Grafica";
+"Core Clock" = "Clock del core";
+"Memory Clock" = "Clock memoria";
+"Fan/Pump speed" = "Rotazione ventola/pompa";
+"Fan/Pump speed rate" = "Rotazione ventola/pompa (rate)";
+"Utilization" = "Utilizzazione";
+"Activity" = "Attività";
+"Core Utilization" = "Utilizzazione core";
+"Device Unit %d Utilization" = "Utilizzazione device Unità %d";
+"Video Engine Utilization" = "Utilizzazione motore video";
+"Used VRAM" = "VRAM usata";
+"Free VRAM" = "VRAM libera";
+"Total Power" = "Potenza totale";
+
+// RAM
+"RAM" = "RAM";
+"Total" = "Totale";
+"Active" = "Attiva";
+"Inactive" = "Inattiva";
+"Free" = "Libera";
+"Used" = "Usata";
+"Purgeable" = "Liberabile";
+"Wired" = "Fissa (Wired)";
+
+"CPU" = "CPU";
+"Proximity" = "Prossimità"; // CPU or GPU
+"Heatsink" = "Dissipatore"; // CPU or GPU
+"DIMM 0" = "DIMM 0"; // RAM
+"DIMM 1" = "DIMM 1"; // RAM
+"Ambient" = "Ambiente"; // Motherboard
+"GPU %d Board" = "Scheda GPU %d";
+"GPU %d Proximity" = "Prossimità GPU %d";
+"Core %d" = "Core %d";   // CPU or GPU
+"Diode %d" = "Diodo %d"; // CPU or GPU
+"CPU %d" = "CPU %d";
+"GPU %d Core" = "Core GPU %d";
+"GPU %d Shaders" = "Shaders GPU %d";
+"GPU %d Memory" = "Memoria GPU %d";
+"GPU %d Voltage" = "Voltaggio GPU %d";
+"Core %d Multiplier" = "Moltiplicatore Core %d";
+"Package Multiplier" = "Moltiplicatore Package";
+
+// Motherboard's:
+"Motherboard" = "Scheda Madre";  // MLB (Main Logic Board)
+"North Bridge" = "North Bridge";
+"PRAM Battery" = "Batteria"; // PRAM Battery (..or CMOS)
+"VRM Voltage" = "Voltaggio VRM";
+"DIMM Voltage" = "Voltaggio DIMM";
+"+12V Bus Voltage" = "Voltaggio Bus +12V";
+"+5V Bus Voltage" = "Voltaggio Bus +5V";
+"-12V Bus Voltage" = "Voltaggio Bus -12V";
+"-5V Bus Voltage" = "Voltaggio Bus -5V";
+"3.3 VCC Voltage" = "Voltaggio VCC 3.3";
+"3.3 VSB Voltage" = "Voltaggio VSB 3.3";
+"3.3 AVCC Voltage" = "Voltaggio AVCC 3.3";
+
+// Fans
+"Fans or Pumps" = "Ventole e Pompe";
+"Fan %d" = "Ventola %d";
+"speed" = "velocità"; // rpm, all in lower case letters
+"min speed" = "velocità min"; // rpm, all in lower case letters
+"max speed" = "velocità max"; // rpm, all in lower case letters
+
+// Units of measurement
+"GHz" = "GHz"; // Giga Hertz
+"MHz" = "MHz"; // Mega Hertz
+"MB"  = "MB";  // Mega byte
+"GB"  = "GB";  // Giga byte
+"°C"  = "°C";  // Celsius
+"W"   = "W";   // Watt
+"mWh" = "mWh"; // milli Watt per hour
+"J"   = "J";   // Joule
+"V"   = "V";   // Volt
+"mV"  = "mV";  // milli Volt
+"mA"  = "mA";  // milli Ampere
+"rpm" = "rpm"; // revolutions per minute
+
+"log copied to clip board!" = "log copiato negli appunti!";
+
+// Themes
+"Default" = "Predefinito"; // View Size as well
+"Classic" = "Classico";
+"Dashed Horizontally" = "Griglia tratteggiata orizzontale";
+"No Grid" = "Senza griglia";
+"With Grid, clear background" = "Con griglia, sfondo pulito";
+
+// View Size
+"Medium" = "Media";
+"Large"  = "Grande";
+

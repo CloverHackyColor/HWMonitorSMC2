@@ -1,0 +1,76 @@
+
+/* Class = "NSTabViewItem"; label = "Sensors"; ObjectID = "Tam-QO-tbG"; */
+"Tam-QO-tbG.label" = "Датчиков";
+
+/* Class = "NSTabViewItem"; label = "View"; ObjectID = "wQH-9z-ULe"; */
+"wQH-9z-ULe.label" = "Вид";
+
+/* Class = "NSTabViewItem"; label = "Other"; ObjectID = "YC5-C6-UHP"; */
+"YC5-C6-UHP.label" = "Другое";
+
+/* Class = "NSButtonCell"; title = "Use percentage to display memory usage"; ObjectID = "1ou-TV-z1H"; */
+"F5h-4I-FHU.title" = "Использовать % для отображения использования памяти";
+
+/* Class = "NSButtonCell"; title = "expand all groups"; ObjectID = "1ou-TV-z1H"; */
+"1ou-TV-z1H.title" = "Развернуть все группы";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "7b5-Rl-qab"; */
+"7b5-Rl-qab.title" = "Настройки";
+
+/* Class = "NSButtonCell"; title = "expand CPU Frequencies group"; ObjectID = "IiS-qj-XaA"; */
+"IiS-qj-XaA.title" = "Развернуть группу частот ЦПУ";
+
+/* Class = "NSButtonCell"; title = "expand CPU Temperatures group"; ObjectID = "Uuk-nv-v6V"; */
+"Uuk-nv-v6V.title" = "Развернуть группу температур ЦПУ";
+
+/* Class = "NSButtonCell"; title = "Don't show empty groups"; ObjectID = "VSp-PT-02b"; */
+"VSp-PT-02b.title" = "Не показывать пустые группы";
+
+/* Class = "NSButtonCell"; title = "expand Voltages group"; ObjectID = "f3S-tq-sNl"; */
+"f3S-tq-sNl.title" = "Развернуть группу Напряжения";
+
+/* Class = "NSTexfieldCell"; title = "Themes:"; ObjectID = "AHz-v5-cAO"; */
+"AHz-v5-cAO.title" = "Темы:";
+
+/* Class = "NSTexfieldCell"; title = "View size"; ObjectID = "PZk-7X-P2q"; */
+"PZk-7X-P2q.title" = "Размер окна программы:";
+
+/* Class = "NSTexfieldCell"; title = "Grid Color:"; ObjectID = "7rV-gv-BVk"; */
+"7rV-gv-BVk.title" = "Цвет сетки:";
+
+/* Class = "NSTexfieldCell"; title = "Plot Color:"; ObjectID = "ovp-5x-7r3"; */
+"ovp-5x-7r3.title" = "Цвет графика:";
+
+/* Class = "NSTexfieldCell"; title = "Top bar font:"; ObjectID = "58Y-P2-lbm"; */
+"58Y-P2-lbm.title" = "Шрифт строки меню:";
+
+/* Class = "NSButtonCell"; title = "Translate units of measurements"; ObjectID = "kwG-Mh-ogc"; */
+"kwG-Mh-ogc.title" = "Показывать размерности на русском﻿ языке";
+
+/* Class = "NSButtonCell"; title = "force to use dark appearance"; ObjectID = "fYJ-2d-nMJ"; */
+"fYJ-2d-nMJ.title" = "Использовать тёмную тему";
+
+/* Class = "NSButtonCell"; title = "always hide the vertical scroller"; ObjectID = "vMW-P5-ltW"; */
+"vMW-P5-ltW.title" = "Всегда прятать вертикальный скроллер";
+
+/* Class = "NSTexfieldCell"; title = "Sensors update interval in seconds:"; ObjectID = "i4D-QB-sGd"; */
+"i4D-QB-sGd.title" = "Интервал обновления датчиков в секундах:";
+
+/* Class = "NSTexfieldCell"; title = "(applied to the next execution)"; ObjectID = "i4D-QB-sGd" - "63u-ee-4HM"; */
+"h2D-rP-QYL.title" = "(применяется к следующему исполнению)";
+"63u-ee-4HM.title" = "(применяется к следующему исполнению)";
+
+/* Class = "NSButtonCell"; title = "run HWMonitorSMC.app at login"; ObjectID = "Dyg-rv-2Gg"; */
+"Dyg-rv-2Gg.title" = "Запустить HWMonitorSMC2.app при входе в систему";
+
+/* Class = "NSButtonCell"; title = "use IOKit monitoring for GPUs"; ObjectID = "jea-Yr-Q5W"; */
+"jea-Yr-Q5W.title" = "Использовать данные Акселератора для мониторинга графики";
+
+/* Class = "NSButtonCell"; title = "Reset"; ObjectID = "wsU-ie-0D9"; */
+"wsU-ie-0D9.title" = "Сброс";
+
+/* Class = "NSButtonCell"; title = "Fan Control"; ObjectID = "Ure-9y-2ms"; */
+"Ure-9y-2ms.title" = "Управление вентиляторами и помпами";
+
+/* Class = "NSButtonCell"; title = "Show Min/Max speed"; ObjectID = "70t-8Y-u8v"; */
+"70t-8Y-u8v.title" = "Показывать мин. и макс. обороты";

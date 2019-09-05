@@ -1,0 +1,76 @@
+
+/* Class = "NSTabViewItem"; label = "Sensors"; ObjectID = "Tam-QO-tbG"; */
+"Tam-QO-tbG.label" = "Sensors";
+
+/* Class = "NSTabViewItem"; label = "View"; ObjectID = "wQH-9z-ULe"; */
+"wQH-9z-ULe.label" = "View";
+
+/* Class = "NSTabViewItem"; label = "Other"; ObjectID = "YC5-C6-UHP"; */
+"YC5-C6-UHP.label" = "Other";
+
+/* Class = "NSButtonCell"; title = "use percentage to display memory usage"; ObjectID = "1ou-TV-z1H"; */
+"F5h-4I-FHU.title" = "메모리 사용량을 퍼센트로 보기";
+
+/* Class = "NSButtonCell"; title = "expand all groups"; ObjectID = "1ou-TV-z1H"; */
+"1ou-TV-z1H.title" = "모든 그룹 펼쳐보기";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "7b5-Rl-qab"; */
+"7b5-Rl-qab.title" = "설정";
+
+/* Class = "NSButtonCell"; title = "expand CPU Frequencies group"; ObjectID = "IiS-qj-XaA"; */
+"IiS-qj-XaA.title" = "CPU 주파수 그룹 펼쳐보기";
+
+/* Class = "NSButtonCell"; title = "expand CPU Temperatures group"; ObjectID = "Uuk-nv-v6V"; */
+"Uuk-nv-v6V.title" = "CPU 온도 그룹 펼쳐보기";
+
+/* Class = "NSButtonCell"; title = "don't show empty groups"; ObjectID = "VSp-PT-02b"; */
+"VSp-PT-02b.title" = "빈 그룹 표시하지 않기";
+
+/* Class = "NSButtonCell"; title = "expand Voltages group"; ObjectID = "f3S-tq-sNl"; */
+"f3S-tq-sNl.title" = "전압 그룹 펼쳐보기";
+
+/* Class = "NSTexfieldCell"; title = "Themes:"; ObjectID = "AHz-v5-cAO"; */
+"AHz-v5-cAO.title" = "테마:";
+
+/* Class = "NSTexfieldCell"; title = "View size"; ObjectID = "PZk-7X-P2q"; */
+"PZk-7X-P2q.title" = "View size";
+
+/* Class = "NSTexfieldCell"; title = "Grid Color:"; ObjectID = "7rV-gv-BVk"; */
+"7rV-gv-BVk.title" = "Grid Color:";
+
+/* Class = "NSTexfieldCell"; title = "Plot Color:"; ObjectID = "ovp-5x-7r3"; */
+"ovp-5x-7r3.title" = "Plot Color:";
+
+/* Class = "NSTexfieldCell"; title = "Top bar font:"; ObjectID = "58Y-P2-lbm"; */
+"58Y-P2-lbm.title" = "Top bar font:";
+
+/* Class = "NSButtonCell"; title = "Translate units of measurements"; ObjectID = "kwG-Mh-ogc"; */
+"kwG-Mh-ogc.title" = "Translate units of measurements";
+
+/* Class = "NSButtonCell"; title = "force to use dark appearance"; ObjectID = "fYJ-2d-nMJ"; */
+"fYJ-2d-nMJ.title" = "다크 모드 강제로 사용하기";
+
+/* Class = "NSButtonCell"; title = "always hide the vertical scroller"; ObjectID = "vMW-P5-ltW"; */
+"vMW-P5-ltW.title" = "수직 스크롤러 항상 숨기기";
+
+/* Class = "NSTexfieldCell"; title = "Sensor update interval in seconds:"; ObjectID = "i4D-QB-sGd"; */
+"i4D-QB-sGd.title" = "센서 업데이트 간격(초):";
+
+/* Class = "NSTexfieldCell"; title = "(applied to the next execution)"; ObjectID = "i4D-QB-sGd" - "63u-ee-4HM"; */
+"h2D-rP-QYL.title" = "(다음 실행시 적용)";
+"63u-ee-4HM.title" = "(다음 실행시 적용)";
+
+/* Class = "NSButtonCell"; title = "run HWMonitorSMC.app at login"; ObjectID = "Dyg-rv-2Gg"; */
+"Dyg-rv-2Gg.title" = "로그인시 HWMonitorSMC 실행하기";
+
+/* Class = "NSButtonCell"; title = "use the IOAccelerator's monitoring for GPUs"; ObjectID = "jea-Yr-Q5W"; */
+"jea-Yr-Q5W.title" = "GPUs에 대한 IOKit의 모니터링 사용하기";
+
+/* Class = "NSButtonCell"; title = "Reset"; ObjectID = "wsU-ie-0D9"; */
+"wsU-ie-0D9.title" = "Reset";
+
+/* Class = "NSButtonCell"; title = "Fan Control"; ObjectID = "Ure-9y-2ms"; */
+"Ure-9y-2ms.title" = "Fan/Pump Control";
+
+/* Class = "NSButtonCell"; title = "Show Min/Max speed"; ObjectID = "70t-8Y-u8v"; */
+"70t-8Y-u8v.title" = "Show Min/Max speed";

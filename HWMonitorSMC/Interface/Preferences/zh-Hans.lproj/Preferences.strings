@@ -1,0 +1,76 @@
+
+/* Class = "NSTabViewItem"; label = "Sensors"; ObjectID = "Tam-QO-tbG"; */
+"Tam-QO-tbG.label" = "传感器";
+
+/* Class = "NSTabViewItem"; label = "View"; ObjectID = "wQH-9z-ULe"; */
+"wQH-9z-ULe.label" = "视图";
+
+/* Class = "NSTabViewItem"; label = "Other"; ObjectID = "YC5-C6-UHP"; */
+"YC5-C6-UHP.label" = "其他";
+
+/* Class = "NSButtonCell"; title = "use percentage to display memory usage"; ObjectID = "1ou-TV-z1H"; */
+"F5h-4I-FHU.title" = "使用百分比显示内存使用情况";
+
+/* Class = "NSButtonCell"; title = "expand all groups"; ObjectID = "1ou-TV-z1H"; */
+"1ou-TV-z1H.title" = "展开所有组";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "7b5-Rl-qab"; */
+"7b5-Rl-qab.title" = "首选项";
+
+/* Class = "NSButtonCell"; title = "expand CPU Frequencies group"; ObjectID = "IiS-qj-XaA"; */
+"IiS-qj-XaA.title" = "展开CPU频率组";
+
+/* Class = "NSButtonCell"; title = "expand CPU Temperatures group"; ObjectID = "Uuk-nv-v6V"; */
+"Uuk-nv-v6V.title" = "展开CPU温度组";
+
+/* Class = "NSButtonCell"; title = "don't show empty groups"; ObjectID = "VSp-PT-02b"; */
+"VSp-PT-02b.title" = "不显示空组";
+
+/* Class = "NSButtonCell"; title = "expand Voltages group"; ObjectID = "f3S-tq-sNl"; */
+"f3S-tq-sNl.title" = "展开电压组";
+
+/* Class = "NSTexfieldCell"; title = "Themes:"; ObjectID = "AHz-v5-cAO"; */
+"AHz-v5-cAO.title" = "主题:";
+
+/* Class = "NSTexfieldCell"; title = "View size"; ObjectID = "PZk-7X-P2q"; */
+"PZk-7X-P2q.title" = "查看大小";
+
+/* Class = "NSTexfieldCell"; title = "Grid Color:"; ObjectID = "7rV-gv-BVk"; */
+"7rV-gv-BVk.title" = "网格颜色:";
+
+/* Class = "NSTexfieldCell"; title = "Plot Color:"; ObjectID = "ovp-5x-7r3"; */
+"ovp-5x-7r3.title" = "绘图颜色:";
+
+/* Class = "NSTexfieldCell"; title = "Top bar font:"; ObjectID = "58Y-P2-lbm"; */
+"58Y-P2-lbm.title" = "顶栏字体:";
+
+/* Class = "NSButtonCell"; title = "Translate units of measurements"; ObjectID = "kwG-Mh-ogc"; */
+"kwG-Mh-ogc.title" = "转换本国语度量单位";
+
+/* Class = "NSButtonCell"; title = "force to use dark appearance"; ObjectID = "fYJ-2d-nMJ"; */
+"fYJ-2d-nMJ.title" = "使用黑色外观显示";
+
+/* Class = "NSButtonCell"; title = "always hide the vertical scroller"; ObjectID = "vMW-P5-ltW"; */
+"vMW-P5-ltW.title" = "始终隐藏垂直滚动条";
+
+/* Class = "NSTexfieldCell"; title = "Sensor update interval in seconds:"; ObjectID = "i4D-QB-sGd"; */
+"i4D-QB-sGd.title" = "传感器更新间隔秒数:";
+
+/* Class = "NSTexfieldCell"; title = "(applied to the next execution)"; ObjectID = "i4D-QB-sGd" - "63u-ee-4HM"; */
+"h2D-rP-QYL.title" = "(应用于下一次启动后执行)";
+"63u-ee-4HM.title" = "(应用于下一次启动后执行)";
+
+/* Class = "NSButtonCell"; title = "run HWMonitorSMC.app at login"; ObjectID = "Dyg-rv-2Gg"; */
+"Dyg-rv-2Gg.title" = "在登录时运行HWMonitorSMC.app";
+
+/* Class = "NSButtonCell"; title = "use the IOAccelerator's monitoring for GPUs"; ObjectID = "jea-Yr-Q5W"; */
+"jea-Yr-Q5W.title" = "使用加速器监测GPU";
+
+/* Class = "NSButtonCell"; title = "Reset"; ObjectID = "wsU-ie-0D9"; */
+"wsU-ie-0D9.title" = "恢复默认";
+
+/* Class = "NSButtonCell"; title = "Fan Control"; ObjectID = "Ure-9y-2ms"; */
+"Ure-9y-2ms.title" = "风扇和泵控制";
+
+/* Class = "NSButtonCell"; title = "Show Min/Max speed"; ObjectID = "70t-8Y-u8v"; */
+"70t-8Y-u8v.title" = "显示最小/最大速度";

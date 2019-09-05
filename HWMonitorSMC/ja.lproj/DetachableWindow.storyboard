@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Bd6-e6-tKQ">
+            <objects>
+                <windowController storyboardIdentifier="Detachable" id="cbS-km-jdg" customClass="DetachableWC" customModule="HWMonitorSMC" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="HfX-tb-pud" customClass="HWWindow" customModule="HWMonitorSMC" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="229" y="240" width="270" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1600" height="877"/>
+                        <value key="minSize" type="size" width="270" height="140"/>
+                        <connections>
+                            <outlet property="delegate" destination="cbS-km-jdg" id="PqV-eP-9rJ"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="284-uE-NOs" kind="relationship" relationship="window.shadowedContentViewController" id="R2m-NI-ngg"/>
+                    </connections>
+                </windowController>
+                <customObject id="lsn-RZ-7b6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="147"/>
+        </scene>
+        <!--DetachableVC-->
+        <scene sceneID="Gcj-We-HcS">
+            <objects>
+                <viewController id="284-uE-NOs" customClass="DetachableVC" customModule="HWMonitorSMC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="HdL-S4-Gj8">
+                        <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="EI6-aZ-xhc">
+                                <rect key="frame" x="0.0" y="109" width="270" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="14t-Q2-Vm1"/>
+                                </constraints>
+                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="if you can see me... this is an error" id="d1G-Uv-BFz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="EI6-aZ-xhc" firstAttribute="leading" secondItem="HdL-S4-Gj8" secondAttribute="leading" constant="2" id="4iJ-cT-y7W"/>
+                            <constraint firstItem="EI6-aZ-xhc" firstAttribute="centerY" secondItem="HdL-S4-Gj8" secondAttribute="centerY" id="8l1-LL-YyK"/>
+                            <constraint firstItem="EI6-aZ-xhc" firstAttribute="centerX" secondItem="HdL-S4-Gj8" secondAttribute="centerX" id="eIy-WV-soy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="oBk-1p-Gdk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="582"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,131 @@
+/* 
+  Localizable.strings
+  HWMonitorSMC
+
+  Created by vector sigma on 25/02/18.
+  Copyright © 2018 HWSensor. All rights reserved.
+*/
+
+// translated by Andrey1970
+
+"Core Frequencies" = "Частоты ядер﻿";      // CPU or GPU sub group
+"Core Temperatures" = "Температуры ядер"; // CPU or GPU sub group
+"Temperature" = "Температура"; // singular
+"Temperatures" = "Темературы"; // plural
+"Frequency"   = "Частота";     // singular
+"Frequencies" = "Частоты";     // plural
+"Package Core" = "Потребление - Ядра";
+"Package Total" = "Потребление - ЦПУ всего";
+"Package IGPU" = "Потребление - Интел ГПУ";
+"Multipliers" = "Множители";
+"Voltage" = "Напряжение";   // singular
+"Voltages" = "Напряжения"; // plural
+"Amperage" = "Ток";
+"Battery" = "Батарея"; // singular
+"Batteries" = "Батареи"; // plural
+"Media health" = "Целостность дисков";
+"Life" = "Жизнь"; // hdd/ssd life
+"IGPU Frequency" = "Частота - Интел ГПУ";
+"IGPU Max Frequency" = "Максимальная частота - Интел ГПУ";
+"IGPU Utilization" = "Использование - Интел ГПУ";
+
+// Intel Power Gadget
+"Intel® Power Gadget info" = "Справочная информация";
+"DRAM" = "Потребление - Модули ОЗУ";
+"Package Temperature" = "Температура пакета";
+"Package Power Limit (TDP)" = "Термопакет";
+"Max Temperature"  = "Максимальная температура";
+"Thresholds"       = "Пороги";
+"Base Frequency"   = "Базовая частота";
+"Max Frequency" = "Максимальная частота";
+
+// GPU, when taken from PerformanceStatistics
+"GPUs" = "Графика";
+"Core Clock" = "Частота ядра";
+"Memory Clock" = "Частота памяти";
+"Fan/Pump speed" = "Скорость вентилятора";
+"Fan/Pump speed rate" = "Использование вентилятора";
+"Utilization" = "Использование";
+"Activity" = "Активность";
+"Core Utilization" = "Использование ядра";
+"Device Unit %d Utilization" = "Использование устройства %d";
+"Video Engine Utilization" = "Использование видеодвижка";
+"Used VRAM" = "Использовано Видео-ОЗУ";
+"Free VRAM" = "Свободно Видео-ОЗУ";
+"Total Power" = "Суммарная мощность";
+
+// RAM
+"RAM" = "ОЗУ";
+"Total" = "Всего";
+"Active" = "Активная";
+"Inactive" = "Неактивная";
+"Free" = "Свободная";
+"Used" = "Используемая";
+"Purgeable" = "Очищаемая";
+"Wired" = "Связанная";
+
+"CPU" = "ЦПУ";
+"Proximity" = "Внешний датчик"; // CPU or GPU
+"Heatsink" = "Радиатор";    // CPU or GPU
+"DIMM 0" = "Модуль ОЗУ 0";  // RAM
+"DIMM 1" = "Модуль ОЗУ 1";  // RAM
+"Ambient" = "Корпус";       // Motherboard
+"GPU %d Board" = "ГПУ %d плата";
+"GPU %d Proximity" = "ГПУ %d оценка";
+"Core %d" = "Ядро %d";    // CPU or GPU
+"Diode %d" = "Встроенный датчик %d"; // CPU or GPU
+"CPU %d" = "ЦПУ %d";
+"GPU %d Core" = "ГПУ %d ядро";
+"GPU %d Shaders" = "ГПУ %d шейдеры";
+"GPU %d Memory" = "ГПУ %d память";
+"GPU %d Voltage" = "ГПУ %d напряжение";
+"Core %d Multiplier" = "Ядро %d множитель";
+"Package Multiplier" = "Пакетный множитель";
+
+// Motherboard's:
+"Motherboard" = "Материнская плата";  // MLB (Main Logic Board)
+"North Bridge" = "Северный мост";
+"PRAM Battery" = "Батарея"; // PRAM Battery (..or CMOS)
+"VRM Voltage" = "Напряжение VRM";
+"DIMM Voltage" = "Напряжение ОЗУ";
+"+12V Bus Voltage" = "Напряжение +12В";
+"+5V Bus Voltage" = "Напряжение +5В";
+"-12V Bus Voltage" = "Напряжение -12В";
+"-5V Bus Voltage" = "Напряжение -5В";
+"3.3 VCC Voltage" = "Напряжение 3.3В VCC";
+"3.3 VSB Voltage" = "Напряжение 3.3В VSB";
+"3.3 AVCC Voltage" = "Напряжение 3.3В AVCC";
+
+// Fans
+"Fans or Pumps" = "Вентиляторы и помпы";
+"Fan %d" = "Вентилятор %d";
+"speed" = "обороты"; // rpm, all in lower case letters
+"min speed" = "мин. обороты"; // rpm, all in lower case letters
+"max speed" = "макс. обороты"; // rpm, all in lower case letters
+
+// Units of measurement
+"GHz" = "ГГц"; // Giga Hertz
+"MHz" = "МГц"; // Mega Hertz
+"MB"  = "МБ﻿";  // Mega byte
+"GB"  = "ГБ";  // Giga byte
+"°C"  = "°C";  // Celsius
+"W"   = "Вт";  // Watt
+"mWh" = "мВт⋅ч"; // milli Watt per hour
+"J"   = "Дж";   // Joule
+"V"   = "В";   // Volt
+"mV"  = "мВ";  // milli Volt
+"mA"  = "мА";  // milli Ampere
+"rpm" = "об/мин"; // revolutions per minute
+
+"log copied to clip board!" = "журнал скопирован в буфер обмена!";
+
+// Themes
+"Default" = "По умолчанию"; // View Size as well
+"Classic" = "Классическая";
+"Dashed Horizontally" = "Без вертикальных линий";
+"No Grid" = "Без сетки";
+"With Grid, clear background" = "С сеткой, чистый фон";
+
+// View Size
+"Medium" = "Средний";
+"Large"  = "Большой";

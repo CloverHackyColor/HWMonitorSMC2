@@ -1,0 +1,132 @@
+/*
+ Localizable.strings
+ HWMonitorSMC
+ 
+ Created by vector sigma on 25/02/18.
+ Copyright © 2018 HWSensor. All rights reserved.
+ */
+
+// translated by Amble
+
+"Core Frequencies" = "Ytimien kellotaajuudet"; // CPU or GPU sub group
+"Core Temperatures" = "Ytimien lämpötilat"; // CPU or GPU sub group
+"Temperature" = "Lämpötila";   // singular
+"Temperatures" = "Lämpötilat"; // plural
+"Frequency"   = "Kellotaajuus";     // singular
+"Frequencies" = "Kellotaajuudet";   // plural
+"Package Core" = "Paketin ydin";
+"Package Total" = "Paketti yhteensä";
+"Package IGPU" = "Paketti yhdysrakenteinen näytönohjain";
+"Multipliers" = "Kertoimet";
+"Voltage" = "Jännite";   // singular
+"Voltages" = "Jännitteet"; // plural
+"Amperage" = "Ampeeri";
+"Battery" = "Akku"; // singular
+"Batteries" = "Akut"; // plural
+"Media health" = "Median kunto";
+"Life" = "Elinikä"; // hdd/ssd life
+"IGPU Frequency" = "Yhdysrakenteisen näytönohjaimen kellotaajuus";
+"IGPU Max Frequency" = "Yhdysrakenteisen näytönohjaimen maks. kellotaajuus";
+"IGPU Utilization" = "Yhdysrakenteisen näytönohjaimen käyttö";
+
+// Intel Power Gadget
+"Intel® Power Gadget info" = "Intel® Power Gadget tietoa";
+"DRAM" = "DRAM";
+"Package Temperature" = "Paketin lämpötila";
+"Package Power Limit (TDP)" = "TDP";
+"Max Temperature"  = "maks. lämpötila";
+"Thresholds"       = "Energiapisteet";
+"Base Frequency"   = "Perus kellotaajuus";
+"Max Frequency" = "maks. kellotaajuus";
+
+// GPU, when taken from PerformanceStatistics
+"GPUs" = "Näytönohjaimet";
+"Core Clock" = "Ytimen kellotaajuus";
+"Memory Clock" = "Memory Clock";
+"Fan/Pump speed" = "Tuulettimen/Pumpun nopeus";
+"Fan/Pump speed rate" = "Tuulettimen/Pumpun nopeustaso";
+"Utilization" = "Käyttö";
+"Activity" = "Aktiivisuus";
+"Core Utilization" = "Ytimen käyttö";
+"Device Unit %d Utilization" = "Device Unit:n %d käyttö";
+"Video Engine Utilization" = "Video Engine:n käyttö";
+"Used VRAM" = "Käytetty näyttömuisti";
+"Free VRAM" = "Vapaa näyttömuisti";
+"Total Power" = "Kokonaisteho";
+
+// RAM
+"RAM" = "Keskusmuisti";
+"Total" = "Yhteensä";
+"Active" = "Aktiivisena";
+"Inactive" = "Inaktiivisena";
+"Free" = "Vapaa";
+"Used" = "Käytössä";
+"Purgeable" = "Tyhjennettävät";
+"Wired" = "Lukittuna";
+
+"CPU" = "Suoritin";
+"Proximity" = "Läheisyys"; // CPU or GPU
+"Heatsink" = "Jäähdytyssiili";  // CPU or GPU
+"DIMM 0" = "DIMM 0"; // RAM
+"DIMM 1" = "DIMM 1"; // RAM
+"Ambient" = "Ympäristö"; // Motherboard
+"GPU %d Board" = "Näytönohjaimen %d piirilevy";
+"GPU %d Proximity" = "Näytönohjaimen %d läheisyys";
+"Core %d" = "Ydin %d";   // CPU or GPU
+"Diode %d" = "Diodi %d"; // CPU or GPU
+"CPU %d" = "Suoritin %d";
+"GPU %d Core" = "Näytönohjaimen %d ydin";
+"GPU %d Shaders" = "Näytönohjaimen %d varjostinyksiköt";
+"GPU %d Memory" = "Näytönohjaimen %d muisti";
+"GPU %d Voltage" = "Näytönohjaimen %d jännite";
+"Core %d Multiplier" = "Ytimen %d kerroin";
+"Package Multiplier" = "Paketin kerroin";
+
+// Motherboard
+"Motherboard" = "Emolevy";
+"North Bridge" = "Pohjoissilta";
+"VRM Voltage" = "VRM jännite";
+"DIMM Voltage" = "DIMM jännite";
+"+12V Bus Voltage" = "+12V väylän jännite";
+"+5V Bus Voltage" = "+5V väylän jännite";
+"-12V Bus Voltage" = "-12V väylän jännite";
+"-5V Bus Voltage" = "-5V väylän jännite";
+"3.3 VCC Voltage" = "3.3 VCC jännite";
+"3.3 VSB Voltage" = "3.3 VSB jännite";
+"3.3 AVCC Voltage" = "3.3 AVCC jännite";
+
+// Fans
+"Fans or Pumps" = "Tuulettimet tai pumput";
+"Fan %d" = "Tuuletin %d";
+"speed" = "nopeus"; // rpm, all in lower case letters
+"min speed" = "min. nopeus"; // rpm, all in lower case letters
+"max speed" = "maks. nopeus"; // rpm, all in lower case letters
+
+// Units of measurement
+"GHz" = "GHz"; // Giga Hertz
+"MHz" = "MHz"; // Mega Hertz
+"MB"  = "Mt";  // Mega byte
+"GB"  = "Gt";  // Giga byte
+"°C"  = "°C";  // Celsius
+"W"   = "W";   // Watt
+"mWh" = "mWh"; // milli Watt per hour
+"J"   = "J";   // Joule
+"V"   = "V";   // Volt
+"mV"  = "mV";  // milli Volt
+"mA"  = "mA";  // milli Ampere
+"rpm" = "rpm"; // revolutions per minute
+
+"log copied to clip board!" = "lokitiedosto kopioitu leikepöydälle!";
+
+// Themes
+"Default" = "Oletus"; // View Size as well
+"Classic" = "Klassinen";
+"Dashed Horizontally" = "Vaakasuora piste";
+"No Grid" = "Ei ruudukkoa";
+"Classic" = "Classic";
+"With Grid, clear background" = "Ruudukko, tyhjä tausta";
+
+// View Size
+"Medium" = "Keskimääräinen";
+"Large"  = "Suuri";
+

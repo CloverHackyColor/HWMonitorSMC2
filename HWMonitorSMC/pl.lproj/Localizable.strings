@@ -1,0 +1,82 @@
+/* 
+  Localizable.strings
+  HWMonitorSMC
+
+  Created by vector sigma on 25/02/18.
+  Copyright © 2018 HWSensor. All rights reserved.
+*/
+
+"CPU Frequencies" = "CPU Frequencies";
+"CPU Temperatures" = "CPU Temperatures";
+"Temperatures" = "Temperatures"; // plural
+"Temperature" = "Temperature"; // singular
+"Frequencies" = "Frequencies";
+"Multipliers" = "Multipliers";
+"Voltages" = "Voltages";
+"Fans or Pumps" = "Fans or Pumps";
+"Batteries" = "Batteries";
+"Media health" = "Media health";
+"Life" = "Life"; // hdd/ssd life
+"Tеmperature" = "Tеmperature"; // hdd/ssd tеmperature //GPU, when taken from PerformanceStatistics
+
+"CPU Frequency"    = "CPU Frequency";    // Intel Power Gadget
+"Processor Power"  = "Processor Power";  // Intel Power Gadget
+"Processor Energy" = "Processor Energy"; // Intel Power Gadget
+"Package Temp"     = "Package Temp";     // Intel Power Gadget
+"TDP"              = "TDP";              // Intel Power Gadget
+"Max Temperature"  = "Max Temperature";  // Intel Power Gadget
+"Thresholds"       = "Thresholds";       // Intel Power Gadget
+"Base Frequency"   = "Base Frequency";   // Intel Power Gadget
+
+"GPUs" = "GPUs"; // GPU, when taken from PerformanceStatistics
+"Core Clock" = "Core Clock"; //GPU, when taken from PerformanceStatistics
+"Fan/Pump Speed" = "Fan/Pump Speed"; //GPU, when taken from PerformanceStatistics
+"Fan/Pump Speed rate" = "Fan/Pump Speed rate"; //GPU, when taken from PerformanceStatistics
+"Device Utilization" = "Device Utilization"; //GPU, when taken from PerformanceStatistics
+"GPU Activity" = "Activity"; //GPU, when taken from PerformanceStatistics
+"GPU Core Utilization" = "GPU Core Utilization"; // GPU, when taken from PerformanceStatistics
+"Device Unit %d Utilization" = "Device Unit %d Utilization"; // GPU, when taken from PerformanceStatistics
+"GPU Video Engine Utilization" = "GPU Video Engine Utilization"; // GPU, when taken from PerformanceStatistics
+"Used VRAM" = "Used VRAM"; // GPU, when taken from PerformanceStatistics
+"Free VRAM" = "Free VRAM"; // GPU, when taken from PerformanceStatistics
+
+"Total" = "Total"; // RAM
+"Active" = "Active"; // RAM
+"Inactive" = "Inactive"; // RAM
+"Free" = "Free"; // RAM
+"Used" = "Used"; // RAM
+"Purgeable" = "Purgeable"; // RAM
+"Wired" = "Wired"; // RAM
+
+"CPU Proximity" = "CPU Proximity";
+"CPU Heatsink" = "CPU Heatsink";
+"Motherboard" = "Motherboard";
+"DIMM 0" = "DIMM 0";
+"DIMM 1" = "DIMM 1";
+"Ambient" = "Ambient";
+"GPU %d Board" = "GPU %d Board";
+"GPU %d Proximity" = "GPU %d Proximity";
+"CPU %d Core" = "CPU %d Core";
+"CPU %d Diode" = "CPU %d Diode";
+"CPU %d" = "CPU %d";
+"GPU %d Core" = "GPU %d Core";
+"GPU %d Shaders" = "GPU %d Shaders";
+"GPU %d Memory" = "GPU %d Memory";
+"CPU %d Multiplier" = "CPU %d Multiplier";
+"CPU Package Multiplier" = "CPU Package Multiplier";
+"CPU Voltage" = "CPU Voltage";
+"CPU VRM Voltage" = "CPU VRM Voltage";
+"DIMM Voltage" = "DIMM Voltage";
+"+12V Bus Voltage" = "+12V Bus Voltage";
+"+5V Bus Voltage" = "+5V Bus Voltage";
+"-12V Bus Voltage" = "-12V Bus Voltage";
+"-5V Bus Voltage" = "-5V Bus Voltage";
+"3.3 VCC Voltage" = "3.3 VCC Voltage";
+"3.3 VSB Voltage" = "3.3 VSB Voltage";
+"3.3 AVCC Voltage" = "3.3 AVCC Voltage";
+"GPU %d Voltage" = "GPU %d Voltage";
+"Fan %d" = "Fan %d";
+"Battery Voltage" = "Battery Voltage";
+"Battery Amperage" = "Battery Amperage";
+
+"log copied to clip board!" = "log copied to clip board!";

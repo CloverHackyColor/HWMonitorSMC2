@@ -1,0 +1,132 @@
+/*
+ Localizable.strings
+ HWMonitorSMC
+ 
+ Created by vector sigma on 25/02/18.
+ Copyright © 2018 HWSensor. All rights reserved.
+ */
+
+// translated by nomadturk
+
+"Core Frequencies" = "Çekirdek Frekanları";   // CPU or GPU sub group
+"Core Temperatures" = "Çekirdek Sıcaklıkları"; // CPU or GPU sub group
+"Temperature" = "Sıcaklık";   // singular
+"Temperatures" = "Sıcaklıklar"; // plural
+"Frequency"   = "Frekans";     // singular
+"Frequencies" = "Frekanslar";   // plural
+"Package Core" = "Paket Çekirdek";
+"Package Total" = "Paket Toplam ";
+"Package IGPU" = "Paket IGPU";
+"Multipliers" = "Çarpanlar";
+"Voltage" = "Voltaj";   // singular
+"Voltages" = "Voltajlar"; // plural
+"Amperage" = "Amper";
+"Battery" = "Pil"; // singular
+"Batteries" = "Piller"; // plural
+"Media health" = "Media Sağlığı";
+"Life" = "Life"; // hdd/ssd life
+"IGPU Frequency" = "IGPU Frekansı";
+"IGPU Max Frequency" = "IGPU Max Frekansı";
+"IGPU Utilization" = "IGPU Kullanım Oranı";
+
+// Intel Power Gadget
+"Intel® Power Gadget info" = "Intel® Power Gadget bilgisi";
+"DRAM" = "DRAM";
+"Package Temperature" = "Paket Sıcaklık";
+"Package Power Limit (TDP)" = "TDP";
+"Max Temperature"  = "Max Sıcaklık";
+"Thresholds"       = "Eşikler";
+"Base Frequency"   = "Temel Frekans";
+"Max Frequency" = "Max Frekans";
+
+// GPU, when taken from PerformanceStatistics
+"GPUs" = "GPUs";
+"Core Clock" = "Çekirdek Saat";
+"Memory Clock" = "Memory Clock";
+"Fan/Pump speed" = "Fan/Pompa hızı";
+"Fan/Pump speed rate" = "Fan/Pompa hızı oranı";
+"Utilization" = "Kullanım Oranı";
+"Activity" = "Aktivite";
+"Core Utilization" = "Çekirdek Kullanım Oranı";
+"Device Unit %d Utilization" = "Cihaz Unitesi %d kullanımı";
+"Video Engine Utilization" = "Video Motoru Kullanımı";
+"Used VRAM" = "Kullanılan VRAM";
+"Free VRAM" = "Serbest VRAM";
+"Total Power" = "Toplam Güç";
+
+// RAM
+"RAM" = "RAM";
+"Total" = "Toplam";
+"Active" = "Aktiv";
+"Inactive" = "Aktif Olmayan";
+"Free" = "Serbest";
+"Used" = "Kullanılan";
+"Purgeable" = "Temizlenebilir";
+"Wired" = "Bağlı";
+
+"CPU" = "CPU";
+"Proximity" = "Yakınlık"; // CPU or GPU
+"Heatsink" = "Soğutucu Fanı";  // CPU or GPU
+"DIMM 0" = "DIMM 0"; // RAM
+"DIMM 1" = "DIMM 1"; // RAM
+"Ambient" = "Ortam Sıcaklığı"; // Motherboard
+"GPU %d Board" = "GPU %d Tahta";
+"GPU %d Proximity" = "GPU %d Yakınlık";
+"Core %d" = "Çekirdek %d";   // CPU or GPU
+"Diode %d" = "Diyot %d"; // CPU or GPU
+"CPU %d" = "CPU %d";
+"GPU %d Core" = "GPU %d Çekirdek";
+"GPU %d Shaders" = "GPU %d Shaders";
+"GPU %d Memory" = "GPU %d Bellek";
+"GPU %d Voltage" = "GPU %d Voltaj";
+"Core %d Multiplier" = "Çekirdek %d Çarpanı";
+"Package Multiplier" = "Paket Çarpanı";
+
+// Motherboard
+"Motherboard" = "Anakart"; // MLB (Main Logic Board)
+"North Bridge" = "Kuzey Köprüsü";
+"PRAM Battery" = "Pil"; // PRAM Battery (..or CMOS)
+"VRM Voltage" = "VRM Voltaj";
+"DIMM Voltage" = "DIMM Voltaj";
+"+12V Bus Voltage" = "+12V Bus Voltaj";
+"+5V Bus Voltage" = "+5V Bus Voltaj";
+"-12V Bus Voltage" = "-12V Bus Voltaj";
+"-5V Bus Voltage" = "-5V Bus Voltaj";
+"3.3 VCC Voltage" = "3.3 VCC Voltaj";
+"3.3 VSB Voltage" = "3.3 VSB Voltaj";
+"3.3 AVCC Voltage" = "3.3 AVCC Voltaj";
+
+// Fans
+"Fans or Pumps" = "Fanlar yada Pompalar";
+"Fan %d" = "Fan %d";
+"speed" = "hız"; // rpm, all in lower case letters
+"min speed" = "min hız"; // rpm, all in lower case letters
+"max speed" = "max hız"; // rpm, all in lower case letters
+
+// Units of measurement
+"GHz" = "GHz"; // Giga Hertz
+"MHz" = "MHz"; // Mega Hertz
+"MB"  = "MB";  // Mega byte
+"GB"  = "GB";  // Giga byte
+"°C"  = "°C";  // Celsius
+"W"   = "W";   // Watt
+"mWh" = "mWh"; // milli Watt per hour
+"J"   = "J";   // Joule
+"V"   = "V";   // Volt
+"mV"  = "mV";  // milli Volt
+"mA"  = "mA";  // milli Ampere
+"rpm" = "rpm"; // revolutions per minute
+
+"log copied to clip board!" = "günlük panoya kopyalandı!";
+
+// Themes
+"Default" = "Default"; // View Size as well
+"Classic" = "Classic";
+"Dashed Horizontally" = "Dashed Horizontally";
+"No Grid" = "No Grid";
+"With Grid, clear background" = "With Grid, clear background";
+
+// View Size
+"Medium" = "Medium";
+"Large"  = "Large";
+

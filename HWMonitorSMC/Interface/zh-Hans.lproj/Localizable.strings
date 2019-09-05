@@ -1,0 +1,132 @@
+/* 
+  Localizable.strings
+  HWMonitorSMC
+
+  Created by vector sigma on 25/02/18.
+  Copyright © 2018 HWSensor. All rights reserved.
+*/
+
+// zh-Hans (simplified Chinese) by maoyeye
+
+"Core Frequencies" = "核心频率";  // CPU or GPU sub group
+"Core Temperatures" = "核心温度"; // CPU or GPU  sub group
+"Temperature" = "温度";   // singular
+"Temperatures" = "温度"; // plural
+"Frequency"   = "频率";     // singular
+"Frequencies" = "频率";   // plural
+"Package Core" = "核心功率"; // CPU or GPU
+"Package Total" = "整体功率"; // CPU or GPU
+"Package IGPU" = "核芯显卡功率";
+"Multipliers" = "倍频";
+"Voltage" = "核心电压";   // singular
+"Voltages" = "电压"; // plural
+"Amperage" = "电流";
+"Battery" = "电池﻿"; // singular
+"Batteries" = "电池"; // plural
+"Media health" = "硬盘";
+"Life" = "寿命"; // hdd/ssd life
+"IGPU Frequency" = "集成显卡频率";
+"IGPU Max Frequency" = "集成显卡最大频率";
+"IGPU Utilization" = "集成显卡使用率";
+
+// Intel Power Gadget
+"Intel® Power Gadget info" = "Intel® Power Gadget info";
+"DRAM" = "内存控制器功率";
+"Package Temperature" = "内部温度";
+"Package Power Limit (TDP)" = "封装功率极限";
+"Max Temperature"  = "最高温度";
+"Thresholds"       = "阈值";
+"Base Frequency"   = "基础频率";
+"Max Frequency" = "最大频率";
+
+// GPU, when taken from PerformanceStatistics
+"GPUs" = "显卡";
+"Core Clock" = "核心时钟频率";
+"Memory Clock" = "显存时钟频率";
+"Fan/Pump speed" = "风扇/泵速";
+"Fan/Pump speed rate" = "风扇/泵速率";
+"Utilization" = "利用率";
+"Activity" = "动态加速";
+"Core Utilization" = "核心利用率";
+"Device Utilization" = "设备单元利用率";
+"Video Engine Utilization" = "视频引擎利用率";
+"Used VRAM" = "占用显存";
+"Free VRAM" = "空闲显存";
+"Total Power" = "显卡总功率";
+
+// RAM
+"RAM" = "内存";
+"Total" = "物理内存总数";
+"Active" = "正在使用内存";
+"Inactive" = "退出程序占用内存";
+"Free" = "可使用内存";
+"Used" = "已使用内存";
+"Purgeable" = "可清除内存";
+"Wired" = "系统内核内存";
+
+"CPU" = "CPU";
+"Proximity" = "表面温度"; // CPU or GPU
+"Heatsink" = "表面温度";  // CPU or GPU
+"DIMM 0" = "DIMM 0"; // RAM
+"DIMM 1" = "DIMM 1"; // RAM
+"Ambient" = "环境"; // Motherboard
+"GPU %d Board" = "GPU %d Board";
+"GPU %d Proximity" = "GPU %d 周边";
+"Core %d" = "核心 %d";   // CPU or GPU
+"Diode %d" = "二极管 %d"; // CPU or GPU
+"CPU %d" = "CPU %d";
+"GPU %d Core" = "GPU %d 核心";
+"GPU %d Shaders" = "GPU %d 着色器";
+"GPU %d Memory" = "GPU %d 显存";
+"GPU %d Voltage" = "GPU %d 电压";
+"Core %d Multiplier" = "核心 %d 频率";
+"Package Multiplier" = "整体倍频";
+
+// Motherboard
+"Motherboard" = "主板"; // MLB (Main Logic Board)
+"North Bridge" = "北桥";
+"PRAM Battery" = "coms电池﻿"; // PRAM Battery (..or CMOS)
+"VRM Voltage" = "VRM电压";
+"DIMM Voltage" = "内存电压";
+"+12V Bus Voltage" = "+12V 母线电压";
+"+5V Bus Voltage" = "+5V 母线电压";
+"-12V Bus Voltage" = "-12V 母线电压";
+"-5V Bus Voltage" = "-5V 母线电压";
+"3.3 VCC Voltage" = "3.3 数字电路供电";
+"3.3 VSB Voltage" = "3.3 待机电压";
+"3.3 AVCC Voltage" = "3.3 模拟电路供电";
+
+// Fans
+"Fans or Pumps" = "风扇或泵";
+"Fan %d" = "风扇 %d";
+"speed" = "速度"; // rpm, all in lower case letters
+"min speed" = "最低速度"; // rpm, all in lower case letters
+"max speed" = "最大速度"; // rpm, all in lower case letters
+
+// Units of measurement
+"GHz" = "GHz"; // Giga Hertz
+"MHz" = "MHz"; // Mega Hertz
+"MB"  = "MB";  // Mega byte
+"GB"  = "GB";  // Giga byte
+"°C"  = "°C";  // Celsius
+"W"   = "W";   // Watt
+"mWh" = "mWh"; // milli Watt per hour
+"J"   = "J";   // Joule
+"V"   = "V";   // Volt
+"mV"  = "mV";  // milli Volt
+"mA"  = "mA";  // milli Ampere
+"rpm" = "rpm"; // revolutions per minute
+
+"log copied to clip board!" = "日志复制到剪贴板!";
+
+// Themes
+"Default" = "默认"; // View Size as well
+"Classic" = "经典";
+"Dashed Horizontally" = "水平虚线";
+"No Grid" = "没网格";
+"With Grid, clear background" = "有网格，背景清晰";
+
+// View Size
+"Medium" = "中等";
+"Large"  = "大号";
+

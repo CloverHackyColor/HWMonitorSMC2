@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FanControlVC-->
+        <scene sceneID="21Y-aD-qyD">
+            <objects>
+                <viewController storyboardIdentifier="FanControl" id="n1A-d6-WdU" userLabel="FanControlVC" customClass="FanControlVC" customModule="HWMonitorSMC2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="DJu-qJ-FTp">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="83"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MN5-Cy-gv3">
+                                <rect key="frame" x="134" y="38" width="59" height="28"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="rpm" id="0Xx-IV-wrY">
+                                    <font key="font" size="24" name="ArialMT"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwd-b0-as5">
+                                <rect key="frame" x="59" y="34" width="71" height="36"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="right" title="7000" id="zmA-fj-XJ8">
+                                    <font key="font" size="28" name="ArialMT"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="n1A-d6-WdU" id="V4j-xC-Xuo"/>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-2V-9UJ">
+                                <rect key="frame" x="18" y="11" width="54" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="xwT-Rx-AAY"/>
+                                </constraints>
+                                <buttonCell key="cell" type="check" title="PWM" bezelStyle="regularSquare" imagePosition="left" inset="2" id="8f3-kV-4ik">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pwmButtonPressed:" target="n1A-d6-WdU" id="c2Z-Gb-uSr"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nvh-Ns-Ote">
+                                <rect key="frame" x="130" y="2" width="67" height="32"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSMenuOnStateTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="X0G-Tj-mKm">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="savePressed:" target="n1A-d6-WdU" id="H4H-WP-JsX"/>
+                                </connections>
+                            </button>
+                            <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-rc-8bz">
+                                <rect key="frame" x="19" y="36" width="32" height="32"/>
+                                <sliderCell key="cell" alignment="left" minValue="20" maxValue="7000" doubleValue="6069.333333333333" numberOfTickMarks="15" allowsTickMarkValuesOnly="YES" sliderType="circular" id="6Tw-yQ-4Ui"/>
+                                <connections>
+                                    <action selector="setTargetRPM:" target="n1A-d6-WdU" id="9f9-iQ-VMP"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="sh7-rc-8bz" firstAttribute="leading" secondItem="DJu-qJ-FTp" secondAttribute="leading" constant="19" id="3fz-w2-ErS"/>
+                            <constraint firstItem="nvh-Ns-Ote" firstAttribute="top" secondItem="MN5-Cy-gv3" secondAttribute="bottom" constant="8" symbolic="YES" id="HWU-IL-8G8"/>
+                            <constraint firstItem="MN5-Cy-gv3" firstAttribute="trailing" secondItem="nvh-Ns-Ote" secondAttribute="trailing" id="Izg-eK-Dgp"/>
+                            <constraint firstItem="Uwd-b0-as5" firstAttribute="firstBaseline" secondItem="MN5-Cy-gv3" secondAttribute="firstBaseline" id="O74-Qg-44e"/>
+                            <constraint firstItem="MN5-Cy-gv3" firstAttribute="leading" secondItem="Uwd-b0-as5" secondAttribute="trailing" constant="8" symbolic="YES" id="P8E-nc-2uk"/>
+                            <constraint firstAttribute="trailing" secondItem="MN5-Cy-gv3" secondAttribute="trailing" constant="9" id="PGv-Yr-VDc"/>
+                            <constraint firstItem="9yf-2V-9UJ" firstAttribute="top" secondItem="Uwd-b0-as5" secondAttribute="bottom" constant="8" symbolic="YES" id="Skt-nU-ysu"/>
+                            <constraint firstItem="nvh-Ns-Ote" firstAttribute="leading" secondItem="9yf-2V-9UJ" secondAttribute="trailing" constant="66" id="UKY-aD-jwy"/>
+                            <constraint firstItem="MN5-Cy-gv3" firstAttribute="leading" secondItem="nvh-Ns-Ote" secondAttribute="leading" id="Vfq-Z9-ArI"/>
+                            <constraint firstItem="9yf-2V-9UJ" firstAttribute="leading" secondItem="DJu-qJ-FTp" secondAttribute="leading" constant="20" symbolic="YES" id="WrR-9Q-vFY"/>
+                            <constraint firstItem="9yf-2V-9UJ" firstAttribute="centerY" secondItem="nvh-Ns-Ote" secondAttribute="centerY" id="a0E-Wu-mdK"/>
+                            <constraint firstItem="Uwd-b0-as5" firstAttribute="leading" secondItem="sh7-rc-8bz" secondAttribute="trailing" constant="10" id="dM4-X8-phX"/>
+                            <constraint firstAttribute="bottom" secondItem="nvh-Ns-Ote" secondAttribute="bottom" constant="9" id="fZM-vo-Lep"/>
+                            <constraint firstItem="Uwd-b0-as5" firstAttribute="top" secondItem="DJu-qJ-FTp" secondAttribute="top" constant="13" id="iwl-bG-5M3"/>
+                            <constraint firstItem="Uwd-b0-as5" firstAttribute="centerY" secondItem="MN5-Cy-gv3" secondAttribute="centerY" id="v2I-ww-zYn"/>
+                            <constraint firstItem="MN5-Cy-gv3" firstAttribute="baseline" secondItem="Uwd-b0-as5" secondAttribute="firstBaseline" id="v9u-Gz-7cG"/>
+                            <constraint firstItem="sh7-rc-8bz" firstAttribute="centerY" secondItem="Uwd-b0-as5" secondAttribute="centerY" id="xrc-j4-FSq"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="pwmBtn" destination="9yf-2V-9UJ" id="iU4-iN-YGT"/>
+                        <outlet property="rpmField" destination="Uwd-b0-as5" id="GpS-So-Ukr"/>
+                        <outlet property="saveBtn" destination="nvh-Ns-Ote" id="1k0-7I-kx6"/>
+                        <outlet property="slider" destination="sh7-rc-8bz" id="H4I-J1-qkM"/>
+                        <outlet property="unitField" destination="MN5-Cy-gv3" id="tMn-wH-p7u"/>
+                    </connections>
+                </viewController>
+                <customObject id="fnh-7a-Ivo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <numberFormatter formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="JIW-La-d0H"/>
+            </objects>
+            <point key="canvasLocation" x="-55" y="23.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSMenuOnStateTemplate" width="12" height="12"/>
+    </resources>
+</document>

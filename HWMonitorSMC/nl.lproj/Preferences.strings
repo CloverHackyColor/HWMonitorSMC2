@@ -1,0 +1,39 @@
+
+/* Class = "NSButtonCell"; title = "use percentage to display memory usage"; ObjectID = "1ou-TV-z1H"; */
+"F5h-4I-FHU.title" = "use percentage to display memory usage";
+
+/* Class = "NSButtonCell"; title = "expand all groups"; ObjectID = "1ou-TV-z1H"; */
+"1ou-TV-z1H.title" = "expand all groups";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "7b5-Rl-qab"; */
+"7b5-Rl-qab.title" = "Preferences";
+
+/* Class = "NSButtonCell"; title = "expand CPU Frequencies group"; ObjectID = "IiS-qj-XaA"; */
+"IiS-qj-XaA.title" = "expand CPU Frequencies group";
+
+/* Class = "NSButtonCell"; title = "expand CPU Temperatures group"; ObjectID = "Uuk-nv-v6V"; */
+"Uuk-nv-v6V.title" = "expand CPU Temperatures group";
+
+/* Class = "NSButtonCell"; title = "don't show empty groups"; ObjectID = "VSp-PT-02b"; */
+"VSp-PT-02b.title" = "don't show empty groups";
+
+/* Class = "NSButtonCell"; title = "expand Voltages group"; ObjectID = "f3S-tq-sNl"; */
+"f3S-tq-sNl.title" = "expand Voltages group";
+
+/* Class = "NSButtonCell"; title = "force to use dark appearance"; ObjectID = "fYJ-2d-nMJ"; */
+"fYJ-2d-nMJ.title" = "force to use dark appearance";
+
+/* Class = "NSButtonCell"; title = "always hide the vertical scroller"; ObjectID = "vMW-P5-ltW"; */
+"vMW-P5-ltW.title" = "always hide the vertical scroller";
+
+/* Class = "NSTexfieldCell"; title = "Sensor update interval in seconds:"; ObjectID = "i4D-QB-sGd"; */
+"i4D-QB-sGd.title" = "Sensors update interval in seconds:";
+
+/* Class = "NSTexfieldCell"; title = "(applied to the next execution)"; ObjectID = "i4D-QB-sGd"; */
+"h2D-rP-QYL.title" = "(applied to the next execution)";
+
+/* Class = "NSButtonCell"; title = "run HWMonitorSMC.app at login"; ObjectID = "Dyg-rv-2Gg"; */
+"Dyg-rv-2Gg.title" = "run HWMonitorSMC.app at login";
+
+/* Class = "NSButtonCell"; title = "use the IOAccelerator's monitoring for GPUs"; ObjectID = "jea-Yr-Q5W"; */
+"jea-Yr-Q5W.title" = "use the IOAccelerator's monitoring for GPUs";
