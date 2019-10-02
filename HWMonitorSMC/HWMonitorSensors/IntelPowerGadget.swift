@@ -55,7 +55,7 @@ func getIntelPowerGadgetGPUSensors() -> [HWMonitorSensor] {
     
     var gtMaxFreq : Int32 = 0
     if GetGpuMaxFrequency(&gtMaxFreq) {
-      if gtMaxFreq > 0 {
+      if gtMaxFreq >= 0 {
         let sensor = HWMonitorSensor(key: "Max Frequency",
                                  unit: .MHz,
                                  type: "IPG",
@@ -165,7 +165,7 @@ func getIntelPowerGadgetCPUSensors() -> [HWMonitorSensor] {
         AppSd.ipgStatus.packageCore = true
       }
       
-      if name != "GT" && (gShowBadSensors || (power > 0 && power <= 1000)) {
+      if name != "GT" && (gShowBadSensors || (power >= 0 && power <= 1000)) {
         let sensor = HWMonitorSensor(key: name,
                                      unit: .Watt,
                                      type: "IPG",
@@ -217,7 +217,7 @@ func getIntelPowerGadgetCPUSensors() -> [HWMonitorSensor] {
                                title: "Frequency".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
   
-  if gShowBadSensors || (cpuFrequency > 0 && cpuFrequency <= 9000) {
+  if gShowBadSensors || (cpuFrequency >= 0 && cpuFrequency <= 9000) {
     sensor.actionType = .cpuLog;
     sensor.stringValue = String(format: "%.f", cpuFrequency)
     sensor.doubleValue = cpuFrequency
@@ -225,7 +225,7 @@ func getIntelPowerGadgetCPUSensors() -> [HWMonitorSensor] {
     sensors.append(sensor)
   }
   
-  if gShowBadSensors || (baseFrequency > 0 && baseFrequency <= 9000) {
+  if gShowBadSensors || (baseFrequency >= 0 && baseFrequency <= 9000) {
     sensor = HWMonitorSensor(key: "Base Frequency",
                              unit: .MHz,
                              type: "IPG",
@@ -301,7 +301,7 @@ func getIntelPowerGadgetCPUSensors() -> [HWMonitorSensor] {
   sensor.favorite = false
   sensors.append(sensor)
   
-  if gShowBadSensors || packagePowerLimit > 0 {
+  if gShowBadSensors || packagePowerLimit >= 0 {
     sensor = HWMonitorSensor(key: "Package Power Limit (TDP)",
                              unit: .Watt,
                              type: "IPG",
