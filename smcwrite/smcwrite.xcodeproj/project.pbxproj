@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9521BD5A22870DF500E8ACC8 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9521BD5922870DF500E8ACC8 /* main.c */; };
-		9521BD6A2287113D00E8ACC8 /* smc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9521BD692287113D00E8ACC8 /* smc.c */; };
+		958FC4FF23452E1900039AE4 /* smc.c in Sources */ = {isa = PBXBuildFile; fileRef = 958FC4FD23452E1900039AE4 /* smc.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		9521BD5622870DF500E8ACC8 /* smcwrite */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = smcwrite; sourceTree = BUILT_PRODUCTS_DIR; };
 		9521BD5922870DF500E8ACC8 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9521BD682287112D00E8ACC8 /* smc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = smc.h; path = ../../../hwmonitor/smc.h; sourceTree = "<group>"; };
-		9521BD692287113D00E8ACC8 /* smc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = smc.c; path = ../../../hwmonitor/smc.c; sourceTree = "<group>"; };
+		958FC4FD23452E1900039AE4 /* smc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smc.c; sourceTree = "<group>"; };
+		958FC4FE23452E1900039AE4 /* smc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				9521BD5922870DF500E8ACC8 /* main.c */,
-				9521BD682287112D00E8ACC8 /* smc.h */,
-				9521BD692287113D00E8ACC8 /* smc.c */,
+				958FC4FD23452E1900039AE4 /* smc.c */,
+				958FC4FE23452E1900039AE4 /* smc.h */,
 			);
 			path = smcwrite;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9521BD5A22870DF500E8ACC8 /* main.c in Sources */,
-				9521BD6A2287113D00E8ACC8 /* smc.c in Sources */,
+				958FC4FF23452E1900039AE4 /* smc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

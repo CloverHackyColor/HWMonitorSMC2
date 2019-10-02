@@ -35,7 +35,10 @@ int main(int argc, const char * argv[]) {
   
   val.dataSize = i / 2;
 
-  if (!val.dataSize || val.dataSize % 2 != 0 || val.dataSize > 32 || (val.dataSize * 2) != strlen(value)) {
+  if (!val.dataSize ||
+      val.dataSize % 2 != 0 ||
+      val.dataSize > 32 ||
+      (val.dataSize * 2) != strlen(value)) {
     printf("Error: size of \"%s\" is not valid\n", value);
     exit(1);
   }
