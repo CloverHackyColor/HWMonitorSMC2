@@ -633,7 +633,7 @@ class HWSmartDataScanner: NSObject {
                               svsdata.append(child.value as! UInt8)
                             }
                             
-                            var dataVendorSpecific : VendorSpecificData = VendorSpecificData(from: svsdata)
+                            let dataVendorSpecific : VendorSpecificData = VendorSpecificData(from: svsdata)
                             
                             // Threshold Vendor Specifics data
                             let mirror2 = Mirror(reflecting: (smartThresholds?.vendorSpecific1)!)
@@ -641,7 +641,7 @@ class HWSmartDataScanner: NSObject {
                             for child in mirror2.children {
                               stvsdata.append(child.value as! UInt8)
                             }
-                            var smartThresholdVendorSpecifics : VendorSpecificDataThresholds = VendorSpecificDataThresholds(from: stvsdata)
+                            let smartThresholdVendorSpecifics : VendorSpecificDataThresholds = VendorSpecificDataThresholds(from: stvsdata)
                             
                             let saDict : NSMutableDictionary = NSMutableDictionary()
                             for i in 0..<30 {
