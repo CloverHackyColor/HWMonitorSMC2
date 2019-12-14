@@ -15,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		953B6D4F23A5129B00C19311 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		953B6D5623A512B700C19311 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		9544C2E320ACA078005B7310 /* HWMonitorSMC2 Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HWMonitorSMC2 Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9544C2E620ACA078005B7310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9544C2E720ACA078005B7310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +118,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
+				"pt-PT",
 			);
 			mainGroup = 9544C2DA20ACA077005B7310;
 			productRefGroup = 9544C2E420ACA078005B7310 /* Products */;
@@ -157,6 +161,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				9544C2EF20ACA07A005B7310 /* Base */,
+				953B6D4F23A5129B00C19311 /* pt-BR */,
+				953B6D5623A512B700C19311 /* pt-PT */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
