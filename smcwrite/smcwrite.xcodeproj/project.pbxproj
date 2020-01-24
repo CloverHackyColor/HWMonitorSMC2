@@ -93,7 +93,7 @@
 		9521BD4E22870DF500E8ACC8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = vectorsigma;
 				TargetAttributes = {
 					9521BD5522870DF500E8ACC8 = {
@@ -107,6 +107,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 9521BD4D22870DF500E8ACC8;
 			productRefGroup = 9521BD5722870DF500E8ACC8 /* Products */;
@@ -245,6 +246,7 @@
 		9521BD5E22870DF500E8ACC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -254,6 +256,7 @@
 		9521BD5F22870DF500E8ACC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";

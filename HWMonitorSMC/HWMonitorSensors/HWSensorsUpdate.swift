@@ -11,14 +11,28 @@ import Cocoa
 extension PopoverViewController {
   @objc func updateCPUSensors() {
     if AppSd.sensorsInited && (self.CPUNode != nil) {
-      var newRead : [HWMonitorSensor] = AppSd.sensorScanner.get_CPU_GlobalParameters()
       
-      for s in AppSd.sensorScanner.getSMC_SingleCPUFrequencies() {
-        newRead.append(s)
+      let (main, coresFreq, coresTemp) = AppSd.sensorScanner.get_CPU_GlobalParameters()
+      var newRead : [HWMonitorSensor] = main
+      
+      if coresFreq != nil {
+        for s in coresFreq! {
+          newRead.append(s)
+        }
+      } else {
+        for s in AppSd.sensorScanner.getSMC_SingleCPUFrequencies() {
+          newRead.append(s)
+        }
       }
       
-      for s in AppSd.sensorScanner.getSMC_SingleCPUTemperatures() {
-        newRead.append(s)
+      if coresTemp != nil {
+        for s in coresTemp! {
+          newRead.append(s)
+        }
+      } else {
+        for s in AppSd.sensorScanner.getSMC_SingleCPUTemperatures() {
+          newRead.append(s)
+        }
       }
 
       let copy : NSArray = self.sensorList?.copy() as! NSArray
@@ -55,9 +69,9 @@ extension PopoverViewController {
         }
       } else {
         if self.useIntelPowerGadget {
-          newRead.append(contentsOf: getIntelPowerGadgetGPUSensors())
+          newRead.append(contentsOf: AppSd.ipg!.getIntelPowerGadgetGPUSensors())
         }
-        if !AppSd.ipgStatus.packageIgpu {
+        if !(AppSd.ipg != nil && AppSd.ipg!.packageIgpu) {
           if let ipp = AppSd.sensorScanner.getIGPUPackagePower() {
             newRead.append(ipp)
           }
@@ -84,15 +98,20 @@ extension PopoverViewController {
   
   @objc func updateMotherboardSensors() {
     if AppSd.sensorsInited && (self.MOBONode != nil) {
-      let newRead = AppSd.sensorScanner.getMotherboard()
-      
+      var newRead : [HWMonitorSensor]? = nil
+      if self.voltagesSMCSuperIO {
+        let (voltages, _) = AppSd.sensorScanner.getSMCSuperIO(config: self.superIOConfig)
+        newRead = voltages
+      } else {
+        newRead = AppSd.sensorScanner.getMotherboard()
+      }
       let copy : NSArray = self.sensorList?.copy() as! NSArray
       for i in copy {
         let node = i as! HWTreeNode
         let sensor = node.sensorData!.sensor
         let sensorType = node.sensorData?.sensor?.sensorType
         
-        for newSensor in newRead {
+        for newSensor in newRead! {
           if (newSensor.sensorType == sensorType) && (newSensor.title == sensor?.title) {
             sensor?.stringValue = newSensor.stringValue
             sensor?.doubleValue = newSensor.doubleValue
@@ -105,7 +124,13 @@ extension PopoverViewController {
   
   @objc func updateFanSensors() {
     if AppSd.sensorsInited && (self.FansNode != nil) {
-      let newRead = AppSd.sensorScanner.getFans()
+      var newRead : [HWMonitorSensor]? = nil
+      if self.voltagesSMCSuperIO {
+        let (_, fans) = AppSd.sensorScanner.getSMCSuperIO(config: self.superIOConfig)
+        newRead = fans
+      } else {
+        newRead = AppSd.sensorScanner.getFans()
+      }
       
       let copy : NSArray = self.sensorList?.copy() as! NSArray
       for i in copy {
@@ -113,7 +138,7 @@ extension PopoverViewController {
         let sensor = node.sensorData!.sensor
         let sensorType = node.sensorData?.sensor?.sensorType
         
-        for newSensor in newRead {
+        for newSensor in newRead! {
           if (newSensor.sensorType == sensorType) && (newSensor.title == sensor?.title) {
             sensor?.stringValue = newSensor.stringValue
             sensor?.doubleValue = newSensor.doubleValue

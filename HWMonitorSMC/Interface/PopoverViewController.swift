@@ -67,6 +67,9 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
   var statusIsUpdating          : Bool = false
   
   var sleeping                  : Bool = false
+  var fansSMCSuperIO            : Bool = false
+  var voltagesSMCSuperIO        : Bool = false
+  var superIOConfig             : [String : Any]? = nil
   
   func usbDeviceAdded(_ device: io_object_t) {
     if (self.usbNode != nil) {
@@ -181,9 +184,10 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
         let model : Int = System.sysctlbynameInt("machdep.cpu.model")
         
         if family == 6 && model >= 42 /* Xeon supported: && model != 44 && model != 46 && model != 47 */ {
-          if FileManager.default.fileExists(atPath: "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/EnergyLib.h") {
-            self.useIntelPowerGadget = IntelEnergyLibInitialize()
-            AppSd.ipgStatus.inited = self.useIntelPowerGadget
+          if FileManager.default.fileExists(atPath: "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/EnergyLib.h")
+          || FileManager.default.fileExists(atPath: "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/PowerGadgetLib.h") {
+            AppSd.ipg = IntelPG()
+            self.useIntelPowerGadget = AppSd.ipg?.inited ?? false
           }
         }
       }
@@ -337,12 +341,15 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
     self.dataSource?.add(self.SystemNode!)
     // ------
     if UDs.bool(forKey: kShowCPUSensors) {
+      
       var igpInfoSensors : [HWMonitorSensor] = [HWMonitorSensor]()
+      
+      let (main, coresFreq, coresTemp) = AppSd.sensorScanner.get_CPU_GlobalParameters()
       self.CPUNode = HWTreeNode(representedObject: HWSensorData(group: "CPU".locale,
                                                                 sensor: nil,
                                                                 isLeaf: false))
       
-      for s in AppSd.sensorScanner.get_CPU_GlobalParameters() {
+      for s in main {
         if s.isInformativeOnly {
           igpInfoSensors.append(s)
         } else {
@@ -355,12 +362,22 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
       // ------
       self.CPUFrequenciesNode = HWTreeNode(representedObject:
         HWSensorData(group: "Core Frequencies".locale, sensor: nil, isLeaf: false))
-      for s in AppSd.sensorScanner.getSMC_SingleCPUFrequencies() {
-        let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.CPUFrequenciesNode?.sensorData?.group)!,
-                                                                sensor: s,
-                                                                isLeaf: true))
-        self.CPUFrequenciesNode?.mutableChildren.add(sensor)
+      if (coresFreq != nil) {
+        for s in coresFreq! {
+          let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.CPUFrequenciesNode?.sensorData?.group)!,
+                                                                  sensor: s,
+                                                                  isLeaf: true))
+          self.CPUFrequenciesNode?.mutableChildren.add(sensor)
+        }
+      } else {
+        for s in AppSd.sensorScanner.getSMC_SingleCPUFrequencies() {
+          let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.CPUFrequenciesNode?.sensorData?.group)!,
+                                                                  sensor: s,
+                                                                  isLeaf: true))
+          self.CPUFrequenciesNode?.mutableChildren.add(sensor)
+        }
       }
+      
       
       if (self.CPUFrequenciesNode?.children?.count)! > 0 {
         self.sensorList?.addObjects(from: (self.CPUFrequenciesNode?.children)!)
@@ -376,11 +393,21 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
       self.CPUTemperaturesNode = HWTreeNode(representedObject: HWSensorData(group: "Core Temperatures".locale,
                                                                             sensor: nil,
                                                                             isLeaf: false))
-      for s in AppSd.sensorScanner.getSMC_SingleCPUTemperatures() {
-        let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.CPUTemperaturesNode?.sensorData?.group)!,
-                                                                sensor: s,
-                                                                isLeaf: true))
-        self.CPUTemperaturesNode?.mutableChildren.add(sensor)
+      
+      if (coresTemp != nil) {
+        for s in coresTemp! {
+          let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.CPUTemperaturesNode?.sensorData?.group)!,
+                                                                  sensor: s,
+                                                                  isLeaf: true))
+          self.CPUTemperaturesNode?.mutableChildren.add(sensor)
+        }
+      } else {
+        for s in AppSd.sensorScanner.getSMC_SingleCPUTemperatures() {
+          let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.CPUTemperaturesNode?.sensorData?.group)!,
+                                                                  sensor: s,
+                                                                  isLeaf: true))
+          self.CPUTemperaturesNode?.mutableChildren.add(sensor)
+        }
       }
       
       if (self.CPUTemperaturesNode?.children?.count)! > 0 {
@@ -437,8 +464,8 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
         }
         self.GPUNode?.mutableChildren.addObjects(from: IOAcc)
       } else {
-        if AppSd.ipgStatus.inited {
-          for s in getIntelPowerGadgetGPUSensors() {
+        if (AppSd.ipg != nil && AppSd.ipg!.inited) {
+          for s in AppSd.ipg!.getIntelPowerGadgetGPUSensors() {
             let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.GPUNode?.sensorData?.group)!,
                                                                     sensor: s,
                                                                     isLeaf: true))
@@ -473,11 +500,43 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
       }
     }
     // ------
+    let lpcConfigPath = Bundle.main.sharedSupportPath! + "/LPC"
+    if AppSd.vendorShort != nil && AppSd.board != nil {
+      let confPath = "\(lpcConfigPath)/\(AppSd.vendorShort!)/\(AppSd.board!).plist"
+      
+      if FileManager.default.fileExists(atPath: confPath) {
+        if let plist = NSDictionary(contentsOfFile: confPath) as? [String : Any] {
+          self.superIOConfig = plist
+          print("Loading configuration from ../\(AppSd.vendorShort!)/\(AppSd.board!).plist.")
+        } else {
+          print("Error: unable to load ../\(AppSd.vendorShort!)/\(AppSd.board!).plist..")
+        }
+      } else {
+        print("../\(AppSd.vendorShort!)/\(AppSd.board!).plist not found.")
+      }
+    }
+    
+    if (self.superIOConfig == nil) {
+      if let plist = NSDictionary(contentsOfFile: "\(lpcConfigPath)/lpc.plist") as? [String : Any] {
+        self.superIOConfig = plist
+        print("Loading configuration from lpc.plist.")
+      }
+    }
+    
+    let (voltages, fans) = AppSd.sensorScanner.getSMCSuperIO(config: self.superIOConfig)
+    // ------
     if UDs.bool(forKey: kShowMoBoSensors) {
-      self.MOBONode = HWTreeNode(representedObject: HWSensorData(group: "Motherboard".locale,
+      self.MOBONode = HWTreeNode(representedObject: HWSensorData(group: (AppSd.board != nil) ? AppSd.board! : "Motherboard".locale,
                                                                  sensor: nil,
                                                                  isLeaf: false))
-      for s in AppSd.sensorScanner.getMotherboard() {
+      var mobosensors : [HWMonitorSensor]? = nil
+      if voltages.count > 0 {
+        self.voltagesSMCSuperIO = true
+        mobosensors = voltages
+      } else {
+        mobosensors = AppSd.sensorScanner.getMotherboard()
+      }
+      for s in mobosensors! {
         let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.MOBONode?.sensorData?.group)!,
                                                                 sensor: s,
                                                                 isLeaf: true))
@@ -500,7 +559,14 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
       self.FansNode = HWTreeNode(representedObject: HWSensorData(group: "Fans or Pumps".locale,
                                                                  sensor: nil,
                                                                  isLeaf: false))
-      for s in AppSd.sensorScanner.getFans() {
+      var fanssensors : [HWMonitorSensor]? = nil
+      if fans.count > 0 {
+        self.fansSMCSuperIO = true
+        fanssensors = fans
+      } else {
+        fanssensors = AppSd.sensorScanner.getFans()
+      }
+      for s in fanssensors! {
         let sensor = HWTreeNode(representedObject: HWSensorData(group: (self.FansNode?.sensorData?.group)!,
                                                                 sensor: s,
                                                                 isLeaf: true))

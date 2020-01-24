@@ -233,14 +233,19 @@ class HWSensorsScanner: NSObject {
   }
   
   /// returns CPU Power/voltages/Multipliers from both SMC and Intel Power Gadget
-  func get_CPU_GlobalParameters() -> [HWMonitorSensor] {
-    var arr = [HWMonitorSensor]()
+  func get_CPU_GlobalParameters() -> ([HWMonitorSensor], [HWMonitorSensor]?, [HWMonitorSensor]?) {
+    var main = [HWMonitorSensor]()
+    var coresFreq : [HWMonitorSensor]? = nil
+    var coresTemp : [HWMonitorSensor]? = nil
     let actionType : ActionType = .cpuLog
     let cpuCount = gCountPhisycalCores()
     
     // CPU Power
-    if AppSd.ipgStatus.inited {
-      arr.append(contentsOf: getIntelPowerGadgetCPUSensors())
+    if AppSd.ipg != nil && AppSd.ipg!.inited {
+      let (_, packages, freqs, temps) = AppSd.ipg!.getIntelPowerGadgetCPUSensors()
+      main.append(contentsOf: packages)
+      coresFreq = freqs
+      coresTemp = temps
     }
     
     let _ =  self.addSMCSensorIfValid(key: SMC_CPU_PROXIMITY_TEMP,
@@ -251,9 +256,9 @@ class HWSensorsScanner: NSObject {
                                       actionType: actionType,
                                       canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
-                                      list: &arr)
+                                      list: &main)
     
-    if !AppSd.ipgStatus.packageTotal {
+    if !(AppSd.ipg != nil && AppSd.ipg!.packageTotal) {
       let _ =  self.addSMCSensorIfValid(key: SMC_CPU_PACKAGE_TOTAL_WATT,
                                         type: DataTypes.SP78,
                                         unit: .Watt,
@@ -262,10 +267,10 @@ class HWSensorsScanner: NSObject {
                                         actionType: actionType,
                                         canPlot: AppSd.sensorsInited ? false : true,
                                         index: -1,
-                                        list: &arr)
+                                        list: &main)
     }
     
-    if !AppSd.ipgStatus.packageCore {
+    if !(AppSd.ipg != nil && AppSd.ipg!.packageCore) {
       let _ =  self.addSMCSensorIfValid(key: SMC_CPU_PACKAGE_CORE_WATT,
                                         type: DataTypes.SP78,
                                         unit: .Watt,
@@ -274,7 +279,7 @@ class HWSensorsScanner: NSObject {
                                         actionType: actionType,
                                         canPlot: AppSd.sensorsInited ? false : true,
                                         index: -1,
-                                        list: &arr)
+                                        list: &main)
     }
     
     let _ =  self.addSMCSensorIfValid(key: SMC_CPU_HEATSINK_TEMP,
@@ -285,7 +290,7 @@ class HWSensorsScanner: NSObject {
                                       actionType: actionType,
                                       canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
-                                      list: &arr)
+                                      list: &main)
     
     // CPU voltages
     let _ =  self.addSMCSensorIfValid(key: SMC_CPU_VOLT,
@@ -296,7 +301,7 @@ class HWSensorsScanner: NSObject {
                                       actionType: actionType,
                                       canPlot: false,
                                       index: -1,
-                                      list: &arr)
+                                      list: &main)
     
     let _ =  self.addSMCSensorIfValid(key: SMC_CPU_VRM_VOLT,
                                       type: DataTypes.FP2E,
@@ -306,7 +311,7 @@ class HWSensorsScanner: NSObject {
                                       actionType: actionType,
                                       canPlot: false,
                                       index: -1,
-                                      list: &arr)
+                                      list: &main)
     
     let _ =  self.addSMCSensorIfValid(key: SMC_CPU_PACKAGE_MULTI_F,
                                       type: DataTypes.FP4C,
@@ -316,7 +321,7 @@ class HWSensorsScanner: NSObject {
                                       actionType: actionType,
                                       canPlot: false,
                                       index: -1,
-                                      list: &arr)
+                                      list: &main)
     
     for i in 0..<cpuCount {
       let a : String = smcFormat(i)
@@ -328,9 +333,9 @@ class HWSensorsScanner: NSObject {
                                         actionType: actionType,
                                         canPlot: false,
                                         index: i,
-                                        list: &arr)
+                                        list: &main)
     }
-    return arr
+    return (main, coresFreq, coresTemp)
   }
   
   /// returns CPU cores Temperatures from the SMC
@@ -456,7 +461,7 @@ class HWSensorsScanner: NSObject {
   
   func getIGPUPackagePower() -> HWMonitorSensor? {
     var arr : [HWMonitorSensor] = [HWMonitorSensor]()
-    if !AppSd.ipgStatus.packageIgpu {
+    if !(AppSd.ipg != nil && AppSd.ipg!.packageIgpu) {
       let _ =  self.addSMCSensorIfValid(key: SMC_IGPU_PACKAGE_WATT,
                                         type: DataTypes.SP78,
                                         unit: .Watt,
@@ -659,6 +664,123 @@ class HWSensorsScanner: NSObject {
       }
     }
     return arr
+  }
+  
+  /// returns SMCSuperIO voltages and fans sensors from supported LPC chips
+  func getSMCSuperIO(config: [String : Any]?) -> ([HWMonitorSensor], [HWMonitorSensor]) {
+    var voltages = [HWMonitorSensor]()
+    var fans = [HWMonitorSensor]()
+    var serviceObject : io_object_t
+    var iter : io_iterator_t = 0
+    let matching = IOServiceMatching("IOPCIDevice")
+    let err = IOServiceGetMatchingServices(kIOMasterPortDefault,
+                                           matching,
+                                           &iter)
+    if err == KERN_SUCCESS && iter != 0 {
+      if KERN_SUCCESS == err {
+        repeat {
+          serviceObject = IOIteratorNext(iter)
+          let opt : IOOptionBits = IOOptionBits(kIORegistryIterateParents | kIORegistryIterateRecursively)
+          var serviceDictionary : Unmanaged<CFMutableDictionary>?
+          if IORegistryEntryCreateCFProperties(serviceObject, &serviceDictionary, kCFAllocatorDefault, opt) != kIOReturnSuccess {
+            IOObjectRelease(serviceObject)
+            continue
+          }
+          
+          if let info : NSDictionary = serviceDictionary?.takeRetainedValue() {
+            if let cc = info.object(forKey: "class-code") as? Data {
+              if cc == Data([0x00, 0x01, 0x06, 0x00]) {
+                var child : io_service_t = 0
+                var cit : io_iterator_t = 0
+                if IORegistryEntryGetChildIterator(serviceObject, kIOServicePlane, &cit) == KERN_SUCCESS {
+                  repeat {
+                    child = IOIteratorNext(cit)
+                    if let sensors = (IORegistryEntryCreateCFProperty(child, "Sensors" as CFString, kCFAllocatorDefault, 0)?.takeRetainedValue() as? NSDictionary) {
+                      IOObjectRelease(child)
+                      IOObjectRelease(cit)
+                      IOObjectRelease(serviceObject)
+                      IOObjectRelease(iter)
+                      for k in sensors.allKeys {
+                        guard let key = k as? String else {
+                          continue
+                        }
+                        
+                        var multi : Double = 1
+                        var name : String = key
+                        if let kc = config?[key] as? [String : Any] {
+                          if let skip = kc["skip"] as? Bool {
+                            if skip { continue }
+                          }
+                          if let m = kc["multi"] as? Double {
+                            multi = m
+                          }
+                          
+                          if let n = kc["name"] as? String {
+                            name = n
+                          }
+                        }
+                        
+                        if multi == 0 { multi = 1 }
+                        
+                        let actionType : ActionType = .systemLog
+                        if key.range(of: "FAN") != nil {
+                          guard let val = sensors.object(forKey: k) as? Double else {
+                            continue
+                          }
+                          
+                          let s = HWMonitorSensor(key: key,
+                                                  unit: .RPM,
+                                                  type: "LPCBFANS",
+                                                  sensorType: .tachometer,
+                                                  title: name,
+                                                  canPlot: true)
+                          s.actionType = actionType
+                          s.stringValue = String(format: "%.f", val)
+                          s.doubleValue = Double(val)
+                          s.favorite = UDs.bool(forKey: s.key)
+                          fans.append(s)
+                        } else {
+                          guard let data = sensors.object(forKey: k) as? Data else {
+                            continue
+                          }
+                          
+                          
+                          let val = multi * Double(Float(bitPattern:
+                            UInt32(littleEndian: data.withUnsafeBytes { $0.load(as: UInt32.self) })))
+                          
+                          let s = HWMonitorSensor(key: key,
+                                                  unit: .Volt,
+                                                  type: "LPCBVOLTAGES",
+                                                  sensorType: .voltage,
+                                                  title: name,
+                                                  canPlot: true)
+                          s.actionType = actionType
+                          s.stringValue = String(format: "%.3f", val)
+                          s.doubleValue = Double(val)
+                          s.favorite = UDs.bool(forKey: s.key)
+                          voltages.append(s)
+                        }
+                      }
+                      break
+                    }
+                    
+                  } while child != 0
+                  IOObjectRelease(child)
+                  IOObjectRelease(cit)
+                }
+                
+                IOObjectRelease(serviceObject)
+                IOObjectRelease(iter)
+                break
+              }
+            }
+          }
+          IOObjectRelease(serviceObject)
+        } while serviceObject != 0
+      }
+      IOObjectRelease(iter)
+    }
+    return (voltages, fans)
   }
   
   /// returns Battery voltages and amperage. Taken from the driver

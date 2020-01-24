@@ -19,3 +19,4 @@
 #import <mach/task.h>
 
 #include <IntelPowerGadget/EnergyLib.h> // optional link
+#include <IntelPowerGadget/PowerGadgetLib.h> // optional link

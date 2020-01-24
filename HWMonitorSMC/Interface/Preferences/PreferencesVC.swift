@@ -75,6 +75,9 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
   @IBOutlet var tabView                 : NSTabView!
   var prevTabViewIndex                  : Int = -1
   
+  
+  @IBOutlet var moboVendorAndBoardField         : NSTextField!
+  
   private var appearanceObserver: NSKeyValueObservation?
   @IBOutlet var effectView : NSVisualEffectView!
   
@@ -92,6 +95,10 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
         (v as! TemplateImageView).image?.isTemplate = true
       }
     }
+    
+    self.moboVendorAndBoardField.stringValue = (AppSd.vendorShort != nil && AppSd.board != nil)
+    ? "\(AppSd.vendorShort!), \(AppSd.board!)"
+    : ""
     
     self.viewSizePop.removeAllItems()
     self.viewSizePop.addItem(withTitle: MainViewSize.normal.rawValue.locale)
@@ -251,8 +258,12 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
       if field == self.cpuTDPOverrideField {
         var tdp : Double = Double(field.stringValue) ?? 0
         if tdp < 7 || tdp > 1000 {
-          if AppSd.ipgStatus.inited {
-            GetTDP(0, &tdp)
+          if (AppSd.ipg != nil && AppSd.ipg!.inited) {
+            if AppSd.ipg!.newMode {
+              PG_GetTDP(0, &tdp)
+            } else {
+              GetTDP(0, &tdp)
+            }
           } else {
             tdp = 100
           }
@@ -263,7 +274,17 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
       } else if field == self.cpuFrequencyOverrideField {
         var freq : Double = Double(field.stringValue) ?? 0
         if freq <= 0 || freq > 7000 {
-          freq = Double(gCPUBaseFrequency())
+          if (AppSd.ipg != nil && AppSd.ipg!.inited) {
+            if AppSd.ipg!.newMode {
+              var f : Double = 0
+              PG_GetIAMaxFrequency(0, &f)
+              freq = f
+            } else {
+              freq = Double(gCPUBaseFrequency())
+            }
+          } else {
+            freq = Double(gCPUBaseFrequency())
+          }
         }
         AppSd.cpuFrequencyMax = freq
         UDs.set(freq, forKey: kCPU_Frequency_MAX)
@@ -298,8 +319,12 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
     var tdp : Double = UDs.double(forKey: kCPU_TDP_MAX)
 
     if (tdp < 7 || tdp >= 1000) {
-      if AppSd.ipgStatus.inited {
-        GetTDP(0, &tdp)
+      if (AppSd.ipg != nil && AppSd.ipg!.inited) {
+        if AppSd.ipg!.newMode {
+          PG_GetTDP(0, &tdp)
+        } else {
+          GetTDP(0, &tdp)
+        }
       } else {
         tdp = 100
       }
@@ -309,12 +334,18 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
     AppSd.cpuTDP = tdp
     UDs.set(tdp, forKey: kCPU_TDP_MAX)
 
+    var freqMax : Double = UDs.double(forKey: kCPU_Frequency_MAX)
+    if (AppSd.ipg != nil && AppSd.ipg!.inited) {
+      if AppSd.ipg!.newMode {
+        var f : Double = 0
+        PG_GetIAMaxFrequency(0, &f)
+        freqMax = f
+      } 
+    }
     
-    let freqMax : Double = UDs.double(forKey: kCPU_Frequency_MAX)
     self.CPU_Frequency_MAX = (freqMax > 0 && freqMax <= 7000) ? freqMax : 5000
     self.cpuFrequencyOverrideField.stringValue = String(format: "%.f", self.CPU_Frequency_MAX)
     UDs.set(freqMax, forKey: kCPU_Frequency_MAX)
-    
     
     AppSd.cpuFrequencyMax = freqMax
     

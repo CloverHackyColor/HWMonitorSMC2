@@ -31,12 +31,22 @@
 
 // Intel Power Gadget
 "Intel® Power Gadget info" = "Intel® Power Gadget info";
+"Cores Temperature AVG" = "Temperature media Core"; // IA Temperature AVG
+"Cores Temperature MIN" = "Temperature min Core"; // IA Temperature MIN
+"Cores Temperature MAX" = "Temperature max Core"; // IA Temperature MAX
+"Package %d AVG" = "Package %d media"; // Package frequency AVG
+"Package %d MIN" = "Package %d min"; // Package frequency MIN
+"Package %d MAX" = "Package %d max"; // Package frequency MAX
+"Package %d REQ" = "Package %d ric"; // Package frequency REQ (requested by OS)
+"Frequency MIN" = "Frequenza min"; // Frequency MIN, IGPU
+"Frequency MAX" = "Frequenza max"; // Frequency MAX, IGPU
+"Frequency REQ" = "Frequenza ric"; // Frequency REQ (requested by OS), IGPU
 "DRAM"  = "DRAM";
 "Package Temperature" = "Temperatura Package";
 "Package Power Limit (TDP)" = "TDP";
-"Max Temperature"  = "Temperatura Max";
+"Max Temperature"  = "Temperatura max";
 "Thresholds"       = "Soglie (Thresholds)";
-"Base Frequency"   = "Frequenza Base";
+"Base Frequency"   = "Frequenza base";
 "Max Frequency" = "Frequenza max";
 
 // GPU, when taken from PerformanceStatistics

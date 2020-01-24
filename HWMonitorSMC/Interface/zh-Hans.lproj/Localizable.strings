@@ -1,12 +1,12 @@
-/* 
-  Localizable.strings
-  HWMonitorSMC
+/*
+ Localizable.strings
+ HWMonitorSMC
+ 
+ Created by vector sigma on 25/02/18.
+ Copyright © 2018 HWSensor. All rights reserved.
+ */
 
-  Created by vector sigma on 25/02/18.
-  Copyright © 2018 HWSensor. All rights reserved.
-*/
-
-// zh-Hans (simplified Chinese) by maoyeye
+// zh-Hans (simplified Chinese) by maojinbing
 
 "Core Frequencies" = "核心频率";  // CPU or GPU sub group
 "Core Temperatures" = "核心温度"; // CPU or GPU  sub group
@@ -15,8 +15,8 @@
 "Frequency"   = "频率";     // singular
 "Frequencies" = "频率";   // plural
 "Package Core" = "核心功率"; // CPU or GPU
-"Package Total" = "整体功率"; // CPU or GPU
-"Package IGPU" = "核芯显卡功率";
+"Package Total" = "封装功率"; // CPU or GPU
+"Package IGPU" = "核显卡功率";
 "Multipliers" = "倍频";
 "Voltage" = "核心电压";   // singular
 "Voltages" = "电压"; // plural
@@ -25,14 +25,24 @@
 "Batteries" = "电池"; // plural
 "Media health" = "硬盘";
 "Life" = "寿命"; // hdd/ssd life
-"IGPU Frequency" = "集成显卡频率";
-"IGPU Max Frequency" = "集成显卡最大频率";
-"IGPU Utilization" = "集成显卡使用率";
+"IGPU Frequency" = "核显卡频率";
+"IGPU Max Frequency" = "核显卡最大频率";
+"IGPU Utilization" = "核显卡使用率";
 
 // Intel Power Gadget
-"Intel® Power Gadget info" = "Intel® Power Gadget info";
-"DRAM" = "内存控制器功率";
-"Package Temperature" = "内部温度";
+"Intel® Power Gadget info" = "Intel® Power Gadget信息";
+"Cores Temperature AVG" = "封装温度平均值"; // IA Temperature AVG
+"Cores Temperature MIN" = "封装温度最小值"; // IA Temperature MIN
+"Cores Temperature MAX" = "封装温度最大值"; // IA Temperature MAX
+"Package %d AVG" = "核心 %d 频率平均值"; // Package frequency AVG
+"Package %d MIN" = "核心 %d 频率最小值"; // Package frequency MIN
+"Package %d MAX" = "核心 %d 频率最大值"; // Package frequency MAX
+"Package %d REQ" = "核心 %d 频率请求值"; // Package frequency REQ (requested by OS)
+"Frequency MIN" =  "频率最小值"; // Frequency MIN, IGPU
+"Frequency MAX" = "频率最大值"; // Frequency MAX, IGPU
+"Frequency REQ" = "频率请求值"; // Frequency REQ (requested by OS), IGPU
+"DRAM" = "内存功率";
+"Package Temperature" = "封装温度";
 "Package Power Limit (TDP)" = "封装功率极限";
 "Max Temperature"  = "最高温度";
 "Thresholds"       = "阈值";
@@ -65,11 +75,11 @@
 "Wired" = "系统内核内存";
 
 "CPU" = "CPU";
-"Proximity" = "表面温度"; // CPU or GPU
-"Heatsink" = "表面温度";  // CPU or GPU
+"Proximity" = "处理器附近温度"; // CPU or GPU
+"Heatsink" = "处理器散热温度";  // CPU or GPU
 "DIMM 0" = "DIMM 0"; // RAM
 "DIMM 1" = "DIMM 1"; // RAM
-"Ambient" = "环境"; // Motherboard
+"Ambient" = "主板环境温度"; // Motherboard
 "GPU %d Board" = "GPU %d Board";
 "GPU %d Proximity" = "GPU %d 周边";
 "Core %d" = "核心 %d";   // CPU or GPU
@@ -80,7 +90,7 @@
 "GPU %d Memory" = "GPU %d 显存";
 "GPU %d Voltage" = "GPU %d 电压";
 "Core %d Multiplier" = "核心 %d 频率";
-"Package Multiplier" = "整体倍频";
+"Package Multiplier" = "封装倍频";
 
 // Motherboard
 "Motherboard" = "主板"; // MLB (Main Logic Board)
@@ -129,4 +139,3 @@
 // View Size
 "Medium" = "中等";
 "Large"  = "大号";
-

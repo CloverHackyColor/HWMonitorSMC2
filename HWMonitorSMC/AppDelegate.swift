@@ -10,6 +10,9 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+  let board : String? = getOEMBoard()
+  let vendorShort = getOEMVendorShort()
+  
   var mainViewSize = MainViewSize.init(rawValue: UDs.string(forKey: kViewSize) ?? MainViewSize.normal.rawValue) ?? MainViewSize.normal
   var hideVerticalScroller : Bool = UserDefaults.standard.bool(forKey: kHideVerticalScroller)
   var theme : Themes? = nil
@@ -19,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var licensed : Bool = false
   var translateUnits : Bool = true
   var useIPG : Bool = false
-  var ipgStatus : IPG = IPG()
+  var ipg : IntelPG? = nil
   let useIOAcceleratorForGPUs : Bool = UDs.bool(forKey: kUseGPUIOAccelerator)
   var sensorScanner : HWSensorsScanner = HWSensorsScanner()
   var debugGraphics: Bool = true
@@ -88,9 +91,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   func applicationWillTerminate(_ aNotification: Notification) {
     // Insert code here to tear down your application
-    if self.ipgStatus.inited {
-      IntelEnergyLibShutdown()
-    }
     NotificationCenter.default.post(name: .terminate, object: nil)
   }
   

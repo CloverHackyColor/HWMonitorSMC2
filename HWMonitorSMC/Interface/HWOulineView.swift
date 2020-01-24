@@ -159,11 +159,18 @@ class HWOulineView: NSOutlineView, NSPopoverDelegate {
       self.appearanceObserver = nil
     }
   }
-  
-  override func makeView(withIdentifier identifier: NSUserInterfaceItemIdentifier, owner: Any?) -> NSView? {
+
+  override func makeView(withIdentifier identifier: NSUserInterfaceItemIdentifier,
+                         owner: Any?) -> NSView? {
     let view: Any? = super.makeView(withIdentifier: identifier, owner: owner)
     if (identifier == NSOutlineView.disclosureButtonIdentifier) {
       let t: NSButton? = (view as? NSButton)
+
+      t?.image = NSImage(named: "rightArrow.png")
+      t?.alternateImage = NSImage(named: "downArrow.png")
+  
+      t?.image?.size = NSSize(width: 10.0, height: 10.0)
+      t?.alternateImage?.size = NSSize(width: 10.0, height: 10.0)
       t?.image?.isTemplate = true
       t?.alternateImage?.isTemplate = true
     }
@@ -276,7 +283,9 @@ class HWOulineView: NSOutlineView, NSPopoverDelegate {
     return nil
   }
   
-  private func getLogPopOverForNode(_ node: HWTreeNode, at row: Int, rowView: inout NSView?) -> NSPopover? {
+  private func getLogPopOverForNode(_ node: HWTreeNode,
+                                    at row: Int,
+                                    rowView: inout NSView?) -> NSPopover? {
     var log : String? = nil
     var size : InfoViewSize = .normal
     if ((node.sensorData?.sensor?.sensorType) != nil) {
