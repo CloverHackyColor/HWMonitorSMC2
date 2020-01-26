@@ -34,10 +34,10 @@
 "Cores Temperature AVG" = "Temperature media Core"; // IA Temperature AVG
 "Cores Temperature MIN" = "Temperature min Core"; // IA Temperature MIN
 "Cores Temperature MAX" = "Temperature max Core"; // IA Temperature MAX
-"Package %d AVG" = "Package %d media"; // Package frequency AVG
-"Package %d MIN" = "Package %d min"; // Package frequency MIN
-"Package %d MAX" = "Package %d max"; // Package frequency MAX
-"Package %d REQ" = "Package %d ric"; // Package frequency REQ (requested by OS)
+"Cores %d AVG" = "Core %d media"; // Cores frequency AVG
+"Cores %d MIN" = "Core %d min"; // Cores frequency MIN
+"Cores %d MAX" = "Core %d max"; // Cores frequency MAX
+"Cores %d REQ" = "Core %d ric"; // Cores frequency REQ (requested by OS)
 "Frequency MIN" = "Frequenza min"; // Frequency MIN, IGPU
 "Frequency MAX" = "Frequenza max"; // Frequency MAX, IGPU
 "Frequency REQ" = "Frequenza ric"; // Frequency REQ (requested by OS), IGPU

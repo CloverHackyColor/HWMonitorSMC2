@@ -34,10 +34,10 @@
 "Cores Temperature AVG" = "封装温度平均值"; // IA Temperature AVG
 "Cores Temperature MIN" = "封装温度最小值"; // IA Temperature MIN
 "Cores Temperature MAX" = "封装温度最大值"; // IA Temperature MAX
-"Package %d AVG" = "核心 %d 频率平均值"; // Package frequency AVG
-"Package %d MIN" = "核心 %d 频率最小值"; // Package frequency MIN
-"Package %d MAX" = "核心 %d 频率最大值"; // Package frequency MAX
-"Package %d REQ" = "核心 %d 频率请求值"; // Package frequency REQ (requested by OS)
+"Cores %d AVG" = "Cores %d avg"; // Cores frequency AVG
+"Cores %d MIN" = "Cores %d min"; // Cores frequency MIN
+"Cores %d MAX" = "Cores %d max"; // Cores frequency MAX
+"Cores %d REQ" = "Cores %d req"; // Cores frequency REQ (requested by OS)
 "Frequency MIN" =  "频率最小值"; // Frequency MIN, IGPU
 "Frequency MAX" = "频率最大值"; // Frequency MAX, IGPU
 "Frequency REQ" = "频率请求值"; // Frequency REQ (requested by OS), IGPU

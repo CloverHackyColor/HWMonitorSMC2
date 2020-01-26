@@ -521,6 +521,43 @@ class IntelPG: NSObject {
       packages.append(sensor)
     }
     
+    res = PGSample_GetPackagePower(self.sampleID1, self.sampleID2, &powerWatts, &energyJoules)
+    self.packageTotal = true
+    if res || !AppSd.sensorsInited {
+      sensor = HWMonitorSensor(key: "Package Total",
+                               unit: .Watt,
+                               type: "IPG",
+                               sensorType: .intelWatt,
+                               title: "Package Total".locale,
+                               canPlot: AppSd.sensorsInited ? false : true)
+      
+      sensor.actionType = .cpuLog;
+      sensor.stringValue = String(format: "%.2f", powerWatts)
+      sensor.doubleValue = powerWatts
+      
+      sensor.favorite = UDs.bool(forKey: sensor.key)
+      packages.append(sensor)
+    }
+    
+    
+    res = PGSample_GetIAPower(self.sampleID1, self.sampleID2, &powerWatts, &energyJoules)
+    self.packageCore = true
+    if res || !AppSd.sensorsInited {
+      sensor = HWMonitorSensor(key: "Package Core",
+                               unit: .Watt,
+                               type: "IPG",
+                               sensorType: .intelWatt,
+                               title: "Package Core".locale,
+                               canPlot: AppSd.sensorsInited ? false : true)
+      
+      sensor.actionType = .cpuLog;
+      sensor.stringValue = String(format: "%.2f", powerWatts)
+      sensor.doubleValue = powerWatts
+      
+      sensor.favorite = UDs.bool(forKey: sensor.key)
+      packages.append(sensor)
+    }
+    
     PGSample_GetPackageTemperature(self.sampleID2, &temp)
     sensor = HWMonitorSensor(key: "Package Temp",
                              unit: .C,
@@ -578,43 +615,6 @@ class IntelPG: NSObject {
     sensor.doubleValue = max
     sensor.favorite = UDs.bool(forKey: sensor.key)
     packages.append(sensor)
-    
-    res = PGSample_GetPackagePower(self.sampleID1, self.sampleID2, &powerWatts, &energyJoules)
-    self.packageTotal = true
-    if res || !AppSd.sensorsInited {
-      sensor = HWMonitorSensor(key: "Package Total",
-                               unit: .Watt,
-                               type: "IPG",
-                               sensorType: .intelWatt,
-                               title: "Package Total".locale,
-                               canPlot: AppSd.sensorsInited ? false : true)
-      
-      sensor.actionType = .cpuLog;
-      sensor.stringValue = String(format: "%.2f", powerWatts)
-      sensor.doubleValue = powerWatts
-      
-      sensor.favorite = UDs.bool(forKey: sensor.key)
-      packages.append(sensor)
-    }
-   
-    
-    res = PGSample_GetIAPower(self.sampleID1, self.sampleID2, &powerWatts, &energyJoules)
-      self.packageCore = true
-    if res || !AppSd.sensorsInited {
-      sensor = HWMonitorSensor(key: "Package Core",
-                               unit: .Watt,
-                               type: "IPG",
-                               sensorType: .intelWatt,
-                               title: "Package Core".locale,
-                               canPlot: AppSd.sensorsInited ? false : true)
-      
-      sensor.actionType = .cpuLog;
-      sensor.stringValue = String(format: "%.2f", powerWatts)
-      sensor.doubleValue = powerWatts
-      
-      sensor.favorite = UDs.bool(forKey: sensor.key)
-      packages.append(sensor)
-    }
       
     if self.DRAMEAvailable {
       res = PGSample_GetDRAMPower(self.sampleID1, self.sampleID2, &powerWatts, &energyJoules)
@@ -656,7 +656,7 @@ class IntelPG: NSObject {
 
     for p in 0..<self.numPkg {
       res = PGSample_GetIAFrequency(self.sampleID1, self.sampleID2, &mean, &min, &max)
-      var key = String(format: "Package %d AVG".locale, p)
+      var key = String(format: "Cores %d AVG".locale, p)
       if res || !AppSd.sensorsInited {
         sensor = HWMonitorSensor(key: key,
                                  unit: .MHz,
@@ -687,7 +687,7 @@ class IntelPG: NSObject {
         packages.append(sensor)
         */
         
-        key = String(format: "Package %d MAX".locale, p)
+        key = String(format: "Cores %d MAX".locale, p)
         sensor = HWMonitorSensor(key: key,
                                  unit: .MHz,
                                  type: "IPG",
@@ -705,7 +705,7 @@ class IntelPG: NSObject {
       
       res = PGSample_GetIAFrequencyRequest(self.sampleID1, &mean, &min, &max)
       if res || !AppSd.sensorsInited {
-        key = String(format: "Package %d REQ".locale, p)
+        key = String(format: "Cores %d REQ".locale, p)
         sensor = HWMonitorSensor(key: key,
                                  unit: .MHz,
                                  type: "IPG",
