@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SYSFAN</key>
+	<dict>
+		<key>skip</key>
+		<false/>
+		<key>name</key>
+		<string>System Fan</string>
+	</dict>
+	<key>CPUFAN</key>
+	<dict>
+		<key>skip</key>
+		<false/>
+		<key>name</key>
+		<string>CPU Fan</string>
+	</dict>
+	<key>VBAT</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+	</dict>
+</dict>
+</plist>

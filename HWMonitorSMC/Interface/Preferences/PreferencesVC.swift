@@ -96,10 +96,14 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
       }
     }
     
-    self.moboVendorAndBoardField.stringValue = (AppSd.vendorShort != nil && AppSd.board != nil)
-    ? "\(AppSd.vendorShort!), \(AppSd.board!)"
-    : ""
+    var vbc = (AppSd.vendorShort != nil && AppSd.board != nil)
+      ? "\(AppSd.vendorShort!), \(AppSd.board!)"
+      : ""
     
+    if AppSd.superIOChipName != nil {
+      vbc = "\(vbc) (\(AppSd.superIOChipName!))"
+    }
+    self.moboVendorAndBoardField.stringValue  = vbc
     self.viewSizePop.removeAllItems()
     self.viewSizePop.addItem(withTitle: MainViewSize.normal.rawValue.locale)
     self.viewSizePop.lastItem?.representedObject = MainViewSize.normal.rawValue

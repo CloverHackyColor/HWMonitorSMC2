@@ -82,11 +82,8 @@ func getOEMVendor() -> String? {
     return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
   }
   
-  let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-vendor﻿﻿"
-  if let data = getNVRAM()?.object(forKey: ockey) as? Data {
-    return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
-  }
-  return nil
+  let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-vendor"
+  return getNVRAM(variable: ockey)
 }
 
 /// Get OEMProduct string.
@@ -96,10 +93,7 @@ func getOEMProduct() -> String? {
   }
   
   let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-product"
-  if let data = getNVRAM()?.object(forKey: ockey) as? Data {
-    return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
-  }
-  return nil
+  return getNVRAM(variable: ockey)
 }
 
 /// Get OEMBoard string.
@@ -109,10 +103,7 @@ func getOEMBoard() -> String? {
   }
   
   let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-board"
-  if let data = getNVRAM()?.object(forKey: ockey) as? Data {
-    return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
-  }
-  return nil
+  return getNVRAM(variable: ockey)
 }
 
 /// Get OEMVendor Short string.

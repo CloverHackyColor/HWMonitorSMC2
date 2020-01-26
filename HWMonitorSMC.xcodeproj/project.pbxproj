@@ -49,6 +49,7 @@
 		9551F19E20B35BB300A69C50 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9551F19D20B35BB300A69C50 /* ServiceManagement.framework */; };
 		9551F1A820B35CBF00A69C50 /* HWMonitorSMC2 Helper.app in Copy Helper */ = {isa = PBXBuildFile; fileRef = 9551F1A420B35C5600A69C50 /* HWMonitorSMC2 Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9554C08820A76A1C00D9A91F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9554C08720A76A1C00D9A91F /* Metal.framework */; };
+		955B244223DCA1D5004CDFE3 /* NVRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955B244123DCA1D5004CDFE3 /* NVRAM.swift */; };
 		9561965223D7909000237B27 /* IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561965123D7909000237B27 /* IO.swift */; };
 		9561965523D7AE2C00237B27 /* LPC in Copy LPC configs */ = {isa = PBXBuildFile; fileRef = 9561965423D7AE2B00237B27 /* LPC */; };
 		957EC0872188728C00F0A457 /* Gadget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957EC0862188728C00F0A457 /* Gadget.storyboard */; };
@@ -274,6 +275,7 @@
 		9551F19D20B35BB300A69C50 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		9551F19F20B35C5500A69C50 /* HWMonitorSMC2 Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "HWMonitorSMC2 Helper.xcodeproj"; path = "HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj"; sourceTree = "<group>"; };
 		9554C08720A76A1C00D9A91F /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		955B244123DCA1D5004CDFE3 /* NVRAM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVRAM.swift; sourceTree = "<group>"; };
 		9561965123D7909000237B27 /* IO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IO.swift; path = HWMonitorSMC/IO.swift; sourceTree = SOURCE_ROOT; };
 		9561965423D7AE2B00237B27 /* LPC */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LPC; sourceTree = "<group>"; };
 		957EC0862188728C00F0A457 /* Gadget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gadget.storyboard; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				9538E4A4204DAB9900918032 /* globals.swift */,
+				955B244123DCA1D5004CDFE3 /* NVRAM.swift */,
 				9546572C2091132A0020BA34 /* Extensions.swift */,
 				958E796D204193EE0007957E /* AppDelegate.swift */,
 				95DE45CE205E7F3800E4582D /* RunAtLogin.swift */,
@@ -756,6 +759,7 @@
 				957EC0892188736900F0A457 /* GadgetWC.swift in Sources */,
 				9526EC11218346A1008595B2 /* HWSensorsUpdate.swift in Sources */,
 				9551F19720B355C000A69C50 /* SATAController.swift in Sources */,
+				955B244223DCA1D5004CDFE3 /* NVRAM.swift in Sources */,
 				9524F93D2196035B004D8513 /* SMC_Keys.swift in Sources */,
 				95DE45CF205E7F3800E4582D /* RunAtLogin.swift in Sources */,
 				958E79C5204314A40007957E /* PreferencesWC.swift in Sources */,
@@ -937,7 +941,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2.5.1;
+				CURRENT_PROJECT_VERSION = 2.5.2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -956,7 +960,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULE_VERSION = 2.5.1;
+				MODULE_VERSION = 2.5.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
@@ -1004,7 +1008,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2.5.1;
+				CURRENT_PROJECT_VERSION = 2.5.2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1017,7 +1021,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULE_VERSION = 2.5.1;
+				MODULE_VERSION = 2.5.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "";
@@ -1037,7 +1041,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2.5.1;
+				CURRENT_PROJECT_VERSION = 2.5.2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -1047,7 +1051,7 @@
 				INFOPLIST_FILE = HWMonitorSMC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULE_VERSION = 2.5.1;
+				MODULE_VERSION = 2.5.2;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.slice.HWMonitorSMC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1066,7 +1070,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2.5.1;
+				CURRENT_PROJECT_VERSION = 2.5.2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -1077,7 +1081,7 @@
 				INFOPLIST_FILE = HWMonitorSMC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULE_VERSION = 2.5.1;
+				MODULE_VERSION = 2.5.2;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.slice.HWMonitorSMC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";

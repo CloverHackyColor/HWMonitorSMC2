@@ -8,7 +8,7 @@
 
 import Cocoa
 
-let kTestVersion            = ""
+let kTestVersion            = "Beta"
 
 let kLinceseAccepted        = "LinceseAcceptedWithWarning"
 let kRunAtLogin             = "runAtLogin"

@@ -783,6 +783,52 @@ class HWSensorsScanner: NSObject {
     return (voltages, fans)
   }
   
+  /// returns LPC chip name under SMCSuperIO
+  func getSuperIOChipName() -> String? {
+    var chipName : String? = nil
+    var iter : io_iterator_t = 0
+    var rl : uint32 = 0
+    
+    var result : kern_return_t = IORegistryCreateIterator(kIOMasterPortDefault,
+                                                          kIOServicePlane,
+                                                          0,
+                                                          &iter)
+    
+    if result == KERN_SUCCESS && iter != 0 {
+      var entry : io_object_t
+      repeat {
+        entry = IOIteratorNext(iter)
+        if entry != IO_OBJECT_NULL {
+          if entry.name() == "SMCSuperIO" {
+            let ref = IORegistryEntryCreateCFProperty(entry,
+                                                      "ChipName" as CFString,
+                                                      kCFAllocatorDefault, 0)
+            if ref != nil {
+              chipName = ref!.takeRetainedValue() as? String
+              IOObjectRelease(entry)
+              IOObjectRelease(iter)
+              break
+            }
+          }
+          
+          rl += 1
+          result = IORegistryIteratorEnterEntry(iter)
+        } else {
+          if rl == 0 {
+            IOObjectRelease(entry)
+            IOObjectRelease(iter)
+            break
+          }
+          result = IORegistryIteratorExitEntry(iter)
+          rl -= 1
+        }
+      } while (true)
+      IOObjectRelease(iter)
+    }
+    
+    return chipName
+  }
+  
   /// returns Battery voltages and amperage. Taken from the driver
   func getBattery() -> [HWMonitorSensor] {
     var arr = [HWMonitorSensor]()

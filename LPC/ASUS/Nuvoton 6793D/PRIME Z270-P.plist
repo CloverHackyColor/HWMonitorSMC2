@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>3VCC</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>+ 3.3 Volts</string>
+	</dict>
+	<key>3VSB</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>+ 3.3 Volts Standby</string>
+	</dict>
+	<key>AVSB</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+	</dict>
+	<key>CPUVCORE</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+	</dict>
+	<key>VBAT</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+	</dict>
+	<key>VIN0</key>
+	<dict>
+		<key>multi</key>
+		<integer>12</integer>
+		<key>name</key>
+		<string>+ 12 Volts</string>
+	</dict>
+	<key>VIN1</key>
+	<dict>
+		<key>multi</key>
+		<integer>5</integer>
+		<key>name</key>
+		<string>+  5 Volts</string>
+	</dict>
+	<key>VIN2</key>
+	<dict>
+		<key>name</key>
+		<string>DRAM Voltage</string>
+	</dict>
+	<key>VIN4</key>
+	<dict>
+		<key>name</key>
+		<string>IGPU</string>
+	</dict>
+	<key>VIN7</key>
+	<dict>
+		<key>name</key>
+		<string>DRAM Voltage</string>
+	</dict>
+	<key>VTT</key>
+	<dict>
+		<key>name</key>
+		<string>CPU VTT</string>
+	</dict>
+</dict>
+</plist>

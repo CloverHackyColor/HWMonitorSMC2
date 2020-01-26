@@ -11,7 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
   let board : String? = getOEMBoard()
-  let vendorShort = getOEMVendorShort()
+  let vendorShort : String? = getOEMVendorShort()
+  var superIOChipName : String? = nil
   
   var mainViewSize = MainViewSize.init(rawValue: UDs.string(forKey: kViewSize) ?? MainViewSize.normal.rawValue) ?? MainViewSize.normal
   var hideVerticalScroller : Bool = UserDefaults.standard.bool(forKey: kHideVerticalScroller)

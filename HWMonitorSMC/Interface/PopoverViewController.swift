@@ -501,19 +501,31 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
     }
     // ------
     let lpcConfigPath = Bundle.main.sharedSupportPath! + "/LPC"
-    if AppSd.vendorShort != nil && AppSd.board != nil {
-      let confPath = "\(lpcConfigPath)/\(AppSd.vendorShort!)/\(AppSd.board!).plist"
+    
+    AppSd.superIOChipName = AppSd.sensorScanner.getSuperIOChipName()
+    
+    if AppSd.board != nil && AppSd.vendorShort != nil && AppSd.superIOChipName != nil{
+      var confPath = "\(lpcConfigPath)/\(AppSd.vendorShort!)/\(AppSd.superIOChipName!)/\(AppSd.board!).plist"
       
-      if FileManager.default.fileExists(atPath: confPath) {
-        if let plist = NSDictionary(contentsOfFile: confPath) as? [String : Any] {
-          self.superIOConfig = plist
-          print("Loading configuration from ../\(AppSd.vendorShort!)/\(AppSd.board!).plist.")
-        } else {
-          print("Error: unable to load ../\(AppSd.vendorShort!)/\(AppSd.board!).plist..")
+      if !FileManager.default.fileExists(atPath: confPath) {
+        print("../\(AppSd.vendorShort!)/\(AppSd.superIOChipName!)/\(AppSd.board!).plist not found.")
+        confPath = "\(lpcConfigPath)/\(AppSd.vendorShort!)/\(AppSd.superIOChipName!)/default.plist"
+        
+        if !FileManager.default.fileExists(atPath: confPath) {
+          print("../\(AppSd.vendorShort!)/\(AppSd.superIOChipName!)/default.plist not found.")
         }
-      } else {
-        print("../\(AppSd.vendorShort!)/\(AppSd.board!).plist not found.")
       }
+      
+      if let plist = NSDictionary(contentsOfFile: confPath) as? [String : Any] {
+        self.superIOConfig = plist
+        print("Loading configuration from \(confPath)")
+      } else {
+        print("Error: unable to load \(confPath)")
+      }
+    } else {
+      print("Board = \(AppSd.board ?? "NULL")")
+      print("Vendor Short = \(AppSd.vendorShort ?? "NULL")")
+      print("Chip Name = \(AppSd.superIOChipName ?? "NULL")")
     }
     
     if (self.superIOConfig == nil) {
@@ -526,7 +538,13 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
     let (voltages, fans) = AppSd.sensorScanner.getSMCSuperIO(config: self.superIOConfig)
     // ------
     if UDs.bool(forKey: kShowMoBoSensors) {
-      self.MOBONode = HWTreeNode(representedObject: HWSensorData(group: (AppSd.board != nil) ? AppSd.board! : "Motherboard".locale,
+      var moboTitle = (AppSd.board != nil) ? AppSd.board! : "Motherboard".locale
+      
+      if AppSd.superIOChipName != nil {
+        moboTitle = "\(moboTitle), \(AppSd.superIOChipName!)"
+      }
+      
+      self.MOBONode = HWTreeNode(representedObject: HWSensorData(group: moboTitle,
                                                                  sensor: nil,
                                                                  isLeaf: false))
       var mobosensors : [HWMonitorSensor]? = nil
