@@ -504,21 +504,22 @@ class IntelPG: NSObject {
     packages.append(sensor)
     
     var util : Double = 0
-    PGSample_GetIAUtilization(self.sampleID1, self.sampleID2, &util)
-    
-    sensor = HWMonitorSensor(key: "CPU Utilization",
-                             unit: .Percent,
-                             type: "IPG",
-                             sensorType: .percent,
-                             title: "Utilization".locale,
-                             canPlot: AppSd.sensorsInited ? false : true)
-    
-    sensor.actionType = .cpuLog;
-    sensor.stringValue = String(format: "%.f", Double(util))
-    sensor.doubleValue = Double(util)
-    
-    sensor.favorite = UDs.bool(forKey: sensor.key)
-    packages.append(sensor)
+    res = PGSample_GetIAUtilization(self.sampleID1, self.sampleID2, &util)
+    if res || !AppSd.sensorsInited {
+      sensor = HWMonitorSensor(key: "CPU Utilization",
+                               unit: .Percent,
+                               type: "IPG",
+                               sensorType: .percent,
+                               title: "Utilization".locale,
+                               canPlot: AppSd.sensorsInited ? false : true)
+      
+      sensor.actionType = .cpuLog;
+      sensor.stringValue = String(format: "%.f", Double(util))
+      sensor.doubleValue = Double(util)
+      
+      sensor.favorite = UDs.bool(forKey: sensor.key)
+      packages.append(sensor)
+    }
     
     PGSample_GetPackageTemperature(self.sampleID2, &temp)
     sensor = HWMonitorSensor(key: "Package Temp",
