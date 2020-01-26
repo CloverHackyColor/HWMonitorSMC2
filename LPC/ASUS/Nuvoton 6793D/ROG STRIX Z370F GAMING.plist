@@ -12,11 +12,6 @@
 		<key>multi</key>
 		<integer>2</integer>
 	</dict>
-	<key>AUXFAN0</key>
-	<dict>
-		<key>name</key>
-		<string>M.2_FAN</string>
-	</dict>
 	<key>AUXFAN3</key>
 	<dict>
 		<key>name</key>
@@ -36,6 +31,8 @@
 	<dict>
 		<key>multi</key>
 		<integer>2</integer>
+		<key>name</key>
+		<string>Vcore</string>
 	</dict>
 	<key>SYSFAN</key>
 	<dict>
@@ -66,15 +63,12 @@
 		<key>name</key>
 		<string>PCH Core</string>
 	</dict>
-	<key>VIN3</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
 	<key>VIN4</key>
 	<dict>
-		<key>skip</key>
-		<true/>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>CPU Gfx</string>
 	</dict>
 	<key>VIN5</key>
 	<dict>
@@ -91,7 +85,7 @@
 	<key>VIN7</key>
 	<dict>
 		<key>name</key>
-		<string>CPU_VCCIO</string>
+		<string>CPU VCCIO</string>
 	</dict>
 	<key>VIN8</key>
 	<dict>

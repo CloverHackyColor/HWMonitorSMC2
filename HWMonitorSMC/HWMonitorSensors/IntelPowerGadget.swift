@@ -558,7 +558,7 @@ class IntelPG: NSObject {
                              title: "Cores Temperature MIN".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
     
-    
+    sensor.scope = .min
     sensor.actionType = .cpuLog;
     sensor.stringValue = String(format: "%.f", min)
     sensor.doubleValue = min
@@ -572,7 +572,7 @@ class IntelPG: NSObject {
                              title: "Cores Temperature MAX".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
     
-    
+    sensor.scope = .max
     sensor.actionType = .cpuLog;
     sensor.stringValue = String(format: "%.f", max)
     sensor.doubleValue = max
@@ -670,7 +670,7 @@ class IntelPG: NSObject {
         sensor.doubleValue = mean
         sensor.favorite = UDs.bool(forKey: sensor.key)
         packages.append(sensor)
-        
+        /*
         key = String(format: "Package %d MIN".locale, p)
         sensor = HWMonitorSensor(key: key,
                                  unit: .MHz,
@@ -678,13 +678,14 @@ class IntelPG: NSObject {
                                  sensorType: .intelCPUFrequency,
                                  title: key,
                                  canPlot: AppSd.sensorsInited ? false : true)
-        
+      
+        sensor.scope = .min
         sensor.actionType = .cpuLog;
         sensor.stringValue = String(format: "%.f", min)
         sensor.doubleValue = min
         sensor.favorite = UDs.bool(forKey: sensor.key)
         packages.append(sensor)
-        
+        */
         
         key = String(format: "Package %d MAX".locale, p)
         sensor = HWMonitorSensor(key: key,
@@ -694,6 +695,7 @@ class IntelPG: NSObject {
                                  title: key,
                                  canPlot: AppSd.sensorsInited ? false : true)
         
+        sensor.scope = .max
         sensor.actionType = .cpuLog;
         sensor.stringValue = String(format: "%.f", max)
         sensor.doubleValue = max
@@ -827,7 +829,7 @@ class IntelPG: NSObject {
                                  title: "Frequency MAX".locale,
                                  canPlot: AppSd.sensorsInited ? false : true)
         
-        
+        sensor.scope = .max
         sensor.actionType = .gpuLog;
         sensor.stringValue = String(format: "%.f", value)
         sensor.doubleValue = value

@@ -45,8 +45,23 @@ extension PopoverViewController {
           if (newSensor.sensorType == sensorType) &&
             (newSensor.title == sensor?.title) &&
             (newSensor.key == sensor?.key) {
-            sensor?.stringValue = newSensor.stringValue
-            sensor?.doubleValue = newSensor.doubleValue
+            switch newSensor.scope {
+            case .min:
+              //print("\(newSensor.title) = \(newSensor.doubleValue)")
+              if newSensor.doubleValue > 0 && newSensor.doubleValue < sensor!.doubleValue {
+                sensor?.stringValue = newSensor.stringValue
+                sensor?.doubleValue = newSensor.doubleValue
+              }
+            case .max:
+              if newSensor.doubleValue > sensor!.doubleValue {
+                sensor?.stringValue = newSensor.stringValue
+                sensor?.doubleValue = newSensor.doubleValue
+              }
+            default:
+              sensor?.stringValue = newSensor.stringValue
+              sensor?.doubleValue = newSensor.doubleValue
+            }
+            
           }
         }
       }

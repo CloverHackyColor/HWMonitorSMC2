@@ -87,6 +87,13 @@ enum HWSensorType : Int {
   case usb                  = 29
 }
 
+//MARK: - log type
+enum HWSensorScope : Int {
+  case normal     = 0
+  case min        = 1
+  case max        = 2
+  case everage    = 3
+}
 
 //MARK: - HWMonitorSensor
 class HWMonitorSensor: NSObject {
@@ -99,6 +106,7 @@ class HWMonitorSensor: NSObject {
   var outLine: HWOulineView?
   var favorite: Bool = false
   
+  var scope : HWSensorScope = .normal
   var actionType : ActionType = .nothing
   var unit : HWUnit
   var doubleValue : Double = 0
