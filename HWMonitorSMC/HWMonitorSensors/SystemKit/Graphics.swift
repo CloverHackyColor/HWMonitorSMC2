@@ -71,7 +71,7 @@ public struct Graphics {
           
           if gShowBadSensors || (coreclock.intValue > 0 && coreclock.intValue < 3000) {
             let ccSensor = HWMonitorSensor(key: "Core Clock" + unique,
-                                           unit: HWUnit.MHz,
+                                           unit: .GHz,
                                            type: "IOAcc",
                                            sensorType: .gpuIO_coreClock,
                                            title: "Core Clock".locale,
@@ -81,7 +81,7 @@ public struct Graphics {
             ccSensor.characteristics = primaryMatch
             ccSensor.actionType = .gpuLog
             ccSensor.doubleValue = coreclock.doubleValue
-            ccSensor.stringValue = coreclock.stringValue
+            ccSensor.stringValue = String(format: "%.3f", coreclock.doubleValue / 1000)
             ccSensor.vendor = vendorString
             gpuNode.mutableChildren.add(HWTreeNode(representedObject: HWSensorData(group: model,
                                                                                    sensor: ccSensor,
@@ -93,7 +93,7 @@ public struct Graphics {
           
           if gShowBadSensors || (memclock.intValue > 0 && memclock.intValue < 3000) {
             let mcSensor = HWMonitorSensor(key: "Memory Clock" + unique,
-                                           unit: HWUnit.MHz,
+                                           unit: .GHz,
                                            type: "IOAcc",
                                            sensorType: .gpuIO_memoryClock,
                                            title: "Memory Clock".locale,
@@ -103,7 +103,7 @@ public struct Graphics {
             mcSensor.characteristics = primaryMatch
             mcSensor.actionType = .gpuLog
             mcSensor.doubleValue = memclock.doubleValue
-            mcSensor.stringValue = memclock.stringValue
+            mcSensor.stringValue = String(format: "%.3f", memclock.doubleValue / 1000)
             mcSensor.vendor = vendorString
             gpuNode.mutableChildren.add(HWTreeNode(representedObject: HWSensorData(group: model,
                                                                                    sensor: mcSensor,

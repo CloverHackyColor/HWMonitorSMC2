@@ -31,8 +31,6 @@
 	<dict>
 		<key>multi</key>
 		<integer>2</integer>
-		<key>name</key>
-		<string>VBAT</string>
 	</dict>
 	<key>VIN0</key>
 	<dict>

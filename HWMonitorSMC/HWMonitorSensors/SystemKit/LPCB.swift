@@ -16,6 +16,9 @@ public struct LPCB {
     let LPCBcode = Data([0x00, 0x01, 0x06, 0x00])
     
     if let info = PCIControllers.getPCIControllersInfo(with: LPCBcode) {
+      if AppSd.superIOChipName != nil {
+        log += "\tChip Name:\t\t\t\(AppSd.superIOChipName!)\n"
+      }
       if let IOName = getStringFrom(info.object(forKey: "IOName")) {
         log += "\tIOName:\t\t\t\(IOName)\n"
       }

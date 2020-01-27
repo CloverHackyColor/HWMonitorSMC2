@@ -19,8 +19,6 @@
 	</dict>
 	<key>FAN4</key>
 	<dict>
-		<key>name</key>
-		<string>FAN4</string>
 		<key>skip</key>
 		<true/>
 	</dict>

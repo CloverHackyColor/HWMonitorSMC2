@@ -916,9 +916,10 @@ class HWSensorsScanner: NSObject {
       bcopy((data as NSData).bytes, &MHZ, 2)
       MHZ = swapBytes(MHZ)
       if sensor.unit == .GHz {
-        MHZ = MHZ / 1000
+        sensor.stringValue = String(format: "%.2f", Double(MHZ / 1000))
+      } else {
+        sensor.stringValue = String(format: "%d", MHZ)
       }
-      sensor.stringValue = String(format: "%d", MHZ)
       sensor.doubleValue = Double(MHZ)
       valid = gShowBadSensors || (MHZ > 0 && MHZ < 9000) // OC record is 8794 (AMD FX-8350) on Nov 10 2012
     case .igpuPowerWatt:

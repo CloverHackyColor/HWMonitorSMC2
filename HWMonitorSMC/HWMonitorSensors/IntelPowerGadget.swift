@@ -125,7 +125,7 @@ class IntelPG: NSObject {
       var gtFreq : Int32 = 0
       if GetGTFrequency(&gtFreq) {
         let sensor = HWMonitorSensor(key: "IGPU Frequency",
-                                     unit: .MHz,
+                                     unit: .GHz,
                                      type: "IPG",
                                      sensorType: .intelGPUFrequency,
                                      title: (AppSd.useIOAcceleratorForGPUs ? "Frequency".locale : "IGPU Frequency".locale),
@@ -441,7 +441,7 @@ class IntelPG: NSObject {
     PG_GetIABaseFrequency((self.numPkg - 1), &freq)
     
     var sensor = HWMonitorSensor(key: "Base Frequency",
-                                 unit: .MHz,
+                                 unit: .GHz,
                                  type: "IPG",
                                  sensorType: .intelCPUFrequency,
                                  title: "Base Frequency".locale,
@@ -450,14 +450,14 @@ class IntelPG: NSObject {
     
     sensor.isInformativeOnly = true
     sensor.actionType = .cpuLog;
-    sensor.stringValue = String(format: "%.f", freq)
+    sensor.stringValue = String(format: "%.3f", freq / 1000)
     sensor.doubleValue = freq
     sensor.favorite = false
     packages.append(sensor)
     
     PG_GetIAMaxFrequency((self.numPkg - 1), &freq)
     sensor = HWMonitorSensor(key: "Max Frequency",
-                             unit: .MHz,
+                             unit: .GHz,
                              type: "IPG",
                              sensorType: .intelCPUFrequency,
                              title: "Max Frequency".locale,
@@ -466,7 +466,7 @@ class IntelPG: NSObject {
     
     sensor.isInformativeOnly = true
     sensor.actionType = .cpuLog;
-    sensor.stringValue = String(format: "%.f", freq)
+    sensor.stringValue = String(format: "%.3f", freq / 1000)
     sensor.doubleValue = freq
     sensor.favorite = false
     packages.append(sensor)
@@ -659,45 +659,45 @@ class IntelPG: NSObject {
       var key = String(format: "Cores %d AVG".locale, p)
       if res || !AppSd.sensorsInited {
         sensor = HWMonitorSensor(key: key,
-                                 unit: .MHz,
+                                 unit: .GHz,
                                  type: "IPG",
                                  sensorType: .intelCPUFrequency,
                                  title: key,
                                  canPlot: AppSd.sensorsInited ? false : true)
         
         sensor.actionType = .cpuLog;
-        sensor.stringValue = String(format: "%.f", mean)
+        sensor.stringValue = String(format: "%.3f", mean / 1000)
         sensor.doubleValue = mean
         sensor.favorite = UDs.bool(forKey: sensor.key)
         packages.append(sensor)
-        /*
-        key = String(format: "Package %d MIN".locale, p)
+        
+        key = String(format: "Cores %d MIN".locale, p)
         sensor = HWMonitorSensor(key: key,
-                                 unit: .MHz,
+                                 unit: .GHz,
                                  type: "IPG",
                                  sensorType: .intelCPUFrequency,
                                  title: key,
                                  canPlot: AppSd.sensorsInited ? false : true)
       
-        sensor.scope = .min
+        //sensor.scope = .min
         sensor.actionType = .cpuLog;
-        sensor.stringValue = String(format: "%.f", min)
+        sensor.stringValue = String(format: "%.3f", min / 1000)
         sensor.doubleValue = min
         sensor.favorite = UDs.bool(forKey: sensor.key)
         packages.append(sensor)
-        */
+        
         
         key = String(format: "Cores %d MAX".locale, p)
         sensor = HWMonitorSensor(key: key,
-                                 unit: .MHz,
+                                 unit: .GHz,
                                  type: "IPG",
                                  sensorType: .intelCPUFrequency,
                                  title: key,
                                  canPlot: AppSd.sensorsInited ? false : true)
         
-        sensor.scope = .max
+        //sensor.scope = .max
         sensor.actionType = .cpuLog;
-        sensor.stringValue = String(format: "%.f", max)
+        sensor.stringValue = String(format: "%.3f", max / 1000)
         sensor.doubleValue = max
         sensor.favorite = UDs.bool(forKey: sensor.key)
         packages.append(sensor)
@@ -707,14 +707,14 @@ class IntelPG: NSObject {
       if res || !AppSd.sensorsInited {
         key = String(format: "Cores %d REQ".locale, p)
         sensor = HWMonitorSensor(key: key,
-                                 unit: .MHz,
+                                 unit: .GHz,
                                  type: "IPG",
                                  sensorType: .intelCPUFrequency,
                                  title: key,
                                  canPlot: AppSd.sensorsInited ? false : true)
         
         sensor.actionType = .cpuLog;
-        sensor.stringValue = String(format: "%.f", max)
+        sensor.stringValue = String(format: "%.3f", max / 1000)
         sensor.doubleValue = max
         sensor.favorite = UDs.bool(forKey: sensor.key)
         packages.append(sensor)
@@ -740,14 +740,14 @@ class IntelPG: NSObject {
         res = PGSample_GetIACoreFrequency(self.sampleID1, self.sampleID2, c, &mean, &min, &max)
         if res || !AppSd.sensorsInited {
           sensor = HWMonitorSensor(key: "Core \(c) Frequency max",
-            unit: .MHz,
+            unit: .GHz,
             type: "IPG",
             sensorType: .intelCPUFrequency,
             title: String(format: "Core %d".locale, c),
             canPlot: AppSd.sensorsInited ? false : true)
           
           sensor.actionType = .cpuLog;
-          sensor.stringValue = String(format: "%.f", max)
+          sensor.stringValue = String(format: "%.3f", max / 1000)
           sensor.doubleValue = max
           sensor.favorite = UDs.bool(forKey: sensor.key)
           coresFreq.append(sensor)
@@ -768,6 +768,8 @@ class IntelPG: NSObject {
       if self.sampleGT == 0 {
         PG_ReadSample(0, &self.sampleGT)
       }
+     
+      /* May be one day will work
       PGSample_GetGTUtilization(self.sampleGT, &value)
       var sensor = HWMonitorSensor(key: "IGPU Utilization",
                                    unit: .Percent,
@@ -780,62 +782,63 @@ class IntelPG: NSObject {
       sensor.doubleValue = value
       sensor.favorite = UDs.bool(forKey: sensor.key)
       sensors.append(sensor)
-      
+      */
       
       res = PGSample_GetGTFrequency(self.sampleGT, &value)
+      
       if res || !AppSd.sensorsInited {
-        sensor = HWMonitorSensor(key: "GT Frequency",
-                                 unit: .MHz,
-                                 type: "IPG",
-                                 sensorType: .intelGPUFrequency,
-                                 title: (AppSd.useIOAcceleratorForGPUs ? "Frequency".locale : "IGPU Frequency".locale),
-                                 canPlot: AppSd.sensorsInited ? false : true)
+        let sensor = HWMonitorSensor(key: "GT Frequency",
+                                     unit: .GHz,
+                                     type: "IPG",
+                                     sensorType: .intelGPUFrequency,
+                                     title: (AppSd.useIOAcceleratorForGPUs ? "Frequency".locale : "IGPU Frequency".locale),
+                                     canPlot: AppSd.sensorsInited ? false : true)
         
         
         sensor.actionType = .gpuLog;
-        sensor.stringValue = String(format: "%.f", value)
+        sensor.stringValue = String(format: "%.3f", value / 1000)
+        sensor.doubleValue = value
+        sensor.favorite = UDs.bool(forKey: sensor.key)
+        sensors.append(sensor)
+      }
+      
+      res = PGSample_GetGTFrequencyRequest(self.sampleGT, &value)
+      if res || !AppSd.sensorsInited {
+        let sensor = HWMonitorSensor(key: "GT Frequency REQ",
+                                     unit: .GHz,
+                                     type: "IPG",
+                                     sensorType: .intelGPUFrequency,
+                                     title: "Frequency REQ".locale,
+                                     canPlot: AppSd.sensorsInited ? false : true)
+        
+        
+        sensor.actionType = .gpuLog;
+        sensor.stringValue = String(format: "%.3f", value / 1000)
         sensor.doubleValue = value
         sensor.favorite = UDs.bool(forKey: sensor.key)
         sensors.append(sensor)
       }
       
       
-      
-      res = PGSample_GetGTFrequencyRequest(self.sampleGT, &value)
+      res = PG_GetGTMaxFrequency(1, &value)
       if res || !AppSd.sensorsInited {
-        sensor = HWMonitorSensor(key: "GT Frequency REQ",
-                                 unit: .MHz,
-                                 type: "IPG",
-                                 sensorType: .intelGPUFrequency,
-                                 title: "Frequency REQ".locale,
-                                 canPlot: AppSd.sensorsInited ? false : true)
+        let sensor = HWMonitorSensor(key: "GT Frequency MAX",
+                                     unit: .GHz,
+                                     type: "IPG",
+                                     sensorType: .intelGPUFrequency,
+                                     title: "Frequency MAX".locale,
+                                     canPlot: AppSd.sensorsInited ? false : true)
         
-        
+        //sensor.scope = .max
         sensor.actionType = .gpuLog;
-        sensor.stringValue = String(format: "%.f", value)
+        sensor.stringValue = String(format: "%.3f", value / 1000)
         sensor.doubleValue = value
         sensor.favorite = UDs.bool(forKey: sensor.key)
         sensors.append(sensor)
       }
       
       PGSample_Release(self.sampleGT)
-      
-      res = PG_GetGTMaxFrequency(0, &value)
-      if res || !AppSd.sensorsInited {
-        sensor = HWMonitorSensor(key: "GT Frequency MAX",
-                                 unit: .MHz,
-                                 type: "IPG",
-                                 sensorType: .intelGPUFrequency,
-                                 title: "Frequency MAX".locale,
-                                 canPlot: AppSd.sensorsInited ? false : true)
-        
-        sensor.scope = .max
-        sensor.actionType = .gpuLog;
-        sensor.stringValue = String(format: "%.f", value)
-        sensor.doubleValue = value
-        sensor.favorite = UDs.bool(forKey: sensor.key)
-        sensors.append(sensor)
-      }
+      self.sampleGT = 0
     }
     
     return sensors

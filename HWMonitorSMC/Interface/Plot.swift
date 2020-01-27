@@ -64,11 +64,8 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
     // Create graph from theme
     let newGraph = CPTXYGraph(frame: CGRect(x: 0, y: 0, width: 111, height: 17))
     
-    //let theme = CPTTheme(named: .darkGradientTheme)
-    //newGraph.apply(theme)
-    
     newGraph.paddingTop    = 1.0
-    newGraph.paddingBottom = 0.0
+    newGraph.paddingBottom = 1.0
     newGraph.paddingLeft   = 0.0
     newGraph.paddingRight  = 0.0
     
@@ -81,7 +78,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
     newGraph.plotAreaFrame?.fill          = nil
     
     newGraph.plotAreaFrame?.borderLineStyle = nil
-    newGraph.plotAreaFrame?.cornerRadius    = 0.0
+    newGraph.plotAreaFrame?.cornerRadius    = 1.0
     newGraph.plotAreaFrame?.masksToBorder   = false
     
     self.hostView.hostedGraph = newGraph;
@@ -93,10 +90,12 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
     // Setup scatter plot space
     self.plotSpace = newGraph.defaultPlotSpace as? CPTXYPlotSpace
     self.plotSpace?.allowsUserInteraction = false
-    self.plotSpace?.xRange = CPTPlotRange(location: NSNumber(value: 1.0), length: NSNumber(value: kMaxDataPoints - 2 ))
+    self.plotSpace?.xRange = CPTPlotRange(location: NSNumber(value: 1.0),
+                                          length: NSNumber(value: kMaxDataPoints - 2 ))
     
     self.plotSpace?.globalYRange = nil
-    self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 1.0), length: NSNumber(value: 100.0))
+    self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 1.0),
+                                          length: NSNumber(value: 100.0))
     self.plotSpace?.globalYRange = plotSpace?.yRange
     // Axes
     let axisSet = newGraph.axisSet as! CPTXYAxisSet
@@ -118,8 +117,6 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
     }
     
     // Create a plot that uses the data source method
-    
-    
     self.dataSourceLinePlot.identifier = kPlotIdentifier
     self.dataSourceLinePlot.cachePrecision = .double
     

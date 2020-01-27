@@ -66,11 +66,6 @@
 		<key>name</key>
 		<string>PCH Core</string>
 	</dict>
-	<key>VIN3</key>
-	<dict>
-		<key>name</key>
-		<string>VIN3</string>
-	</dict>
 	<key>VIN4</key>
 	<dict>
 		<key>name</key>
@@ -96,7 +91,7 @@
 	<key>VIN8</key>
 	<dict>
 		<key>multi</key>
-		<real>6.58554</real>
+		<real>6.5855399999999999</real>
 		<key>name</key>
 		<string>CPU Standby</string>
 		<key>skip</key>
