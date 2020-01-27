@@ -19,14 +19,18 @@ class HWTableRowView: NSTableRowView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  /* cause column 0 to be invisible when the popover is detachedd
+  // cause column 0 to be invisible when the popover is detached in older OSes
   override var interiorBackgroundStyle: NSView.BackgroundStyle {
-    if getAppearance().name == .vibrantDark {
-      return isSelected ? .light : .dark
+    if #available(OSX 10.14, *) {
+      return super.interiorBackgroundStyle
     } else {
-      return self.isSelected ? .dark : .light
+      if getAppearance().name == .vibrantDark {
+        return isSelected ? .light : .dark
+      } else {
+        return self.isSelected ? .dark : .light
+      }
     }
-  }*/
+  }
   
   override func drawSelection(in dirtyRect: NSRect) {
     if self.selectionHighlightStyle != .none {
