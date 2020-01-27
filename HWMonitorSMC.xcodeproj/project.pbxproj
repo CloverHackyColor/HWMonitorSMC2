@@ -129,6 +129,20 @@
 			remoteGlobalIDString = 9544C2E220ACA078005B7310;
 			remoteInfo = "HWMonitorSMC2 Helper";
 		};
+		9560895923DE5DA90025A54F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9560895523DE5DA80025A54F /* hwmlpcconfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 956D252E23DDDBCE0094843E;
+			remoteInfo = hwmlpcconfig;
+		};
+		9560895B23DE5DBA0025A54F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9560895523DE5DA80025A54F /* hwmlpcconfig.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 956D252D23DDDBCE0094843E;
+			remoteInfo = hwmlpcconfig;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -276,6 +290,7 @@
 		9551F19F20B35C5500A69C50 /* HWMonitorSMC2 Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "HWMonitorSMC2 Helper.xcodeproj"; path = "HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj"; sourceTree = "<group>"; };
 		9554C08720A76A1C00D9A91F /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		955B244123DCA1D5004CDFE3 /* NVRAM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVRAM.swift; sourceTree = "<group>"; };
+		9560895523DE5DA80025A54F /* hwmlpcconfig.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = hwmlpcconfig.xcodeproj; path = hwmlpcconfig/hwmlpcconfig.xcodeproj; sourceTree = "<group>"; };
 		9561965123D7909000237B27 /* IO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IO.swift; path = HWMonitorSMC/IO.swift; sourceTree = SOURCE_ROOT; };
 		9561965423D7AE2B00237B27 /* LPC */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LPC; sourceTree = "<group>"; };
 		957EC0862188728C00F0A457 /* Gadget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gadget.storyboard; sourceTree = "<group>"; };
@@ -476,6 +491,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9560895623DE5DA80025A54F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9560895A23DE5DA90025A54F /* hwmlpcconfig */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9570DE2B20837FA0003CF4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +519,7 @@
 			children = (
 				9551F19F20B35C5500A69C50 /* HWMonitorSMC2 Helper.xcodeproj */,
 				9521BD60228710E600E8ACC8 /* smcwrite.xcodeproj */,
+				9560895523DE5DA80025A54F /* hwmlpcconfig.xcodeproj */,
 				958E796C204193EE0007957E /* HWMonitorSMC */,
 				9561965423D7AE2B00237B27 /* LPC */,
 				9570DE2B20837FA0003CF4EA /* Frameworks */,
@@ -593,11 +617,13 @@
 				9551F1A720B35C8900A69C50 /* Copy Helper */,
 				95D535FA216F68C800289BD7 /* Copy CorePlot */,
 				95BB578622886547004AEC00 /* Copy smcwrite */,
+				9560895D23DE5DFD0025A54F /* Run Clean LPC configs */,
 				9561965323D7ADB500237B27 /* Copy LPC configs */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9560895C23DE5DBA0025A54F /* PBXTargetDependency */,
 				9521BD6C2287116500E8ACC8 /* PBXTargetDependency */,
 				9551F1A620B35C7A00A69C50 /* PBXTargetDependency */,
 			);
@@ -650,6 +676,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 9560895623DE5DA80025A54F /* Products */;
+					ProjectRef = 9560895523DE5DA80025A54F /* hwmlpcconfig.xcodeproj */;
+				},
+				{
 					ProductGroup = 9551F1A020B35C5500A69C50 /* Products */;
 					ProjectRef = 9551F19F20B35C5500A69C50 /* HWMonitorSMC2 Helper.xcodeproj */;
 				},
@@ -678,6 +708,13 @@
 			fileType = wrapper.application;
 			path = "HWMonitorSMC2 Helper.app";
 			remoteRef = 9551F1A320B35C5600A69C50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9560895A23DE5DA90025A54F /* hwmlpcconfig */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = hwmlpcconfig;
+			remoteRef = 9560895923DE5DA90025A54F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -725,6 +762,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9560895D23DE5DFD0025A54F /* Run Clean LPC configs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Clean LPC configs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cmd=\"${CONFIGURATION_BUILD_DIR}\"/hwmlpcconfig\nlpc=\"${PROJECT_DIR}/LPC\"\n\nif [[ -x \"${cmd}\" ]]; then\n  \"${cmd}\" \"${lpc}\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		958E7966204193EE0007957E /* Sources */ = {
@@ -792,6 +850,11 @@
 			isa = PBXTargetDependency;
 			name = "HWMonitorSMC2 Helper";
 			targetProxy = 9551F1A520B35C7A00A69C50 /* PBXContainerItemProxy */;
+		};
+		9560895C23DE5DBA0025A54F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = hwmlpcconfig;
+			targetProxy = 9560895B23DE5DBA0025A54F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
