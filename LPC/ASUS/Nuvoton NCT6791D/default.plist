@@ -2,36 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CPUFAN</key>
-	<dict>
-		<key>name</key>
-		<string>CPU Fan</string>
-	</dict>
-	<key>SYSFAN</key>
-	<dict>
-		<key>name</key>
-		<string>Chassis Fan</string>
-	</dict>
-	<key>AUXFAN0</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
-	<key>AUXFAN1</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
-	<key>AUXFAN2</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
-	<key>AUXFAN3</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
 	<key>3VCC</key>
 	<dict>
 		<key>multi</key>
@@ -84,26 +54,6 @@
 	<dict>
 		<key>name</key>
 		<string>VCOREREFIN</string>
-	</dict>
-	<key>VIN2</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
-	<key>VIN3</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
-	<key>VIN5</key>
-	<dict>
-		<key>skip</key>
-		<true/>
-	</dict>
-	<key>VIN6</key>
-	<dict>
-		<key>skip</key>
-		<true/>
 	</dict>
 </dict>
 </plist>
