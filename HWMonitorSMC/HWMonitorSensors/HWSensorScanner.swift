@@ -780,7 +780,11 @@ class HWSensorsScanner: NSObject {
       }
       IOObjectRelease(iter)
     }
-    return (voltages, fans)
+    
+    if AppSd.sensorsInited {
+      return (voltages, fans)
+    }
+    return (self.sorted(voltages), self.sorted(fans))
   }
   
   /// returns LPC chip name under SMCSuperIO
@@ -977,5 +981,28 @@ class HWSensorsScanner: NSObject {
       }
     }
     return false
+  }
+  
+  private func sorted(_ sensors: [HWMonitorSensor]) -> [HWMonitorSensor] {
+    if sensors.count == 0 {
+      return sensors
+    }
+    var titles : [String] = [String]()
+    
+    for s in sensors {
+      titles.append(s.title)
+    }
+    
+    var sorted = [HWMonitorSensor]()
+    
+    for t in titles.sorted() {
+      for s in sensors {
+        if s.title == t {
+          sorted.append(s)
+          break
+        }
+      }
+    }
+    return sorted
   }
 }
