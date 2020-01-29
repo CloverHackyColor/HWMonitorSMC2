@@ -701,6 +701,10 @@ class HWSensorsScanner: NSObject {
             continue
           }
           
+          if val >= 0xffff {
+            continue
+          }
+          
           let s = HWMonitorSensor(key: key,
                                   unit: .RPM,
                                   type: "LPCBFANS",
