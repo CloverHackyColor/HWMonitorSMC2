@@ -52,15 +52,14 @@ func getSuperIO(property: String) -> Any? {
      
       entry = IOIteratorNext(iter)
       if entry != IO_OBJECT_NULL {
-        //print(entry.info())
         if entry.name() == "SMCSuperIO" {
           let ref = IORegistryEntryCreateCFProperty(entry,
-                                                         property as CFString,
-                                                         kCFAllocatorDefault, 0)
+                                                    property as CFString,
+                                                    kCFAllocatorDefault,
+                                                    0)
           if ref != nil {
             obj = ref!.takeRetainedValue()
             IOObjectRelease(entry)
-            IOObjectRelease(iter)
             break
           }
         }
@@ -70,7 +69,6 @@ func getSuperIO(property: String) -> Any? {
       } else {
         if rl == 0 {
           IOObjectRelease(entry)
-          IOObjectRelease(iter)
           break
         }
         result = IORegistryIteratorExitEntry(iter)
