@@ -221,3 +221,49 @@ func isLegacyFirmware() -> Bool {
   
   return !isUEFI
 }
+
+/// Get the  property value from the given IOService dictionary. You’re responsible for releasing the result (if not transferred to Swift objects).
+func IOServiceGetPropertyFrom(matching name: String, property: String) -> Any? {
+  var obj : Any? = nil
+  var iter : io_iterator_t = 0
+  var rl : uint32 = 0
+  
+  var result : kern_return_t = IORegistryCreateIterator(kIOMasterPortDefault,
+                                                        kIOServicePlane,
+                                                        0,
+                                                        &iter)
+  
+  if result == KERN_SUCCESS && iter != 0 {
+    var entry : io_object_t
+    repeat {
+      
+      entry = IOIteratorNext(iter)
+      if entry != IO_OBJECT_NULL {
+        if entry.name() == name {
+          let ref = IORegistryEntryCreateCFProperty(entry,
+                                                    property as CFString,
+                                                    kCFAllocatorDefault,
+                                                    0)
+          if ref != nil {
+            obj = ref!.takeRetainedValue()
+            IOObjectRelease(entry)
+            break
+          }
+        }
+        
+        rl += 1
+        result = IORegistryIteratorEnterEntry(iter)
+      } else {
+        if rl == 0 {
+          IOObjectRelease(entry)
+          break
+        }
+        result = IORegistryIteratorExitEntry(iter)
+        rl -= 1
+      }
+    } while (true)
+    IOObjectRelease(iter)
+  }
+  
+  return obj
+}

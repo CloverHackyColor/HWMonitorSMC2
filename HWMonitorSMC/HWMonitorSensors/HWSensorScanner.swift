@@ -670,116 +670,72 @@ class HWSensorsScanner: NSObject {
   func getSMCSuperIO(config: [String : Any]?) -> ([HWMonitorSensor], [HWMonitorSensor]) {
     var voltages = [HWMonitorSensor]()
     var fans = [HWMonitorSensor]()
-    var serviceObject : io_object_t
-    var iter : io_iterator_t = 0
-    let matching = IOServiceMatching("IOPCIDevice")
-    let err = IOServiceGetMatchingServices(kIOMasterPortDefault,
-                                           matching,
-                                           &iter)
-    if err == KERN_SUCCESS && iter != 0 {
-      if KERN_SUCCESS == err {
-        repeat {
-          serviceObject = IOIteratorNext(iter)
-          let opt : IOOptionBits = IOOptionBits(kIORegistryIterateParents | kIORegistryIterateRecursively)
-          var serviceDictionary : Unmanaged<CFMutableDictionary>?
-          if IORegistryEntryCreateCFProperties(serviceObject, &serviceDictionary, kCFAllocatorDefault, opt) != kIOReturnSuccess {
-            IOObjectRelease(serviceObject)
+    
+    if let sensors = IOServiceGetPropertyFrom(matching: "SMCSuperIO",
+                                              property: "Sensors") as? NSDictionary {
+      for k in sensors.allKeys {
+        guard let key = k as? String else {
+          continue
+        }
+        
+        var multi : Double = 1
+        var name : String = key
+        if let kc = config?[key] as? [String : Any] {
+          if let skip = kc["skip"] as? Bool {
+            if skip { continue }
+          }
+          if let m = kc["multi"] as? Double {
+            multi = m
+          }
+          
+          if let n = kc["name"] as? String {
+            name = n
+          }
+        }
+        
+        if multi == 0 { multi = 1 }
+        
+        let actionType : ActionType = .systemLog
+        if key.range(of: "FAN") != nil {
+          guard let val = sensors.object(forKey: k) as? Double else {
             continue
           }
           
-          if let info : NSDictionary = serviceDictionary?.takeRetainedValue() {
-            if let cc = info.object(forKey: "class-code") as? Data {
-              if cc == Data([0x00, 0x01, 0x06, 0x00]) {
-                var child : io_service_t = 0
-                var cit : io_iterator_t = 0
-                if IORegistryEntryGetChildIterator(serviceObject, kIOServicePlane, &cit) == KERN_SUCCESS {
-                  repeat {
-                    child = IOIteratorNext(cit)
-                    if let sensors = (IORegistryEntryCreateCFProperty(child, "Sensors" as CFString, kCFAllocatorDefault, 0)?.takeRetainedValue() as? NSDictionary) {
-                      IOObjectRelease(child)
-                      IOObjectRelease(cit)
-                      IOObjectRelease(serviceObject)
-                      IOObjectRelease(iter)
-                      for k in sensors.allKeys {
-                        guard let key = k as? String else {
-                          continue
-                        }
-                        
-                        var multi : Double = 1
-                        var name : String = key
-                        if let kc = config?[key] as? [String : Any] {
-                          if let skip = kc["skip"] as? Bool {
-                            if skip { continue }
-                          }
-                          if let m = kc["multi"] as? Double {
-                            multi = m
-                          }
-                          
-                          if let n = kc["name"] as? String {
-                            name = n
-                          }
-                        }
-                        
-                        if multi == 0 { multi = 1 }
-                        
-                        let actionType : ActionType = .systemLog
-                        if key.range(of: "FAN") != nil {
-                          guard let val = sensors.object(forKey: k) as? Double else {
-                            continue
-                          }
-                          
-                          let s = HWMonitorSensor(key: key,
-                                                  unit: .RPM,
-                                                  type: "LPCBFANS",
-                                                  sensorType: .tachometer,
-                                                  title: name,
-                                                  canPlot: true)
-                          s.actionType = actionType
-                          s.stringValue = String(format: "%.f", val)
-                          s.doubleValue = Double(val)
-                          s.favorite = UDs.bool(forKey: s.key)
-                          fans.append(s)
-                        } else {
-                          guard let data = sensors.object(forKey: k) as? Data else {
-                            continue
-                          }
-                          
-                          
-                          let val = multi * Double(Float(bitPattern:
-                            UInt32(littleEndian: data.withUnsafeBytes { $0.load(as: UInt32.self) })))
-                          
-                          let s = HWMonitorSensor(key: key,
-                                                  unit: .Volt,
-                                                  type: "LPCBVOLTAGES",
-                                                  sensorType: .voltage,
-                                                  title: name,
-                                                  canPlot: true)
-                          s.actionType = actionType
-                          s.stringValue = String(format: "%.3f", val)
-                          s.doubleValue = Double(val)
-                          s.favorite = UDs.bool(forKey: s.key)
-                          voltages.append(s)
-                        }
-                      }
-                      break
-                    }
-                    
-                  } while child != 0
-                  IOObjectRelease(child)
-                  IOObjectRelease(cit)
-                }
-                
-                IOObjectRelease(serviceObject)
-                IOObjectRelease(iter)
-                break
-              }
-            }
+          let s = HWMonitorSensor(key: key,
+                                  unit: .RPM,
+                                  type: "LPCBFANS",
+                                  sensorType: .tachometer,
+                                  title: name,
+                                  canPlot: true)
+          s.actionType = actionType
+          s.stringValue = String(format: "%.f", val)
+          s.doubleValue = Double(val)
+          s.favorite = UDs.bool(forKey: s.key)
+          fans.append(s)
+        } else {
+          guard let data = sensors.object(forKey: k) as? Data else {
+            continue
           }
-          IOObjectRelease(serviceObject)
-        } while serviceObject != 0
+          
+          
+          let val = multi * Double(Float(bitPattern:
+            UInt32(littleEndian: data.withUnsafeBytes { $0.load(as: UInt32.self) })))
+          
+          let s = HWMonitorSensor(key: key,
+                                  unit: .Volt,
+                                  type: "LPCBVOLTAGES",
+                                  sensorType: .voltage,
+                                  title: name,
+                                  canPlot: true)
+          s.actionType = actionType
+          s.stringValue = String(format: "%.3f", val)
+          s.doubleValue = Double(val)
+          s.favorite = UDs.bool(forKey: s.key)
+          voltages.append(s)
+        }
       }
-      IOObjectRelease(iter)
     }
+  
     
     if AppSd.sensorsInited {
       return (voltages, fans)
@@ -789,48 +745,8 @@ class HWSensorsScanner: NSObject {
   
   /// returns LPC chip name under SMCSuperIO
   func getSuperIOChipName() -> String? {
-    var chipName : String? = nil
-    var iter : io_iterator_t = 0
-    var rl : uint32 = 0
-    
-    var result : kern_return_t = IORegistryCreateIterator(kIOMasterPortDefault,
-                                                          kIOServicePlane,
-                                                          0,
-                                                          &iter)
-    
-    if result == KERN_SUCCESS && iter != 0 {
-      var entry : io_object_t
-      repeat {
-        entry = IOIteratorNext(iter)
-        if entry != IO_OBJECT_NULL {
-          if entry.name() == "SMCSuperIO" {
-            let ref = IORegistryEntryCreateCFProperty(entry,
-                                                      "ChipName" as CFString,
-                                                      kCFAllocatorDefault, 0)
-            if ref != nil {
-              chipName = ref!.takeRetainedValue() as? String
-              IOObjectRelease(entry)
-              IOObjectRelease(iter)
-              break
-            }
-          }
-          
-          rl += 1
-          result = IORegistryIteratorEnterEntry(iter)
-        } else {
-          if rl == 0 {
-            IOObjectRelease(entry)
-            IOObjectRelease(iter)
-            break
-          }
-          result = IORegistryIteratorExitEntry(iter)
-          rl -= 1
-        }
-      } while (true)
-      IOObjectRelease(iter)
-    }
-    
-    return chipName
+    return IOServiceGetPropertyFrom(matching: "SMCSuperIO",
+                                    property: "ChipName") as? String
   }
   
   /// returns Battery voltages and amperage. Taken from the driver
