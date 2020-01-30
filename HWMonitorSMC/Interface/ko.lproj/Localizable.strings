@@ -29,25 +29,38 @@
 "IGPU Max Frequency" = "IGPU Max Frequency";
 "IGPU Utilization" = "IGPU Utilization";
 
-// Intel Power Gadget
+// Intel Power Gadget specific
 "Intel® Power Gadget info" = "Intel® Power Gadget info";
-"Cores Temperature AVG" = "Cores Temperature AVG"; // IA Temperature AVG
-"Cores Temperature MIN" = "Cores Temperature MIN"; // IA Temperature MIN
-"Cores Temperature MAX" = "Cores Temperature MAX"; // IA Temperature MAX
-"Cores %d AVG" = "Cores %d avg"; // Cores frequency AVG
-"Cores %d MIN" = "Cores %d min"; // Cores frequency MIN
-"Cores %d MAX" = "Cores %d max"; // Cores frequency MAX
-"Cores %d REQ" = "Cores %d req"; // Cores frequency REQ (requested by OS)
-"Frequency MIN" = "Frequency min"; // Frequency MIN, IGPU
-"Frequency MAX" = "Frequency max"; // Frequency MAX, IGPU
-"Frequency REQ" = "Frequency req"; // Frequency REQ (requested by OS), IGPU
+"Platform" = "Platform"; // Platform power
+"IA Temperature AVG" = "Core Temperature avg"; // IA Temperature average
+"IA Temperature MIN" = "Core Temperature min"; // IA Temperature minimum
+"IA Temperature MAX" = "Core Temperature max"; // IA Temperature maximum
+"Package Temperature" = "Package Temperature"; // old IPG
+"IA Frequency AVG" = "Core Frequency avg"; // IA Frequency average
+"IA Frequency MIN" = "Core Frequency min"; // IA Frequency minimum
+"IA Frequency MAX" = "Core Frequency max"; // IA Frequency maximum
+"IA Frequency REQ" = "Core Frequency req"; // IA Frequency requested by OS
+
+"Pkg %d Core %d" = "Pkg %d Core %d"; // Package's Core Frequency or Temperature
+
 "DRAM" = "DRAM";
-"Package Temperature" = "Package Temperature";
 "Package Power Limit (TDP)" = "TDP";
 "Max Temperature"  = "Max Temperature";
 "Thresholds"       = "Thresholds";
 "Base Frequency"   = "Base Frequency";
 "Max Frequency" = "Max Frequency";
+
+// IGPU
+"Frequency MIN" = "Frequency min"; // IGPU Frequency minimum
+"Frequency MAX" = "Frequency max"; // IGPU Frequency maximum
+"Frequency REQ" = "Frequency req"; // IGPU Frequency requested by OS
+// End Intel Power Gadget specific
+
+// IGPU
+"Frequency MIN" = "Frequency min"; // IGPU Frequency minimum
+"Frequency MAX" = "Frequency max"; // IGPU Frequency maximum
+"Frequency REQ" = "Frequency req"; // IGPU Frequency requested by OS
+// End Intel Power Gadget specific
 
 // GPU, when taken from PerformanceStatistics
 "GPUs" = "GPUs";

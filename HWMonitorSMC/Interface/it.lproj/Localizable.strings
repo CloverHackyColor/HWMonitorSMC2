@@ -29,25 +29,32 @@
 "IGPU Max Frequency" = "Frequenza Max IGPU";
 "IGPU Utilization" = "Utilizzo IGPU";
 
-// Intel Power Gadget
+// Intel Power Gadget specific
 "Intel® Power Gadget info" = "Intel® Power Gadget info";
-"Cores Temperature AVG" = "Temperature media Core"; // IA Temperature AVG
-"Cores Temperature MIN" = "Temperature min Core"; // IA Temperature MIN
-"Cores Temperature MAX" = "Temperature max Core"; // IA Temperature MAX
-"Cores %d AVG" = "Core %d media"; // Cores frequency AVG
-"Cores %d MIN" = "Core %d min"; // Cores frequency MIN
-"Cores %d MAX" = "Core %d max"; // Cores frequency MAX
-"Cores %d REQ" = "Core %d ric"; // Cores frequency REQ (requested by OS)
-"Frequency MIN" = "Frequenza min"; // Frequency MIN, IGPU
-"Frequency MAX" = "Frequenza max"; // Frequency MAX, IGPU
-"Frequency REQ" = "Frequenza ric"; // Frequency REQ (requested by OS), IGPU
-"DRAM"  = "DRAM";
-"Package Temperature" = "Temperatura Package";
+"Platform" = "Platform"; // Platform power
+"IA Temperature AVG" = "Temperatura Core media"; // IA Temperature average
+"IA Temperature MIN" = "Temperatura Core min"; // IA Temperature minimum
+"IA Temperature MAX" = "Temperatura Core max"; // IA Temperature maximum
+"Package Temperature" = "Temperatura Package"; // old IPG
+"IA Frequency AVG" = "Frequenza Core media"; // IA Frequency average
+"IA Frequency MIN" = "Frequenza Core min"; // IA Frequency minimum
+"IA Frequency MAX" = "Frequenza Core max"; // IA Frequency maximum
+"IA Frequency REQ" = "Frequenza Core riq"; // IA Frequency requested by OS
+
+"Pkg %d Core %d" = "Pkg %d Core %d"; // Package's Core Frequency or Temperature
+
+"DRAM" = "DRAM";
 "Package Power Limit (TDP)" = "TDP";
 "Max Temperature"  = "Temperatura max";
-"Thresholds"       = "Soglie (Thresholds)";
+"Thresholds"       = "Soglie";
 "Base Frequency"   = "Frequenza base";
 "Max Frequency" = "Frequenza max";
+
+// IGPU
+"Frequency MIN" = "Frequenza min"; // IGPU Frequency minimum
+"Frequency MAX" = "Frequenza max"; // IGPU Frequency maximum
+"Frequency REQ" = "Frequenza riq"; // IGPU Frequency requested by OS
+// End Intel Power Gadget specific
 
 // GPU, when taken from PerformanceStatistics
 "GPUs" = "Grafica";
