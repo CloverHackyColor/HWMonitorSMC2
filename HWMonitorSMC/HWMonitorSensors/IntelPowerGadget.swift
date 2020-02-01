@@ -51,29 +51,50 @@ class IntelPG: NSObject {
   
   override init() {
     super.init()
+    let forceOldMode = FileManager.default.fileExists(atPath: "\(NSHomeDirectory())/Desktop/IPGOLD")
+    let newLib = "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/PowerGadgetLib.h"
+    let oldLib = "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/EnergyLib.h"
     
-    if FileManager.default.fileExists(atPath: "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/PowerGadgetLib.h") {
-      if PG_Initialize() {
-        self.newMode = true
-        self.inited = true
-        self.pmu(on: FileManager.default.fileExists(atPath: "\(NSHomeDirectory())/Desktop/IPGPMU"))
-        PG_GetNumPackages(&self.numPkg)
-        
-        /*
-         Xeon motherboards only accept twin CPUs
-         Xeon doesn't have the IGPU
-         */
-        PG_IsGTAvailable(0, &self.gtAvailable)
-        PG_GetNumCores(0, &self.numCore)
-        PG_IsIAEnergyAvailable(0, &self.IAEAvailable)
-        PG_IsDRAMEnergyAvailable(0, &self.DRAMEAvailable)
-        PG_IsPlatformEnergyAvailable(0, &self.PlatformEAvailable)
+    if forceOldMode {
+      print("WARNING: forcing old Intel Power Gadget headers is enabled.")
+      self.initOLD()
+    } else {
+      if FileManager.default.fileExists(atPath:newLib) {
+        self.initNEW()
+      } else if FileManager.default.fileExists(atPath: oldLib) {
+        self.initOLD()
       }
-    } else if FileManager.default.fileExists(atPath: "/Library/Frameworks/IntelPowerGadget.framework/Versions/A/Headers/EnergyLib.h") {
-      if IntelEnergyLibInitialize() {
-        self.newMode = false
-        self.inited = true
-      }
+    }
+  }
+  
+  private func initNEW() {
+    if PG_Initialize() {
+      self.newMode = true
+      self.inited = true
+      self.pmu(on: FileManager.default.fileExists(atPath: "\(NSHomeDirectory())/Desktop/IPGPMU"))
+      PG_GetNumPackages(&self.numPkg)
+      
+      /*
+       Xeon motherboards only accept twin CPUs
+       Xeon doesn't have the IGPU
+       */
+      PG_IsGTAvailable(0, &self.gtAvailable)
+      PG_GetNumCores(0, &self.numCore)
+      PG_IsIAEnergyAvailable(0, &self.IAEAvailable)
+      PG_IsDRAMEnergyAvailable(0, &self.DRAMEAvailable)
+      PG_IsPlatformEnergyAvailable(0, &self.PlatformEAvailable)
+    }
+  }
+  
+  private func initOLD() {
+    if IntelEnergyLibInitialize() {
+      self.newMode = false
+      self.inited = true
+      
+      // ReadSample reads a set of MSRs, the data can be accessed by calling GetPowerData
+      // Note that GetPowerData requires at least 2 preceding calls to ReadSample, as these metrics require the delta between 2 samples to calculate their values
+      ReadSample()
+      ReadSample()
     }
   }
   
@@ -138,7 +159,7 @@ class IntelPG: NSObject {
         
         
         sensor.actionType = .cpuLog;
-        sensor.stringValue = String(format: "%d", gtFreq)
+        sensor.stringValue = String(format: "%.3f", Double(gtFreq) / 1000)
         sensor.doubleValue = Double(gtFreq)
         sensor.favorite = UDs.bool(forKey: sensor.key)
         sensors.append(sensor)
@@ -148,7 +169,7 @@ class IntelPG: NSObject {
       if GetGpuMaxFrequency(&gtMaxFreq) {
         if gtMaxFreq >= 0 {
           let sensor = HWMonitorSensor(key: "Max Frequency",
-                                       unit: .MHz,
+                                       unit: .GHz,
                                        type: "IPG",
                                        sensorType: .intelGPUFrequency,
                                        title: (AppSd.useIOAcceleratorForGPUs ? "Max Frequency".locale : "IGPU Max Frequency".locale),
@@ -156,7 +177,7 @@ class IntelPG: NSObject {
           
           sensor.isInformativeOnly = true
           sensor.actionType = .cpuLog;
-          sensor.stringValue = String(format: "%d", gtMaxFreq)
+          sensor.stringValue = String(format: "%.3f", Double(gtMaxFreq) / 1000)
           sensor.doubleValue = Double(gtMaxFreq)
           sensor.favorite = UDs.bool(forKey: sensor.key)
           sensors.append(sensor)
@@ -303,7 +324,7 @@ class IntelPG: NSObject {
     GetCpuUtilization(0, &cpuutil)
     
     var sensor = HWMonitorSensor(key: "CPU Frequency",
-                                 unit: .MHz,
+                                 unit: .GHz,
                                  type: "IPG",
                                  sensorType: .intelCPUFrequency,
                                  title: "Frequency".locale,
@@ -311,7 +332,7 @@ class IntelPG: NSObject {
     
     if gShowBadSensors || (cpuFrequency >= 0 && cpuFrequency <= 9000) {
       sensor.actionType = .cpuLog;
-      sensor.stringValue = String(format: "%.f", cpuFrequency)
+      sensor.stringValue = String(format: "%.3f", Double(cpuFrequency) / 1000)
       sensor.doubleValue = cpuFrequency
       sensor.favorite = UDs.bool(forKey: sensor.key)
       sensors.append(sensor)
@@ -319,7 +340,7 @@ class IntelPG: NSObject {
     
     if gShowBadSensors || (baseFrequency >= 0 && baseFrequency <= 9000) {
       sensor = HWMonitorSensor(key: "Base Frequency",
-                               unit: .MHz,
+                               unit: .GHz,
                                type: "IPG",
                                sensorType: .intelCPUFrequency,
                                title: "Base Frequency".locale,
@@ -328,7 +349,7 @@ class IntelPG: NSObject {
       
       sensor.isInformativeOnly = true
       sensor.actionType = .cpuLog;
-      sensor.stringValue = String(format: "%.f", baseFrequency)
+      sensor.stringValue = String(format: "%.3f", Double(baseFrequency) / 1000)
       sensor.doubleValue = baseFrequency
       sensor.favorite = false
       sensors.append(sensor)
@@ -415,8 +436,6 @@ class IntelPG: NSObject {
   // MARK: New header PowerGadgetLib.h
   
   /// get CPU Sensors from Intel Power Gadget (new header PowerGadgetLib.h)
-  
-  
   private func getIntelPowerGadgetCPUSensorsNew() -> (Bool, [HWMonitorSensor], [HWMonitorSensor], [HWMonitorSensor]) {
     var packages : [HWMonitorSensor] = [HWMonitorSensor]()
     var coresFreq : [HWMonitorSensor] = [HWMonitorSensor]()
