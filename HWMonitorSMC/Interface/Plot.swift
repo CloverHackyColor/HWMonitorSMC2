@@ -226,6 +226,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
           case .gpuIO_RamBytes:     conformedVal = 0
           case .mediaSMARTContenitor: conformedVal = 0
             case .amperage:         conformedVal = (value * 100) / 10
+            print(conformedVal)
           }
           
           

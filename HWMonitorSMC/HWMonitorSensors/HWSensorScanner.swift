@@ -769,12 +769,12 @@ class HWSensorsScanner: NSObject {
         let s = HWMonitorSensor(key: SMC_BATT0_VOLT,
                                 unit: .Volt,
                                 type: "BATT",
-                                sensorType: .battery,
+                                sensorType: .voltage,
                                 title: "Voltage".locale,
                                 canPlot: true)
         s.actionType = actionType
         s.stringValue = String(format: "%.3f", Double(voltage) / 1000)
-        s.doubleValue = Double(voltage)
+        s.doubleValue = Double(voltage) / 1000
         s.favorite = UDs.bool(forKey: s.key)
         arr.append(s)
       }
@@ -789,7 +789,7 @@ class HWSensorsScanner: NSObject {
         
         s.actionType = actionType
         s.stringValue = String(format: "%.3f", Double(amperage) / 1000)
-        s.doubleValue = Double(amperage)
+        s.doubleValue = Double(amperage) / 1000
         s.favorite = UDs.bool(forKey: s.key)
         
         arr.append(s)
