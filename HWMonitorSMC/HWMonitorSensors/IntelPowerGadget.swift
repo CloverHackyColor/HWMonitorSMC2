@@ -152,7 +152,7 @@ class IntelPG: NSObject {
       if GetGTFrequency(&gtFreq) {
         let sensor = HWMonitorSensor(key: "IGPU Frequency",
                                      unit: .GHz,
-                                     type: "IPG",
+                                     type: "IPG IGPU",
                                      sensorType: .intelGPUFrequency,
                                      title: (AppSd.useIOAcceleratorForGPUs ? "Frequency".locale : "IGPU Frequency".locale),
                                      canPlot: AppSd.sensorsInited ? false : true)
@@ -170,7 +170,7 @@ class IntelPG: NSObject {
         if gtMaxFreq >= 0 {
           let sensor = HWMonitorSensor(key: "Max Frequency",
                                        unit: .GHz,
-                                       type: "IPG",
+                                       type: "IPG IGPU",
                                        sensorType: .intelGPUFrequency,
                                        title: (AppSd.useIOAcceleratorForGPUs ? "Max Frequency".locale : "IGPU Max Frequency".locale),
                                        canPlot: AppSd.sensorsInited ? false : true)
@@ -207,7 +207,7 @@ class IntelPG: NSObject {
               name = "Package IGPU"
               let sensor = HWMonitorSensor(key: name,
                                            unit: .Watt,
-                                           type: "IPG",
+                                           type: "IPG IGPU",
                                            sensorType: .igpuPowerWatt,
                                            title: name.locale,
                                            canPlot: AppSd.sensorsInited ? false : true)
@@ -281,7 +281,7 @@ class IntelPG: NSObject {
         if name != "GT" && (gShowBadSensors || (power >= 0 && power <= 1000)) {
           let sensor = HWMonitorSensor(key: name,
                                        unit: .Watt,
-                                       type: "IPG",
+                                       type: "IPG CPU",
                                        sensorType: .intelWatt,
                                        title: name.locale,
                                        canPlot: AppSd.sensorsInited ? false : true)
@@ -325,7 +325,7 @@ class IntelPG: NSObject {
     
     var sensor = HWMonitorSensor(key: "CPU Frequency",
                                  unit: .GHz,
-                                 type: "IPG",
+                                 type: "IPG CPU",
                                  sensorType: .intelCPUFrequency,
                                  title: "Frequency".locale,
                                  canPlot: AppSd.sensorsInited ? false : true)
@@ -341,7 +341,7 @@ class IntelPG: NSObject {
     if gShowBadSensors || (baseFrequency >= 0 && baseFrequency <= 9000) {
       sensor = HWMonitorSensor(key: "Base Frequency",
                                unit: .GHz,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelCPUFrequency,
                                title: "Base Frequency".locale,
                                canPlot: false)
@@ -358,7 +358,7 @@ class IntelPG: NSObject {
     
     sensor = HWMonitorSensor(key: "CPU Utilization",
                              unit: .Percent,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .percent,
                              title: "Utilization".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
@@ -373,7 +373,7 @@ class IntelPG: NSObject {
     if gShowBadSensors || (packageTemp > -15 && packageTemp <= 125) {
       sensor = HWMonitorSensor(key: "Package Temp",
                                unit: .C,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelTemp,
                                title: "Package Temperature".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -388,7 +388,7 @@ class IntelPG: NSObject {
     
     sensor = HWMonitorSensor(key: "Max Temperature",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "Max Temperature".locale,
                              canPlot: false)
@@ -402,7 +402,7 @@ class IntelPG: NSObject {
     
     sensor = HWMonitorSensor(key: "Thresholds",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "Thresholds".locale,
                              canPlot: false)
@@ -417,7 +417,7 @@ class IntelPG: NSObject {
     if gShowBadSensors || packagePowerLimit >= 0 {
       sensor = HWMonitorSensor(key: "Package Power Limit (TDP)",
                                unit: .Watt,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelWatt,
                                title: "Package Power Limit (TDP)".locale,
                                canPlot: false)
@@ -466,7 +466,7 @@ class IntelPG: NSObject {
     
     var sensor = HWMonitorSensor(key: "Base Frequency",
                                  unit: .GHz,
-                                 type: "IPG",
+                                 type: "IPG CPU",
                                  sensorType: .intelCPUFrequency,
                                  title: "Base Frequency".locale,
                                  canPlot: false)
@@ -482,7 +482,7 @@ class IntelPG: NSObject {
     PG_GetIAMaxFrequency(0, &freq)
     sensor = HWMonitorSensor(key: "Max Frequency",
                              unit: .GHz,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelCPUFrequency,
                              title: "Max Frequency".locale,
                              canPlot: false)
@@ -499,7 +499,7 @@ class IntelPG: NSObject {
     PG_GetMaxTemperature(0, &degreesC)
     sensor = HWMonitorSensor(key: "Max Temperature",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "Max Temperature".locale,
                              canPlot: false)
@@ -515,7 +515,7 @@ class IntelPG: NSObject {
     PG_GetTDP(0, &tdp)
     sensor = HWMonitorSensor(key: "Package Power Limit (TDP)",
                              unit: .Watt,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelWatt,
                              title: "Package Power Limit (TDP)".locale,
                              canPlot: false)
@@ -532,7 +532,7 @@ class IntelPG: NSObject {
     if res || !AppSd.sensorsInited {
       sensor = HWMonitorSensor(key: "CPU Utilization",
                                unit: .Percent,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .percent,
                                title: "Utilization".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -550,7 +550,7 @@ class IntelPG: NSObject {
     if res || !AppSd.sensorsInited {
       sensor = HWMonitorSensor(key: "Package Total",
                                unit: .Watt,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelWatt,
                                title: "Package Total".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -569,7 +569,7 @@ class IntelPG: NSObject {
     if res || !AppSd.sensorsInited {
       sensor = HWMonitorSensor(key: "Package Core",
                                unit: .Watt,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelWatt,
                                title: "Package Core".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -585,7 +585,7 @@ class IntelPG: NSObject {
     PGSample_GetPackageTemperature(self.sampleID2, &temp)
     sensor = HWMonitorSensor(key: "Package Temp",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "Package Temperature".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
@@ -600,7 +600,7 @@ class IntelPG: NSObject {
     PGSample_GetIATemperature(self.sampleID2, &mean, &min, &max)
     sensor = HWMonitorSensor(key: "IA Temperature AVG",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "IA Temperature AVG".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
@@ -614,7 +614,7 @@ class IntelPG: NSObject {
     
     sensor = HWMonitorSensor(key: "IA Temperature MIN",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "IA Temperature MIN".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
@@ -628,7 +628,7 @@ class IntelPG: NSObject {
     
     sensor = HWMonitorSensor(key: "IA Temperature MAX",
                              unit: .C,
-                             type: "IPG",
+                             type: "IPG CPU",
                              sensorType: .intelTemp,
                              title: "IA Temperature MAX".locale,
                              canPlot: AppSd.sensorsInited ? false : true)
@@ -645,7 +645,7 @@ class IntelPG: NSObject {
       if res || !AppSd.sensorsInited {
         sensor = HWMonitorSensor(key: "DRAM",
                                  unit: .Watt,
-                                 type: "IPG",
+                                 type: "IPG CPU",
                                  sensorType: .intelWatt,
                                  title: "DRAM".locale,
                                  canPlot: false)
@@ -664,7 +664,7 @@ class IntelPG: NSObject {
       if res || !AppSd.sensorsInited {
         sensor = HWMonitorSensor(key: "Platform",
                                  unit: .Watt,
-                                 type: "IPG",
+                                 type: "IPG CPU",
                                  sensorType: .intelWatt,
                                  title: "Platform".locale,
                                  canPlot: false)
@@ -682,7 +682,7 @@ class IntelPG: NSObject {
     if res || !AppSd.sensorsInited {
       sensor = HWMonitorSensor(key: "IA Frequency AVG",
                                unit: .GHz,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelCPUFrequency,
                                title: "IA Frequency AVG".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -695,7 +695,7 @@ class IntelPG: NSObject {
       
       sensor = HWMonitorSensor(key: "IA Frequency MIN",
                                unit: .GHz,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelCPUFrequency,
                                title: "IA Frequency MIN".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -709,7 +709,7 @@ class IntelPG: NSObject {
       
       sensor = HWMonitorSensor(key: "IA Frequency MAX",
                                unit: .GHz,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelCPUFrequency,
                                title: "IA Frequency MAX".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -726,7 +726,7 @@ class IntelPG: NSObject {
     if res || !AppSd.sensorsInited {
       sensor = HWMonitorSensor(key: "IA Frequency REQ",
                                unit: .GHz,
-                               type: "IPG",
+                               type: "IPG CPU",
                                sensorType: .intelCPUFrequency,
                                title: "IA Frequency REQ".locale,
                                canPlot: AppSd.sensorsInited ? false : true)
@@ -744,7 +744,7 @@ class IntelPG: NSObject {
         PGSample_GetIACoreTemperature(self.sampleID2, ci, &mean, &min, &max)
         sensor = HWMonitorSensor(key: isSingle ? "IA \(ci) Temp" : "Pkg %d IA %d Temp",
                                  unit: .C,
-                                 type: "IPG",
+                                 type: "IPG CPU",
                                  sensorType: .intelTemp,
                                  title: isSingle ? String(format: "Core %d".locale, ci) : String(format: "Pkg %d Core %d".locale, pi, ci),
                                  canPlot: AppSd.sensorsInited ? false : true)
@@ -759,7 +759,7 @@ class IntelPG: NSObject {
         if res || !AppSd.sensorsInited {
           sensor = HWMonitorSensor(key: isSingle ? "IA \(ci) Freq max" : "Pkg %d IA %d Freq max",
                                    unit: .GHz,
-                                   type: "IPG",
+                                   type: "IPG CPU",
                                    sensorType: .intelCPUFrequency,
                                    title: isSingle ? String(format: "Core %d".locale, ci) : String(format: "Pkg %d Core %d".locale, pi, ci),
                                    canPlot: AppSd.sensorsInited ? false : true)
@@ -807,7 +807,7 @@ class IntelPG: NSObject {
       if res || !AppSd.sensorsInited {
         let sensor = HWMonitorSensor(key: "GT Frequency",
                                      unit: .GHz,
-                                     type: "IPG",
+                                     type: "IPG IGPU",
                                      sensorType: .intelGPUFrequency,
                                      title: (AppSd.useIOAcceleratorForGPUs ? "Frequency".locale : "IGPU Frequency".locale),
                                      canPlot: AppSd.sensorsInited ? false : true)
@@ -824,7 +824,7 @@ class IntelPG: NSObject {
       if res || !AppSd.sensorsInited {
         let sensor = HWMonitorSensor(key: "GT Frequency REQ",
                                      unit: .GHz,
-                                     type: "IPG",
+                                     type: "IPG IGPU",
                                      sensorType: .intelGPUFrequency,
                                      title: "Frequency REQ".locale,
                                      canPlot: AppSd.sensorsInited ? false : true)
@@ -842,7 +842,7 @@ class IntelPG: NSObject {
       if res || !AppSd.sensorsInited {
         let sensor = HWMonitorSensor(key: "GT Frequency MAX",
                                      unit: .GHz,
-                                     type: "IPG",
+                                     type: "IPG IGPU",
                                      sensorType: .intelGPUFrequency,
                                      title: "Frequency MAX".locale,
                                      canPlot: AppSd.sensorsInited ? false : true)

@@ -118,6 +118,7 @@ class HWMonitorSensor: NSObject {
   let canPlot: Bool
   var hasPlot: Bool = false
   var plot : PlotView? = nil
+  var dethachableSensor : HWSView? = nil
   
   var stringValue: String {
     get {
@@ -132,6 +133,10 @@ class HWMonitorSensor: NSObject {
           self.plot = nil
         }
       }
+      if (self.dethachableSensor != nil) {
+        self.dethachableSensor!.update()
+      }
+      
       self.str = newValue
     }
   }

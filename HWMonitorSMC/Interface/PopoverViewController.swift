@@ -71,6 +71,8 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
   var voltagesSMCSuperIO        : Bool = false
   var superIOConfig             : [String : Any]? = nil
   
+  var dragSensorKey : String? = nil
+  
   func usbDeviceAdded(_ device: io_object_t) {
     if (self.usbNode != nil) {
       if let info : NSDictionary = device.info() {
@@ -199,6 +201,9 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
       self.gadgetWC = GadgetWC.loadFromNib()
       self.gadgetWC?.showWindow(self)
     }
+    
+    self.outline.registerForDraggedTypes([.init("Sensor")])
+    self.outline.setDraggingSourceOperationMask(NSDragOperation.delete, forLocal: false)
   }
   
   override func awakeFromNib() {
@@ -983,6 +988,40 @@ extension PopoverViewController: NSOutlineViewDataSource {
     view?.appearance = getAppearance()
     view?.backgroundStyle = .emphasized
     return view
+  }
+  
+  func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+    self.dragSensorKey = nil
+    if let sensor = (item as? HWTreeNode)?.sensorData?.sensor {
+      self.dragSensorKey = sensor.key
+      return self.dragSensorKey as NSPasteboardWriting?
+    }
+
+    return nil
+  }
+  
+  func outlineView(_ outlineView: NSOutlineView,
+                   draggingSession session: NSDraggingSession,
+                   endedAt screenPoint: NSPoint,
+                   operation: NSDragOperation) {
+    if let key = self.dragSensorKey {
+      for n in sensorList! {
+        if let s = (n as! HWTreeNode).sensorData?.sensor {
+          if s.key == key {
+            if s.dethachableSensor != nil {
+              NSSound.beep()
+              break
+            }
+            let hw : HWSWC = HWSWC(sensor: s)
+            s.dethachableSensor = hw.contentViewController?.view as? HWSView
+            s.dethachableSensor!.window!.setFrameOrigin(screenPoint)
+            hw.showWindow(nil)
+            break
+          }
+        }
+      }
+    }
+    self.dragSensorKey = nil
   }
   
   func getImageFor(node: HWTreeNode) -> NSImage? {

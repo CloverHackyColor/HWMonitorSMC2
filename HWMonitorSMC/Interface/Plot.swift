@@ -36,7 +36,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
   private var appearanceObserver: NSKeyValueObservation?
   
   convenience init(frame frameRect: NSRect, sensor: HWMonitorSensor) {
-    self.init(frame:frameRect);
+    self.init(frame:frameRect)
     self.sensor = sensor
     self.wantsLayer = true
     self.configure()
