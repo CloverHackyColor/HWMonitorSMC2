@@ -105,7 +105,7 @@ class HWSView: NSView {
     } else {
       self.nf?.stringValue = self.sensor!.title
     }
-    
+
     var imageName = "temperature_small"
     switch self.sensor!.sensorType {
     case .battery:
@@ -119,13 +119,13 @@ class HWSView: NSView {
     case .intelCPUFrequency:
       imageName = "cpu_freq_small"
     case .intelGPUFrequency:
-      imageName = "GPU"
+      imageName = "GPU_freq"
     case .intelmWh:
       imageName = "CPU"
     case .intelJoule:
       imageName = "CPU"
     case .intelWatt:
-      if self.sensor?.type == "IPG GPU" {
+      if self.sensor?.type == "IPG IGPU" {
         imageName = "GPU"
       } else {
         imageName = "CPU"
@@ -143,9 +143,9 @@ class HWSView: NSView {
     case .tachometer:
       imageName = "fan_small"
     case .frequencyCPU:
-      imageName = "CPU"
+      imageName = "cpu_freq_small"
     case .frequencyGPU:
-      imageName = "GPU"
+      imageName = "GPU_freq"
     case .frequencyOther:
       imageName = "freq_small"
     case .multiplier:
@@ -159,13 +159,13 @@ class HWSView: NSView {
     case .genericBattery:
       imageName = "modern-battery-icon"
     case .gpuIO_coreClock:
-      imageName = "GPU"
+      imageName = "GPU_freq"
     case .gpuIO_memoryClock:
-      imageName = "GPU"
+      imageName = "GPU_freq"
     case .gpuIO_temp:
-      imageName = "GPU"
+      imageName = "GPU_temp"
     case .gpuIO_FanRPM:
-      imageName = "fan_small"
+      imageName = "GPU_fan"
     case .gpuIO_percent:
       imageName = "GPU"
     case .gpuIO_RamBytes:
@@ -177,7 +177,6 @@ class HWSView: NSView {
     case .usb:
       break
     }
-    
     
     self.iv?.image = NSImage(named: imageName)
     self.iv?.image?.isTemplate = true

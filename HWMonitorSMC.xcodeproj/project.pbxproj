@@ -34,6 +34,9 @@
 		953A4EED2048C5CE003DC900 /* ram_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 953A4EEC2048C5CE003DC900 /* ram_small.png */; };
 		9543AD8F2097AF44009B752B /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9543AD8E2097AF44009B752B /* Graphics.swift */; };
 		9543BB1223E60EE50026B18A /* DetachableSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9543BB1123E60EE50026B18A /* DetachableSensor.swift */; };
+		954410F523E6CCAC009D929C /* GPU_freq.png in Resources */ = {isa = PBXBuildFile; fileRef = 954410F223E6CCAC009D929C /* GPU_freq.png */; };
+		954410F623E6CCAC009D929C /* GPU_temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 954410F323E6CCAC009D929C /* GPU_temp.png */; };
+		954410F723E6CCAC009D929C /* GPU_fan.png in Resources */ = {isa = PBXBuildFile; fileRef = 954410F423E6CCAC009D929C /* GPU_fan.png */; };
 		9544DC47208E395B0023C332 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9544DC49208E395B0023C332 /* Info.storyboard */; };
 		9546572B20908A3C0020BA34 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546572A20908A3C0020BA34 /* Display.swift */; };
 		9546572D2091132A0020BA34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546572C2091132A0020BA34 /* Extensions.swift */; };
@@ -269,6 +272,9 @@
 		953B6D5C23A512B800C19311 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9543AD8E2097AF44009B752B /* Graphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graphics.swift; sourceTree = "<group>"; };
 		9543BB1123E60EE50026B18A /* DetachableSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetachableSensor.swift; sourceTree = "<group>"; };
+		954410F223E6CCAC009D929C /* GPU_freq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPU_freq.png; sourceTree = "<group>"; };
+		954410F323E6CCAC009D929C /* GPU_temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPU_temp.png; sourceTree = "<group>"; };
+		954410F423E6CCAC009D929C /* GPU_fan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPU_fan.png; sourceTree = "<group>"; };
 		9544DC48208E395B0023C332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Info.storyboard; sourceTree = "<group>"; };
 		9544DC4B208E39620023C332 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Info.strings; sourceTree = "<group>"; };
 		9544DC4D208E39640023C332 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Info.strings; sourceTree = "<group>"; };
@@ -558,6 +564,9 @@
 		958E797D204194500007957E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				954410F423E6CCAC009D929C /* GPU_fan.png */,
+				954410F223E6CCAC009D929C /* GPU_freq.png */,
+				954410F323E6CCAC009D929C /* GPU_temp.png */,
 				957EC08C21887C4600F0A457 /* gadget.png */,
 				95B0297A23D498DC0075CF73 /* downArrow.png */,
 				95B0297923D498DC0075CF73 /* rightArrow.png */,
@@ -742,7 +751,9 @@
 				9598FC75204AFC9C00A6DA72 /* cpu_temp_small.png in Resources */,
 				95EC3B5621AACFB400EC70AE /* DarkAppearance.png in Resources */,
 				95CE19D3204356DF00E73446 /* Main.storyboard in Resources */,
+				954410F723E6CCAC009D929C /* GPU_fan.png in Resources */,
 				95F300F0216E7AA2006F6E87 /* Light.png in Resources */,
+				954410F623E6CCAC009D929C /* GPU_temp.png in Resources */,
 				957EC08D21887C4600F0A457 /* gadget.png in Resources */,
 				958E79B42042EED10007957E /* voltage_small.png in Resources */,
 				953A4EED2048C5CE003DC900 /* ram_small.png in Resources */,
@@ -750,6 +761,7 @@
 				95CE19DF20435CD200E73446 /* Preferences.storyboard in Resources */,
 				952275D92184C5F800E12C3A /* freq_small_on.png in Resources */,
 				95CE19DA2043585A00E73446 /* Localizable.strings in Resources */,
+				954410F523E6CCAC009D929C /* GPU_freq.png in Resources */,
 				958E79B32042EED10007957E /* fan_small.png in Resources */,
 				957EC0872188728C00F0A457 /* Gadget.storyboard in Resources */,
 				95EC3B5521AACFB400EC70AE /* LightAppearance.png in Resources */,
