@@ -771,7 +771,7 @@ class HWSensorsScanner: NSObject {
                                 type: "BATT",
                                 sensorType: .battery,
                                 title: "Voltage".locale,
-                                canPlot: false)
+                                canPlot: true)
         s.actionType = actionType
         s.stringValue = String(format: "%.3f", Double(voltage) / 1000)
         s.doubleValue = Double(voltage)
@@ -785,7 +785,7 @@ class HWSensorsScanner: NSObject {
                                 type: "BATT",
                                 sensorType: .amperage,
                                 title: "Amperage".locale,
-                                canPlot: false)
+                                canPlot: true)
         
         s.actionType = actionType
         s.stringValue = String(format: "%.3f", Double(amperage) / 1000)
