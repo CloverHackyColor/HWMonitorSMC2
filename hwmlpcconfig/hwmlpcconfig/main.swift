@@ -9,7 +9,7 @@
 import Foundation
 import IOKit
 
-let version = 1.1
+let version = 1.2
 let fm = FileManager.default
 
 extension io_object_t {
@@ -87,11 +87,14 @@ let board = getOEMBoard()
 let chipName = (getSuperIO(property: "ChipName") as? String) ?? NA
 let sensors = getSuperIO(property: "Sensors") as? [String : Any]
 
-print("hwmlcpconfig v\(version) by vector sigma, 2020")
-print("Super IO Chip = \(chipName)")
-print("OEM Vendor = \(vendor ?? NA)")
-print("OEM Board = \(board ?? NA)")
-print("")
+func printHeader() {
+  print("hwmlcpconfig v\(version) by vector sigma, 2020")
+  print("Super IO Chip = \(chipName)")
+  print("OEM Vendor = \(vendor ?? NA)")
+  print("OEM Board = \(board ?? NA)")
+  print("")
+}
+
 
 func generate() {
   if (sensors != nil) {
@@ -183,7 +186,7 @@ func clean(path: String) {
       }
       
       for k in dict.keys {
-        print("Processing \(k) Sensor..")
+        print("Processing \(file)/\(k) Sensor..")
         if var sensor = dict[k] as? [String : Any] {
           // name
           if let name = sensor["name"] {
@@ -283,9 +286,59 @@ func clean(path: String) {
   }
 }
 
+func run(cmd: String, curDir: String) {
+  let task = Process()
+  if #available(OSX 10.13, *) {
+    task.executableURL = URL(fileURLWithPath: "/bin/bash")
+  } else {
+    task.launchPath = "/bin/bash"
+  }
+  task.environment = ProcessInfo.init().environment
+  task.currentDirectoryPath = curDir
+  task.arguments = ["-c", cmd]
+  task.terminationHandler = { t in
+    if t.terminationStatus > 0 {
+      exit(1)
+    }
+  }
+  task.launch()
+  task.waitUntilExit()
+}
+
+func releaseBuild() {
+  var hwm2Ver = "Unknown"
+  let myPath = (CommandLine.arguments[0] as NSString).deletingLastPathComponent
+  let appPath = "\(myPath)/HWMonitorSMC2.app"
+  let hwmconfPath = "\(myPath)/hwmlpcconfig"
+  
+  if !fm.fileExists(atPath: appPath) {
+    print("Error: HWMonitorSMC2.app not found.")
+    exit(1)
+  }
+  
+  if !fm.fileExists(atPath: hwmconfPath) {
+    print("Error: hwmlpcconfig not found.")
+    exit(1)
+  }
+  
+  if let ver = NSDictionary(contentsOfFile:
+    "\(appPath)/Contents/Info.plist")?.object(forKey: "CFBundleShortVersionString") as? String {
+    hwm2Ver = ver
+  }
+  
+  run(cmd: "zip -q -r HWMonitorSMC2.app_v\(hwm2Ver).zip HWMonitorSMC2.app", curDir: myPath)
+  run(cmd: "zip -q hwmlpcconfig_v\(version).zip hwmlpcconfig", curDir: myPath)
+}
+
 if CommandLine.arguments.count == 2 {
-  clean(path: CommandLine.arguments[1])
+  if CommandLine.arguments[1] == "--release" {
+    releaseBuild()
+  } else {
+    printHeader()
+    clean(path: CommandLine.arguments[1])
+  }
 } else {
+  printHeader()
   generate()
 }
 

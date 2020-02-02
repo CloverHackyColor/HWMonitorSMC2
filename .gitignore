@@ -1,18 +1,22 @@
 
 .DS_Store
-HWMonitorSMC.xcodeproj/xcuserdata
-HWMonitorSMC.xcodeproj/xcshareddata
-HWMonitorSMC.xcodeproj/project.xcworkspace/xcshareddata
-HWMonitorSMC.xcodeproj/project.xcworkspace/xcuserdata
-HWMonitorSMC.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj/xcuserdata
-HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj/xcshareddata
-HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj/project.xcworkspace/xcshareddata
-HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj/project.xcworkspace/xcuserdata
-HWMonitorSMC2 Helper/HWMonitorSMC2 Helper.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-smcwrite/smcwrite.xcodeproj/xcuserdata
-smcwrite/smcwrite.xcodeproj/xcshareddata
-smcwrite/smcwrite.xcodeproj/project.xcworkspace/xcshareddata
-smcwrite/smcwrite.xcodeproj/project.xcworkspace/xcuserdata
-smcwrite/smcwrite.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-*.xcuserstate
+build
+.DS_Store
+*/build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+*.hmap
+*.xccheckout
+*.xcworkspace
+!default.xcworkspace
