@@ -156,6 +156,7 @@ class HWSView: NSView {
       imageName = "hd_small"
     case .mediaSMARTContenitor:
       imageName = "hd_small"
+    case .amperage: fallthrough
     case .genericBattery:
       imageName = "modern-battery-icon"
     case .gpuIO_coreClock:
