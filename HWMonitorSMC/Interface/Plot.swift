@@ -189,10 +189,9 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
           case .hdSmartTemp:        fallthrough
           case .hdSmartLife:        conformedVal = value
             
-          case .frequencyOther:     conformedVal = 0
+          case .frequencyOther:     conformedVal = 0 // not used ATM
           case .frequencyCPU:       fallthrough
           case .intelCPUFrequency:
-            // TB (Tutbo boost) is the Max (100 : TB = x : value). But how get it?? ... from the user!
             conformedVal = (value * 100) / AppSd.cpuFrequencyMax
           case .frequencyGPU:       fallthrough // 1500 MHz max?? (100 : 1500 = x : value)
           case .gpuIO_memoryClock:  fallthrough
@@ -207,7 +206,8 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
              We need the TDP and no problem using Intel Power Gadget,
              but what to do if we don't have the it? let the user set this value!
              */
-            self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 0.0), length: NSNumber(value: 35.0 ))
+            self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 0.0),
+                                                  length: NSNumber(value: 35.0 ))
             
           case .voltage:            conformedVal = (value * 100) / 20
             
