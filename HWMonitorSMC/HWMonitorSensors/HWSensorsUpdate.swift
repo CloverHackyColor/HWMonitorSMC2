@@ -324,7 +324,7 @@ extension PopoverViewController {
     var components : [String] = [String]()
     AppSd.statusItem.button?.attributedTitle = NSAttributedString(string: "")
     
-    let useGadget : Bool = (self.gadgetWC != nil)
+    let useGadget : Bool = (AppSd.gadgetWC != nil)
     for i in copy {
       let node = i as! HWTreeNode
       if let sensor = node.sensorData?.sensor {
@@ -356,7 +356,7 @@ extension PopoverViewController {
     if useGadget {
       AppSd.statusItem.button?.title = ""
       AppSd.statusItem.length = 23
-      (self.gadgetWC?.contentViewController as! GadgetVC).statusField.animator().stringValue = statusString
+      (AppSd.gadgetWC?.contentViewController as! GadgetVC).statusField.animator().stringValue = statusString
     } else {
       if (AppSd.topBarFont != nil) {
         let title = NSMutableAttributedString(string: statusString,

@@ -40,6 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var cpuTDP : Double = 100 // to be set by Intel Power Gadget or by the user
   
   var licenseWC : LicenseWC?
+  var gadgetWC : GadgetWC?
   
   func applicationWillFinishLaunching(_ notification: Notification) {
     self.statusItemLenBackup = self.statusItem.length

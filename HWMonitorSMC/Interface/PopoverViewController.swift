@@ -19,7 +19,6 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
   @IBOutlet var effectView      : NSVisualEffectView!
   
   var preferenceWC              : PreferencesWC?
-  var gadgetWC                  : GadgetWC?
   
   var lastSpartUpdate           : Date?
   
@@ -198,8 +197,8 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
     self.initialize()
     
     if UDs.bool(forKey: kShowGadget) {
-      self.gadgetWC = GadgetWC.loadFromNib()
-      self.gadgetWC?.showWindow(self)
+      AppSd.gadgetWC = GadgetWC.loadFromNib()
+      AppSd.gadgetWC?.showWindow(self)
     }
     
     self.outline.registerForDraggedTypes([.init("Sensor")])
@@ -303,12 +302,12 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
   
   @IBAction func showGadget(sender : NSButton?) {
     AppSd.statusItemLen = 0
-    if (self.gadgetWC == nil) {
-      self.gadgetWC = GadgetWC.loadFromNib()
-      self.gadgetWC?.showWindow(self)
+    if (AppSd.gadgetWC == nil) {
+      AppSd.gadgetWC = GadgetWC.loadFromNib()
+      AppSd.gadgetWC?.showWindow(self)
     } else {
-      self.gadgetWC?.window?.close()
-      self.gadgetWC = nil
+      AppSd.gadgetWC?.window?.close()
+      AppSd.gadgetWC = nil
       UDs.set(false, forKey: kShowGadget)
     }
   }

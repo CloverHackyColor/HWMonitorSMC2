@@ -8,6 +8,21 @@
 
 import Cocoa
 
+class GadgetView: NSView {
+  override func menu(for event: NSEvent) -> NSMenu? {
+    let menu = NSMenu(title: "GadgetView")
+    menu.addItem(withTitle: "❌", action: #selector(self.exit), keyEquivalent: "")
+    return menu
+  }
+  
+  @objc func exit() {
+    AppSd.statusItemLen = 0
+    AppSd.gadgetWC?.window?.close()
+    AppSd.gadgetWC = nil
+    UDs.set(false, forKey: kShowGadget)
+  }
+}
+
 class GadgetVC: NSViewController {
   @IBOutlet var statusField : GadgetField!
   
@@ -56,3 +71,4 @@ class GadgetField: NSTextField {
     return NSMakeSize(-1, h)
   }
 }
+
