@@ -130,6 +130,7 @@
 "J"   = "J";   // Joule
 "V"   = "V";   // Volt
 "mV"  = "mV";  // milli Volt
+"A"  = "A";  // Ampere
 "mA"  = "mA";  // milli Ampere
 "rpm" = "rpm"; // revolutions per minute
 

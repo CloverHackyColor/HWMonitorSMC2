@@ -34,6 +34,7 @@ enum HWUnit : String {
   case Joule    = "J"
   case Volt     = "V"
   case mV       = "mV"
+  case A        = "A"
   case mA       = "mA"
   case RPM      = "rpm"
   case Percent  = "%"
@@ -71,20 +72,21 @@ enum HWSensorType : Int {
   // Battery (actually taken from the driver only)
   case battery              = 19
   case genericBattery       = 20
+  case amperage             = 21
 
-  case gpuIO_coreClock      = 21
-  case gpuIO_memoryClock    = 22
-  case gpuIO_temp           = 23
-  case gpuIO_FanRPM         = 24
-  case gpuIO_percent        = 25
-  case gpuIO_RamBytes       = 26
-  case gpuIO_Watts          = 27
+  case gpuIO_coreClock      = 22
+  case gpuIO_memoryClock    = 23
+  case gpuIO_temp           = 24
+  case gpuIO_FanRPM         = 25
+  case gpuIO_percent        = 26
+  case gpuIO_RamBytes       = 27
+  case gpuIO_Watts          = 28
   
   
   // RAM. Taken from the System
-  case memory               = 28
+  case memory               = 29
   // usb, taken from the driver. used only in logs
-  case usb                  = 29
+  case usb                  = 30
 }
 
 //MARK: - log type

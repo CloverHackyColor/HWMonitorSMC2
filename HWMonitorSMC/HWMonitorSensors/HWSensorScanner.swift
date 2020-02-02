@@ -767,13 +767,13 @@ class HWSensorsScanner: NSObject {
       
       if gShowBadSensors || (voltage > -1 && voltage <= (maxmV + tolerance + chargeDiffmV)) {
         let s = HWMonitorSensor(key: SMC_BATT0_VOLT,
-                                unit: HWUnit.mV,
+                                unit: .Volt,
                                 type: "BATT",
                                 sensorType: .battery,
                                 title: "Voltage".locale,
                                 canPlot: false)
         s.actionType = actionType
-        s.stringValue = String(format: "%d", voltage)
+        s.stringValue = String(format: "%.3f", Double(voltage) / 1000)
         s.doubleValue = Double(voltage)
         s.favorite = UDs.bool(forKey: s.key)
         arr.append(s)
@@ -781,14 +781,14 @@ class HWSensorsScanner: NSObject {
       
       if gShowBadSensors || (amperage > -1 && amperage <= 25000 /* a very high capacity battery Lol */) {
         let s = HWMonitorSensor(key: SMC_BATT0_AMP,
-                                unit: HWUnit.mA,
+                                unit: .A,
                                 type: "BATT",
-                                sensorType: .battery,
+                                sensorType: .amperage,
                                 title: "Amperage".locale,
                                 canPlot: false)
         
         s.actionType = actionType
-        s.stringValue = String(format: "%d", amperage)
+        s.stringValue = String(format: "%.3f", Double(amperage) / 1000)
         s.doubleValue = Double(amperage)
         s.favorite = UDs.bool(forKey: s.key)
         

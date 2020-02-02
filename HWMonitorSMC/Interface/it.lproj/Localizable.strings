@@ -132,6 +132,7 @@
 "V"   = "V";   // Volt
 "mV"  = "mV";  // milli Volt
 "mA"  = "mA";  // milli Ampere
+"A"  = "A";  // Ampere
 "rpm" = "rpm"; // revolutions per minute
 
 "log copied to clip board!" = "log copiato negli appunti!";
