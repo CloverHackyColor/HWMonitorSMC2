@@ -174,7 +174,12 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
           self.currentIndex += 1
           
           //self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 0.0), length: NSNumber(value: 100.0 ))
+          
           var conformedVal : Double = value
+          if conformedVal < 0 {
+            // convert negative values to pisitive
+            conformedVal = -conformedVal
+          }
           switch self.sensor!.sensorType {
           case .percent:            fallthrough
           case .gpuIO_percent:      fallthrough
