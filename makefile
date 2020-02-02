@@ -12,6 +12,7 @@ HWMonitorSMC2:
 	@rm -rf build/*.dSYM
 	@rm -rf build/*.zip
 	@rm -rf build/HWMonitorSMC2\ Helper*
+	@rm -f .DS_Store
 	@build/hwmlpcconfig --release
 	@open build
 
