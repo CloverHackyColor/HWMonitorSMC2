@@ -204,7 +204,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
              */
             self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 0.0), length: NSNumber(value: 35.0 ))
             
-          case .voltage:            conformedVal = 0
+          case .voltage:            conformedVal = (value * 100) / 20
             
           case .multiplier:         conformedVal = 0
           case .battery:            conformedVal = 0
