@@ -19,7 +19,7 @@ class HWSWC: NSWindowController {
     self.window?.isMovable = true
     self.window?.isMovableByWindowBackground = true
     self.window?.level = .statusBar
-    self.window?.collectionBehavior = .canJoinAllSpaces
+    //self.window?.collectionBehavior = .canJoinAllSpaces
     self.window?.contentMaxSize = NSSize(width: 382, height: 32)
     self.window?.backgroundColor = NSColor.clear
 
@@ -194,7 +194,7 @@ class HWSView: NSView {
   
   override func menu(for event: NSEvent) -> NSMenu? {
     let menu = NSMenu(title: "HWSView")
-    menu.addItem(withTitle: "Close", action: #selector(self.exit), keyEquivalent: "")
+    menu.addItem(withTitle: "❌", action: #selector(self.exit), keyEquivalent: "")
     return menu
   }
   
