@@ -1133,7 +1133,7 @@
 				MARKETING_VERSION = 2.6.0;
 				MODULE_VERSION = 2.5.2;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = org.slice.HWMonitorSMC2;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cloverhackycolor.HWMonitorSMC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "HWMonitorSMC/C/HWMonitorSMC-Bridging-Header.h";
@@ -1164,7 +1164,7 @@
 				MARKETING_VERSION = 2.6.0;
 				MODULE_VERSION = 2.5.2;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = org.slice.HWMonitorSMC2;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cloverhackycolor.HWMonitorSMC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "HWMonitorSMC/C/HWMonitorSMC-Bridging-Header.h";
