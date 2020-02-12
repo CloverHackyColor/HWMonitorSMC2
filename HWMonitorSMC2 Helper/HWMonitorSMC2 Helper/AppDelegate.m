@@ -15,7 +15,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-  NSString *appID = @"org.slice.HWMonitorSMC2";
+  NSString *appID = @"org.cloverhackycolor.HWMonitorSMC2";
   BOOL running = NO;
   NSString *appPath = [self HWMonitorSMC2Path];
   
@@ -61,7 +61,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-  let appID : String = "org.slice.HWMonitorSMC2"
+  let appID : String = "org.cloverhackycolor.HWMonitorSMC2"
   
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     var running : Bool = false
