@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.64"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,14 +35,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="550" height="340"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView appearanceType="aqua" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="uVu-6f-3Ar">
+                            <scrollView appearanceType="aqua" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVu-6f-3Ar">
                                 <rect key="frame" x="20" y="55" width="510" height="265"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="9MY-jD-mVa">
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="9MY-jD-mVa">
                                     <rect key="frame" x="0.0" y="0.0" width="495" height="265"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="Hir-KY-AqI">
+                                        <textView ambiguous="YES" editable="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="Hir-KY-AqI">
                                             <rect key="frame" x="0.0" y="0.0" width="495" height="1652"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -678,7 +678,7 @@ StatusBarDetachablePopover Copyright © 2017 Micky1979
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" id="L3O-tf-b1K">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L3O-tf-b1K">
                                 <rect key="frame" x="436" y="7" width="100" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Accept" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RY8-Uj-YBi">
@@ -689,7 +689,7 @@ StatusBarDetachablePopover Copyright © 2017 Micky1979
                                     <action selector="acceptPressed:" target="wQI-fc-FmZ" id="hIo-4A-02q"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" id="9tL-VB-ChP">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-VB-ChP">
                                 <rect key="frame" x="314" y="7" width="100" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UXf-Rb-H50">
