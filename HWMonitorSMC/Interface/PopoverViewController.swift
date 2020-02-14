@@ -974,6 +974,8 @@ extension PopoverViewController: NSOutlineViewDataSource {
             
             view?.textField?.appearance = getAppearance()
             view?.textField?.textColor = (getAppearance().name == NSAppearance.Name.vibrantDark) ? NSColor.white : NSColor.controlTextColor
+            
+            view?.textField?.alignment = .right
           }
         case "column3":
           if let sensor = node.sensorData?.sensor {

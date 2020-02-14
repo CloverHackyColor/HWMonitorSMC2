@@ -113,7 +113,7 @@ class HWSensorsScanner: NSObject {
   func getMemory() -> [HWMonitorSensor] {
     var arr = [HWMonitorSensor]()
     let percentage : Bool = UDs.bool(forKey: "useMemoryPercentage")
-    let unit : HWUnit = percentage ? HWUnit.Percent : HWUnit.MB
+    let unit : HWUnit = percentage ? .Percent : .MB
     let sensorType : HWSensorType = .memory
     let actionType : ActionType = .memoryLog
     let type = "RAM"
@@ -299,7 +299,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &main)
     
@@ -309,7 +309,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "VRM Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &main)
     
@@ -506,7 +506,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "PRAM Battery".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -516,7 +516,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "+12V Bus Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -526,7 +526,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "+5V Bus Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -536,7 +536,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "-12V Bus Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -547,7 +547,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "-5V Bus Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -557,7 +557,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "3.3 VCC Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -567,7 +567,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "3.3 VSB Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -577,7 +577,7 @@ class HWSensorsScanner: NSObject {
                                       sensorType: .voltage,
                                       title: "3.3 AVCC Voltage".locale,
                                       actionType: actionType,
-                                      canPlot: false,
+                                      canPlot: AppSd.sensorsInited ? false : true,
                                       index: -1,
                                       list: &arr)
     
@@ -621,7 +621,7 @@ class HWSensorsScanner: NSObject {
                                   sensorType: .tachometer,
                                   title: withIndex,
                                   actionType: actionType,
-                                  canPlot: false,
+                                  canPlot: AppSd.sensorsInited ? false : true,
                                   index: i,
                                   list: &arr) {
      
@@ -710,7 +710,7 @@ class HWSensorsScanner: NSObject {
                                   type: "LPCBFANS",
                                   sensorType: .tachometer,
                                   title: name,
-                                  canPlot: true)
+                                  canPlot: AppSd.sensorsInited ? false : true)
           s.actionType = actionType
           s.stringValue = String(format: "%.f", val)
           s.doubleValue = Double(val)
@@ -730,7 +730,7 @@ class HWSensorsScanner: NSObject {
                                   type: "LPCBVOLTAGES",
                                   sensorType: .voltage,
                                   title: name,
-                                  canPlot: true)
+                                  canPlot: AppSd.sensorsInited ? false : true)
           s.actionType = actionType
           s.stringValue = String(format: "%.3f", val)
           s.doubleValue = Double(val)
@@ -771,7 +771,7 @@ class HWSensorsScanner: NSObject {
                                 type: "BATT",
                                 sensorType: .voltage,
                                 title: "Voltage".locale,
-                                canPlot: true)
+                                canPlot: AppSd.sensorsInited ? false : true)
         s.actionType = actionType
         s.stringValue = String(format: "%.3f", Double(voltage) / 1000)
         s.doubleValue = Double(voltage) / 1000
@@ -785,7 +785,7 @@ class HWSensorsScanner: NSObject {
                                 type: "BATT",
                                 sensorType: .amperage,
                                 title: "Amperage".locale,
-                                canPlot: true)
+                                canPlot: AppSd.sensorsInited ? false : true)
         
         s.actionType = actionType
         s.stringValue = String(format: "%.3f", Double(amperage) / 1000)
