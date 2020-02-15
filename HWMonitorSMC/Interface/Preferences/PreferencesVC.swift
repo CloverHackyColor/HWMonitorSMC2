@@ -766,6 +766,7 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
   @IBAction func startDark(_ sender: NSButton) {
     UDs.set(sender.state == NSControl.StateValue.on, forKey: kDark)
     self.synchronize()
+    self.viewSizePressed(self.viewSizePop)
   }
   
   @IBAction func translateUnits(_ sender: NSButton) {

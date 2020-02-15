@@ -60,7 +60,7 @@ MgA3AEEARwBQAFcAXABkAHkAewB9AH8AgQCJAJAAlQCgAKMApQCnAKkArgC5AMIAygDNANYA2wDoAOwA
                                         <font key="font" metaFont="system"/>
                                         <tabViewItems>
                                             <tabViewItem label="Sensors" identifier="" id="Tam-QO-tbG">
-                                                <view key="view" ambiguous="YES" id="s08-Te-IE6">
+                                                <view key="view" id="s08-Te-IE6">
                                                     <rect key="frame" x="10" y="33" width="520" height="554"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -589,7 +589,7 @@ MgA3AEEARwBQAFcAXABkAHkAewB9AH8AgQCJAJAAlQCgAKMApQCnAKkArgC5AMIAygDNANYA2wDoAOwA
                                                 </view>
                                             </tabViewItem>
                                             <tabViewItem label="View" identifier="" id="wQH-9z-ULe">
-                                                <view key="view" id="mXp-kL-6XF">
+                                                <view key="view" ambiguous="YES" id="mXp-kL-6XF">
                                                     <rect key="frame" x="10" y="33" width="520" height="554"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -826,15 +826,6 @@ MgA3AEEARwBQAFcAXABkAHkAewB9AH8AgQCJAJAAlQCgAKMApQCnAKkArgC5AMIAygDNANYA2wDoAOwA
                                                                 <action selector="viewSizePressed:" target="xPF-f4-5kE" id="0Zl-oJ-18R"/>
                                                             </connections>
                                                         </popUpButton>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VX5-iD-Y94">
-                                                            <rect key="frame" x="8" y="209" width="17" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="*" id="Imh-Va-vng">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwQ-I6-lrC" customClass="GenericImageView" customModule="HWMonitorSMC2" customModuleProvider="target">
                                                             <rect key="frame" x="423" y="17" width="80" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
