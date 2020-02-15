@@ -34,8 +34,8 @@
 	</dict>
 	<key>VIN0</key>
 	<dict>
-		<key>name</key>
-		<string>Vcore</string>
+		<key>skip</key>
+		<true/>
 	</dict>
 	<key>VIN1</key>
 	<dict>
@@ -66,7 +66,7 @@
 	<key>VIN5</key>
 	<dict>
 		<key>name</key>
-		<string>VCCSA</string>
+		<string>VRIN</string>
 	</dict>
 	<key>VIN6</key>
 	<dict>
