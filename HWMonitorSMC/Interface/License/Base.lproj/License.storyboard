@@ -43,7 +43,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="Hir-KY-AqI">
-                                            <rect key="frame" x="0.0" y="0.0" width="495" height="1652"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="495" height="1484"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <size key="minSize" width="495" height="265"/>
@@ -293,16 +293,6 @@ Redistributions in binary form must reproduce the above copyright notice, this l
 Neither the name of the HWMonitorSMC2 Project nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Special thanks goes to:
-iParzival for the app icon,
-Andrey1970, fabiosun, Sherlocks, jimbingmao, Rodion2010, Extreme™,  ctich, Aplha22, Amble, pico joe, Jorge Max, Camillionario, Pavo, iCanaro, Andres ZeroCross, thenightflyer and Gen4ig for testing and proposing changes.
-
-Translators:
-Andrey1970 and Slice for Russian
-Sherloks for Korean
-Mork Vom Ork for German
-jimbingmao for Simplified Chinese
-nomadturk for Turkish
 
 </mutableString>
                                                     <attributes>
