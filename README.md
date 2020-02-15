@@ -2,26 +2,41 @@
 
 # HWMonitorSMC2
 
-> Application for monitoring hardware health in macOS
-> Copyright (c) 2018 vector sigma, Slice and HWSensors-3 project.
+Application for monitoring hardware health in macOS <br />
+Copyright (c) 2018 vector sigma, Slice and HWSensors-3 project.
+---
+
+# [Downloads](https://github.com/CloverHackyColor/HWMonitorSMC2/releases)
 ---
 
 ## Special thanks
 
 > Translators:
 
-> Andrey1970 for Russian
-> Sherloks for Korean
-> jinbingmao for Simplified Chinese
-> nomadturk for Turkish 
-> Amble for Finnish
-> vector sigma for Italian
+Andrey1970 for Russian <br />
+Sherloks for Korean <br />
+jinbingmao for Simplified Chinese <br />
+nomadturk for Turkish <br />
+Amble for Finnish <br />
+vector sigma for Italian
 
 > Testers:
 
 > all the guys at insanelymac forum and in particular:
-> Slice, Andrey1970, jinbingmao, Rodion2010, Sherloks, DocXavier, Nuacho, ctich, Andres ZeroCross, rramon, biciolino, Mike Ranger, holyfield, losinka, Extreme™, Aplha22, Amble, pico joe, Jorge Max, Camillionario, Pavo, iCanaro, thenightflyer and Gen4ig and many other
+> Slice, Andrey1970, jinbingmao, Rodion2010, Sherloks, DocXavier, Nuacho, ctich, Andres ZeroCross, rramon, biciolino, Mike Ranger, holyfield, losinka, Extreme™, Aplha22, Amble, pico joe, Jorge Max, Camillionario, Pavo, iCanaro, thenightflyer and Gen4ig and many others.
 
+> Application icon by iParzival
+
+---
+## LPC Sensors configuration
+> On non Apple hardware the LPC chip require additional kernel extensions to read values of the motherboard sensors: <br />
+FakeSMC plugins require, when a configuration is not present, the editing of the Info.plist where you must specify the OEM vendor, the board and the configuration for each sensors such voltages, Fans and temperature. If the configuration it's already present you have to do nothing. <br />
+
+> VirtualSMC,We recently added Support for SMCSuperIO.kext which, unlike FakeSMC plugins, doesn't publish SMC keys for motherboards sensors.  <br />
+With the help of many users we already collected some configurations for some Asus and Gigabyte motherboards, but if this is not the case for you, consider running the hwmlpcconfig command line.
+hwmlpcconfig (you can find it in the Download page) create ~/Desktop/LPC which (for supported chips) should create a raw configuration ready to be edited with the correct values.
+A README.txt is created with the instruction to make your motherboard unique config. The customized configuration, then, must be place inside the app (SharedSupport/LPC directory) to make the app to apply the corrections needed. Of course, you will have to make a PR if you want this to be persistent across updates of HWMonitorSMC2.app.  <br />  <br />
+On Apple hardware you have to do nothing!
 ---
 
 ## FAQ
