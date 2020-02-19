@@ -149,6 +149,7 @@ func getOEMVendorShort() -> String? {
     case "LENOVO":
       return "Lenovo"
     case "Micro-Star International": fallthrough
+    case "Micro-Star International Co., Ltd.": fallthrough
     case "MICRO-STAR INTERNATIONAL CO., LTD": fallthrough
     case "MICRO-STAR INTERNATIONAL CO.,LTD": fallthrough
     case "MSI":
