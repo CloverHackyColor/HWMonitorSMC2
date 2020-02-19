@@ -159,6 +159,16 @@ class HWOulineView: NSOutlineView, NSPopoverDelegate {
       self.appearanceObserver = nil
     }
   }
+  
+  override func mouseDown(with event: NSEvent) {
+    super.mouseDown(with: event)
+
+    let selectedRow = row(at: convert(event.locationInWindow, from: nil))
+    
+    if selectedRow < 0 {
+      deselectAll(nil)
+    }
+  }
 
   override func makeView(withIdentifier identifier: NSUserInterfaceItemIdentifier,
                          owner: Any?) -> NSView? {
