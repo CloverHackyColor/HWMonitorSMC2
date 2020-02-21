@@ -1,3 +1,5 @@
+#import "CPTPlatformSpecificDefines.h"
+
 @interface CPTColor : NSObject<NSCopying, NSCoding, NSSecureCoding>
 
 @property (nonatomic, readonly, nonnull) CGColorRef cgColor;
@@ -5,9 +7,12 @@
 
 #if TARGET_OS_OSX
 @property (nonatomic, readonly, nonnull) NSColor *nsColor;
+#elif TARGET_OS_SIMULATOR || TARGET_OS_IPHONE
+@property (nonatomic, readonly, nonnull) UIColor *uiColor;
 #endif
+@property (nonatomic, readonly, nonnull) CPTNativeColor *nativeColor;
 
-/// @name Factory Methods
+/// @name Standard Colors
 /// @{
 +(nonnull instancetype)clearColor;
 +(nonnull instancetype)whiteColor;
@@ -24,14 +29,20 @@
 +(nonnull instancetype)orangeColor;
 +(nonnull instancetype)purpleColor;
 +(nonnull instancetype)brownColor;
+/// @}
 
+/// @name Factory Methods
+/// @{
 +(nonnull instancetype)colorWithCGColor:(nonnull CGColorRef)newCGColor;
 +(nonnull instancetype)colorWithComponentRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 +(nonnull instancetype)colorWithGenericGray:(CGFloat)gray;
 
 #if TARGET_OS_OSX
 +(nonnull instancetype)colorWithNSColor:(nonnull NSColor *)newNSColor;
+#elif TARGET_OS_SIMULATOR || TARGET_OS_IPHONE
++(nonnull instancetype)colorWithUIColor:(nonnull UIColor *)newUIColor;
 #endif
++(nonnull instancetype)colorWithNativeColor:(nonnull CPTNativeColor *)newColor;
 
 /// @}
 
@@ -43,7 +54,10 @@
 
 #if TARGET_OS_OSX
 -(nonnull instancetype)initWithNSColor:(nonnull NSColor *)newNSColor NS_DESIGNATED_INITIALIZER;
+#elif TARGET_OS_SIMULATOR || TARGET_OS_IPHONE
+-(nonnull instancetype)initWithUIColor:(nonnull UIColor *)newUIColor NS_DESIGNATED_INITIALIZER;
 #endif
+-(nonnull instancetype)initWithNativeColor:(nonnull CPTNativeColor *)newColor;
 
 -(nonnull instancetype)colorWithAlphaComponent:(CGFloat)alpha;
 /// @}
