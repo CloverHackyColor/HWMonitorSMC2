@@ -31,12 +31,12 @@ class HWViewController: NSViewController, NSPopoverDelegate {
     if (UserDefaults.standard.object(forKey: kPopoverWidth) != nil) {
       width = CGFloat(UserDefaults.standard.float(forKey: kPopoverWidth))
     }
-    if width < kMinWidth {
-      width = kMinWidth
+    if width < AppSd.WinMinWidth {
+      width = AppSd.WinMinWidth
     }
     
-    if height < kMinHeight {
-      height = kMinHeight
+    if height < AppSd.WinMinHeight {
+      height = AppSd.WinMinHeight
     }
     self.popoverVC?.view.setFrameSize(NSMakeSize(CGFloat(width), CGFloat(height)))
     
@@ -57,7 +57,7 @@ class HWViewController: NSViewController, NSPopoverDelegate {
     self.detachableWindow?.contentViewController = self.popoverVC
     self.detachableWindow?.isReleasedWhenClosed = false
     self.detachableWindow?.titlebarAppearsTransparent = true
-    self.detachableWindow?.minSize = NSMakeSize(CGFloat(kMinWidth), CGFloat(kMinHeight))
+    self.detachableWindow?.minSize = NSMakeSize(CGFloat(AppSd.WinMinWidth), CGFloat(AppSd.WinMinHeight))
     
     self.detachableWindow?.appearance = getAppearance()
     self.detachableWindow?.backgroundColor = NSColor.clear

@@ -712,7 +712,7 @@ class PopoverViewController: NSViewController, USBWatcherDelegate {
     //----------------------
     
     AppSd.sensorsInited = true
-    self.outline.reloadData()
+    self.outline.update()
     
     if (self.CPUNode != nil) && (self.expandCPUTemperature || self.expandCPUFrequencies ||  self.expandAll) {
       self.outline.expandItem(self.CPUNode)
@@ -1103,12 +1103,12 @@ extension PopoverViewController {
       let frame = NSScreen.main?.frame
       newLocation.x     = frame!.size.width - mouseLocation.x
       newLocation.y     = frame!.size.height - mouseLocation.y
-      if newLocation.x < kMinWidth {
-        newLocation.x = kMinWidth
+      if newLocation.x < AppSd.WinMinWidth {
+        newLocation.x = AppSd.WinMinWidth
       }
       
-      if newLocation.y < kMinHeight {
-        newLocation.y = kMinHeight
+      if newLocation.y < AppSd.WinMinHeight {
+        newLocation.y = AppSd.WinMinHeight
       }
       popover.contentSize = NSSize(width: newLocation.x, height: newLocation.y)
       UDs.set(newLocation.x, forKey: kPopoverWidth)

@@ -37,12 +37,12 @@ class PopoverWindowController: NSWindowController, NSWindowDelegate {
       var width : CGFloat = (frame?.width)!
       var height : CGFloat = (frame?.height)!
       
-      if width < kMinWidth {
-        width = kMinWidth
+      if width < AppSd.WinMinWidth {
+        width = AppSd.WinMinWidth
       }
       
-      if height < kMinHeight {
-        height = kMinHeight
+      if height < AppSd.WinMinHeight {
+        height = AppSd.WinMinHeight
       }
       
       UDs.set(frame?.width, forKey: kPopoverWidth)

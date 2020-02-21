@@ -10,6 +10,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+  var WinMinWidth  : CGFloat = 241
+  let WinMinHeight : CGFloat = 270
   let board : String? = getOEMBoard()
   let vendorShort : String? = getOEMVendorShort()
   var superIOChipName : String? = nil
