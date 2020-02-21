@@ -65,7 +65,7 @@ let asAdmin : String        = "with administrator privileges"
 
 let AppSd = NSApplication.shared.delegate as! AppDelegate
 let UDs = UserDefaults.standard
-let kMinWidth  : CGFloat = 370
+let kMinWidth  : CGFloat = 396
 let kMinHeight : CGFloat = 270
 
 let gPopOverFont : NSFont = NSFont(name: "Lucida Grande Bold", size: 9.0) ?? NSFont.systemFont(ofSize:  9.0)

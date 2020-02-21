@@ -13,9 +13,9 @@
                     <window key="window" title="HWMonitorSMC" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="ZhW-fR-thW" customClass="HWWindow" customModule="HWMonitorSMC2" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="229" y="240" width="370" height="270"/>
+                        <rect key="contentRect" x="229" y="240" width="396" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1600" height="877"/>
-                        <value key="minSize" type="size" width="370" height="270"/>
+                        <value key="minSize" type="size" width="396" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="yBe-Le-RmF" id="d0o-8F-nMA"/>
                         </connections>
@@ -26,14 +26,14 @@
                 </windowController>
                 <customObject id="zrh-Rw-IZa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="33"/>
+            <point key="canvasLocation" x="113" y="-41"/>
         </scene>
         <!--HWViewController-->
         <scene sceneID="gpp-yC-5h9">
             <objects>
                 <viewController id="Inv-Z6-uvw" userLabel="HWViewController" customClass="HWViewController" customModule="HWMonitorSMC2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="3sR-t5-Jdh">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="396" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                     <connections>
@@ -50,39 +50,39 @@
             <objects>
                 <viewController storyboardIdentifier="PopoverViewController" id="D3w-Vf-IMK" userLabel="PopoverViewController" customClass="PopoverViewController" customModule="HWMonitorSMC2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="t9p-yZ-glJ">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="396" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView wantsLayer="YES" focusRingType="none" blendingMode="withinWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="RPx-WM-PNq">
-                                <rect key="frame" x="0.0" y="0.0" width="370" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="396" height="270"/>
                                 <subviews>
                                     <scrollView wantsLayer="YES" appearanceType="aqua" borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGf-vp-wlg" customClass="HWScrollView" customModule="HWMonitorSMC2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="370" height="222"/>
+                                        <rect key="frame" x="0.0" y="28" width="396" height="222"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="zy5-5L-wc9">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="222"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="396" height="222"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="small" viewBased="YES" indentationPerLevel="7" autosaveExpandedItems="YES" autoresizesOutlineColumn="YES" outlineTableColumn="V2W-Qb-HLa" id="N63-Ub-LYL" customClass="HWOulineView" customModule="HWMonitorSMC2" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="222"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="222"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="gridColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <tableColumns>
-                                                        <tableColumn identifier="column0" editable="NO" width="50" minWidth="50" maxWidth="80" id="V2W-Qb-HLa">
+                                                        <tableColumn identifier="column0" editable="NO" width="66" minWidth="66" maxWidth="80" id="V2W-Qb-HLa">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
                                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="x6l-qO-5W2">
-                                                                <font key="font" metaFont="message" size="11"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="column0" id="ssx-Oo-FNv">
-                                                                    <rect key="frame" x="1" y="1" width="50" height="17"/>
+                                                                    <rect key="frame" x="1" y="1" width="66" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-YG-Vof">
@@ -106,7 +106,7 @@
                                                         </tableColumn>
                                                         <tableColumn identifier="column1" editable="NO" width="202" minWidth="175" maxWidth="1000" id="iCD-MT-omi">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -117,13 +117,13 @@
                                                             </textFieldCell>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="column1" id="nX3-gm-a2b">
-                                                                    <rect key="frame" x="54" y="1" width="202" height="17"/>
+                                                                    <rect key="frame" x="70" y="1" width="202" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2t-Kq-5X4">
                                                                             <rect key="frame" x="1" y="1" width="200" height="15"/>
                                                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" title="Table View Cell" allowsEditingTextAttributes="YES" id="gzL-lY-vMG" customClass="HWTextFieldCell" customModule="HWMonitorSMC2" customModuleProvider="target">
-                                                                                <font key="font" metaFont="message" size="11"/>
+                                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
@@ -143,7 +143,7 @@
                                                         </tableColumn>
                                                         <tableColumn identifier="column2" editable="NO" width="96" minWidth="40" maxWidth="100" id="Te3-tb-6N1">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
@@ -154,13 +154,13 @@
                                                             </textFieldCell>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="column2" id="Gmq-Ha-PtX">
-                                                                    <rect key="frame" x="259" y="1" width="96" height="17"/>
+                                                                    <rect key="frame" x="275" y="1" width="96" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField wantsLayer="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="seT-aN-tWo">
                                                                             <rect key="frame" x="1" y="1" width="94" height="15"/>
                                                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="HEQ-lO-R6O" customClass="HWTextFieldCell" customModule="HWMonitorSMC2" customModuleProvider="target">
-                                                                                <font key="font" metaFont="message" size="11"/>
+                                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
@@ -178,25 +178,25 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="column3" width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="TAH-nN-uv1">
+                                                        <tableColumn identifier="column3" width="20" minWidth="10" maxWidth="3.4028234663852886e+38" id="TAH-nN-uv1">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
                                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="WBJ-MJ-F7J">
-                                                                <font key="font" metaFont="message" size="11"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="pE4-Se-zKq">
-                                                                    <rect key="frame" x="358" y="1" width="10" height="21"/>
+                                                                    <rect key="frame" x="374" y="1" width="20" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZDV-PZ-rM3" customClass="PlotView" customModule="HWMonitorSMC2" customModuleProvider="target">
-                                                                            <rect key="frame" x="3" y="3" width="111" height="15"/>
+                                                                            <rect key="frame" x="3" y="3" width="121" height="15"/>
                                                                         </customView>
                                                                     </subviews>
                                                                     <constraints>
@@ -226,18 +226,18 @@
                                         </scroller>
                                     </scrollView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7R0-QX-ifS">
-                                        <rect key="frame" x="139" y="9" width="92" height="14"/>
+                                        <rect key="frame" x="152" y="9" width="92" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="fXT-dx-NBs"/>
                                         </constraints>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="HWMonitorSMC" id="vyO-yA-2EZ">
-                                            <font key="font" metaFont="message" size="11"/>
+                                            <font key="font" metaFont="controlContent" size="11"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a2l-Yu-gIF">
-                                        <rect key="frame" x="349" y="250" width="20" height="21"/>
+                                        <rect key="frame" x="375" y="250" width="20" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="y56-uO-qed"/>
                                         </constraints>
@@ -264,14 +264,14 @@
                                         </connections>
                                     </button>
                                     <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ea1-HW-thT">
-                                        <rect key="frame" x="349" y="6" width="20" height="20"/>
+                                        <rect key="frame" x="375" y="6" width="20" height="20"/>
                                         <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSLockUnlockedTemplate" imagePosition="only" alignment="center" alternateImage="NSLockLockedTemplate" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="zuu-gx-voO">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
                                     <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SJs-8u-U46">
-                                        <rect key="frame" x="291" y="6" width="50" height="20"/>
+                                        <rect key="frame" x="317" y="6" width="50" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Fld-e1-DNY"/>
                                         </constraints>
@@ -284,7 +284,7 @@
                                         </connections>
                                     </button>
                                     <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yjd-46-XPv">
-                                        <rect key="frame" x="170" y="249" width="30" height="21"/>
+                                        <rect key="frame" x="183" y="249" width="30" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="Fn3-P2-iru"/>
                                         </constraints>
