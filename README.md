@@ -29,32 +29,39 @@ vector sigma for Italian
 
 ---
 ## LPC Sensors configuration
-> On non Apple hardware the LPC chip require additional kernel extensions to read values of the motherboard sensors: <br />
-FakeSMC plugins require, when a configuration is not present, the editing of the Info.plist where you must specify the OEM vendor, the board and the configuration for each sensors such voltages, Fans and temperature. If the configuration it's already present you have to do nothing. <br />
+On non-Apple hardware the LPC chip requires additional kernel extensions to read values of the motherboard sensors:
 
-> VirtualSMC,We recently added Support for SMCSuperIO.kext which, unlike FakeSMC plugins, doesn't publish SMC keys for motherboards sensors.  <br />
-With the help of many users we already collected some configurations for some Asus and Gigabyte motherboards, but if this is not the case for you, consider running the hwmlpcconfig command line.
-hwmlpcconfig (you can find it in the Download page) create ~/Desktop/LPC which (for supported chips) should create a raw configuration ready to be edited with the correct values.
-A README.txt is created with the instruction to make your motherboard unique config. The customized configuration, then, must be place inside the app (SharedSupport/LPC directory) to make the app to apply the corrections needed. Of course, you will have to make a PR if you want this to be persistent across updates of HWMonitorSMC2.app.  <br />  <br />
+FakeSMC plugins require, when a configuration is not present, the editing of the Info.plist where you must specify the OEM vendor, the board and the configuration for each sensors such voltages, Fans and temperature. If the configuration it's already present you have to do nothing. 
+
+## VirtualSMC
+
+We recently added Support for SMCSuperIO.kext which, unlike FakeSMC plugins, doesn't publish SMC keys for motherboards sensors.  
+
+With the help of many users we already collected some configurations for some Asus and Gigabyte motherboards, but if this is not the case for you, consider running the hwmlpcconfig command line. 
+
+hwmlpcconfig (you can find it in the Download page) create ~/Desktop/LPC which (for supported chips) should create a raw configuration file ready to be edited with the correct values. 
+
+A README.txt is created with the instruction to create the unique config for your motherboard. The customized configuration, then, must be place inside the app (SharedSupport/LPC directory) to get the app to apply the corrections needed. Of course, you will have to open a pull request (PR) on github if you want your changes to persist across updates of HWMonitorSMC2.app.  
+
 On Apple hardware you have to do nothing!
 ---
 
 ## FAQ
 
-- **HWMonitorSMC2 show nothing or few informations about the CPU**
-- If you will to expand functionalities of the app, [Install IntelPowerGadget.framework](https://software.intel.com/en-us/comment/1844371) and ensure it is enabled in the preferences. 
+- **HWMonitorSMC2 shows nothing or very little informations about my CPU**
+- If you want to expand functionalities of the app, you can [Install IntelPowerGadget.framework](https://software.intel.com/en-us/comment/1844371) and ensure it is enabled in the preferences. 
 
 - **What is the PMU option for?**
-- It stands for "Performance Monitoring Unit" and allow higher accuracy data with lower overhead using the Intel Power Gadget library. Be aware that this option needs excusive access to the Power Gadget library.
+- PMU stands for "Performance Monitoring Unit" and allow higher accuracy data with lower overhead using the Intel Power Gadget library. Be aware that this option needs exclusive access to the Power Gadget library.
 
-- **The app no longer show the main window after installing Intel Power Gadget**
-- Intel Power Gadget install a framework and a kernel extension. If one of the two crashes, HWMonitorSMC2 crash as well. To ignore it temporarily create a file to your Desktop:
+- **The app no longer shows the main window after installing Intel Power Gadget**
+- Intel Power Gadget installs a framework and a kernel extension. If one of the two crashes, HWMonitorSMC2 will crash as well. To ignore it temporarily create a file to your Desktop:
 ```shell
 $ touch ~/Desktop/IgnoreIPG
 ```
-- and restart HWMonitorSMC2.app. That happened in my Ivy Bridge MacBook Pro, and the faster solution is to re-run the Intel Power Gadget Installer followed by a reboot.
+- and restart HWMonitorSMC2.app. That happened on my Ivy Bridge MacBook Pro, and the fastest solution seems to be to re-run the Intel Power Gadget Installer followed by a reboot.
 
-- **HWMonitorSMC2 show nothing or few informations about the GPUs**
+- **HWMonitorSMC2 shows nothing or little information about my GPUs**
 - go the preferences and enable "Use the IOKit monitoring for GPUs" and the app will start using the PerformancesStatistics, under the IOAccelerator class in the IO, to retrieve informations about graphics cards.
 ---
 
@@ -62,8 +69,8 @@ $ touch ~/Desktop/IgnoreIPG
 
 ## License
 
-```java
-Copyright (c) 2018 vector sigma, Slice and HWSensors-3 project.
+```
+Copyright (c) 2020 vector sigma, Slice and HWSensors-3 project.
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
 Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
