@@ -220,7 +220,7 @@
 		951A947E217E3EB30057F687 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMC.swift; sourceTree = "<group>"; };
 		951B029E20CD8D0200C17E62 /* GPU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPU.png; sourceTree = "<group>"; };
 		951C9DDB216A347A00CDAB92 /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Library; path = ../../../../../../Library; sourceTree = "<group>"; };
-		951C9DDD216A348D00CDAB92 /* IntelPowerGadget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntelPowerGadget.framework; path = ../../../../../../Library/Frameworks/IntelPowerGadget.framework; sourceTree = "<group>"; };
+		951C9DDD216A348D00CDAB92 /* IntelPowerGadget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntelPowerGadget.framework; path = /Library/Frameworks/IntelPowerGadget.framework; sourceTree = "<absolute>"; };
 		951C9DE0216A4A6D00CDAB92 /* IntelPowerGadget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelPowerGadget.swift; sourceTree = "<group>"; };
 		9521BD60228710E600E8ACC8 /* smcwrite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = smcwrite.xcodeproj; path = smcwrite/smcwrite.xcodeproj; sourceTree = "<group>"; };
 		952275D82184C5F700E12C3A /* freq_small_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freq_small_on.png; sourceTree = "<group>"; };
