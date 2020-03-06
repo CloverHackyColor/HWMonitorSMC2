@@ -216,7 +216,7 @@ class HWSensorsScanner: NSObject {
     s.stringValue = String(format: format, s.doubleValue)
     arr.append(s)
     
-    // DIMM temperaturea. 16 Slots max (?)
+    // DIMM temperature. 16 Slots max (?)
     for i in 0..<16 {
       let a : String = smcFormat(i)
       let _ = self.addSMCSensorIfValid(key: SMC_DIMM_TEMP.withFormat(a),
