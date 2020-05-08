@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>3VCC</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+	</dict>
+	<key>3VSB</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+	</dict>
+	<key>AVSB</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>AVCC</string>
+	</dict>
+	<key>VBAT</key>
+	<dict>
+		<key>skip</key>
+		<true/>
+	</dict>
+	<key>VIN0</key>
+	<dict>
+		<key>multi</key>
+		<integer>12</integer>
+		<key>name</key>
+		<string>+12V</string>
+	</dict>
+	<key>VIN1</key>
+	<dict>
+		<key>multi</key>
+		<integer>5</integer>
+		<key>name</key>
+		<string>+5V</string>
+	</dict>
+	<key>VIN2</key>
+	<dict>
+		<key>name</key>
+		<string>PHC</string>
+	</dict>
+	<key>VIN3</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>DIMM</string>
+	</dict>
+	<key>VIN4</key>
+	<dict>
+		<key>name</key>
+		<string>CPU I/O</string>
+	</dict>
+	<key>VIN6</key>
+	<dict>
+		<key>name</key>
+		<string>IGPU</string>
+	</dict>
+</dict>
+</plist>
