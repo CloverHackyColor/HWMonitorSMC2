@@ -89,6 +89,7 @@
 "Ambient" = "Ympäristö"; // Motherboard
 "GPU %d Board" = "Näytönohjaimen %d piirilevy";
 "GPU %d Proximity" = "Näytönohjaimen %d läheisyys";
+"GPU %d Die" = "GPU %d Die";
 "Core %d" = "Ydin %d";   // CPU or GPU
 "Diode %d" = "Diodi %d"; // CPU or GPU
 "CPU %d" = "Suoritin %d";
