@@ -94,7 +94,7 @@
 		95CE19DA2043585A00E73446 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95CE19DC2043585A00E73446 /* Localizable.strings */; };
 		95CE19DF20435CD200E73446 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CE19E120435CD200E73446 /* Preferences.storyboard */; };
 		95D535F9216F684200289BD7 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D535F8216F684200289BD7 /* CorePlot.framework */; };
-		95D535FB216F68D700289BD7 /* CorePlot.framework in Copy CorePlot */ = {isa = PBXBuildFile; fileRef = 95D535F8216F684200289BD7 /* CorePlot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95D535FB216F68D700289BD7 /* CorePlot.framework in Copy CorePlot */ = {isa = PBXBuildFile; fileRef = 95D535F8216F684200289BD7 /* CorePlot.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		95DA9B992173BB8D00CBAB9F /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA9B982173BB8D00CBAB9F /* Plot.swift */; };
 		95DE45CF205E7F3800E4582D /* RunAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE45CE205E7F3800E4582D /* RunAtLogin.swift */; };
 		95EC3B5521AACFB400EC70AE /* LightAppearance.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EC3B5321AACFB300EC70AE /* LightAppearance.png */; };

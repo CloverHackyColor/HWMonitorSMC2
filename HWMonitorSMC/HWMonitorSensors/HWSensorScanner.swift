@@ -455,6 +455,15 @@ class HWSensorsScanner: NSObject {
                                        canPlot: AppSd.sensorsInited ? false : true,
                                        index: i,
                                        list: &arr)
+        let _ = self.addSMCSensorIfValid(key: SMC_GPU_DIE_TEMP.withFormat(a),
+                                         type: DataTypes.SP78,
+                                         unit: .C,
+                                         sensorType:.temperature,
+                                         title: String(format: "GPU %d Die".locale, i),
+                                         actionType: actionType,
+                                         canPlot: AppSd.sensorsInited ? false : true,
+                                         index: i,
+                                         list: &arr)
     }
     return arr
   }

@@ -89,6 +89,7 @@
 "Ambient" = "Ortam Sıcaklığı"; // Motherboard
 "GPU %d Board" = "GPU %d Tahta";
 "GPU %d Proximity" = "GPU %d Yakınlık";
+"GPU %d Die" = "GPU %d Die";
 "Core %d" = "Çekirdek %d";   // CPU or GPU
 "Diode %d" = "Diyot %d"; // CPU or GPU
 "CPU %d" = "CPU %d";
