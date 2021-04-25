@@ -705,7 +705,11 @@ class HWSensorsScanner: NSObject {
         if multi == 0 { multi = 1 }
         
         let actionType : ActionType = .systemLog
-        if key.range(of: "FAN") != nil {
+        
+        // Skip Adding "Generic EC" FAN Sensor
+        let skipggenericec = getSuperIOChipName()
+        
+        if key.range(of: "FAN") != nil && skipggenericec != "Generic EC" {
           guard let val = sensors.object(forKey: k) as? Double else {
             continue
           }
