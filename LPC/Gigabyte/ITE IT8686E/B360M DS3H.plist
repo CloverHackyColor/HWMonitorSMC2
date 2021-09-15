@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FAN1</key>
+	<dict>
+		<key>name</key>
+		<string>CPU FAN</string>
+	</dict>
+	<key>FAN2</key>
+	<dict>
+		<key>name</key>
+		<string>SYS FAN 1</string>
+	</dict>
+	<key>FAN3</key>
+	<dict>
+		<key>name</key>
+		<string>SYS FAN 2</string>
+	</dict>
+	<key>FAN4</key>
+	<dict>
+		<key>skip</key>
+		<true/>
+	</dict>
+	<key>FAN5</key>
+	<dict>
+		<key>skip</key>
+		<true/>
+	</dict>
+	<key>VBAT</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>Battery</string>
+	</dict>
+	<key>VIN0</key>
+	<dict>
+		<key>name</key>
+		<string>Vcore</string>
+	</dict>
+	<key>VIN1</key>
+	<dict>
+		<key>multi</key>
+		<real>1.64878048780488</real>
+		<key>name</key>
+		<string>+3,3V</string>
+	</dict>
+	<key>VIN2</key>
+	<dict>
+		<key>multi</key>
+		<integer>6</integer>
+		<key>name</key>
+		<string>+12V</string>
+	</dict>
+	<key>VIN3</key>
+	<dict>
+		<key>multi</key>
+		<real>2.5</real>
+		<key>name</key>
+		<string>+5V</string>
+	</dict>
+	<key>VIN4</key>
+	<dict>
+		<key>name</key>
+		<string>IGPU </string>
+	</dict>
+	<key>VIN5</key>
+	<dict>
+		<key>name</key>
+		<string>VCCSA</string>
+	</dict>
+	<key>VIN6</key>
+	<dict>
+		<key>name</key>
+		<string>DDR Channel A/B</string>
+	</dict>
+	<key>VIN7</key>
+	<dict>
+		<key>multi</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>3VSB</string>
+	</dict>
+</dict>
+</plist>

@@ -75,7 +75,7 @@ public struct Graphics {
                                            type: "IOAcc",
                                            sensorType: .gpuIO_coreClock,
                                            title: "Core Clock".locale,
-                                           canPlot: false)
+                                           canPlot: AppSd.sensorsInited ? false : true)
             
             ccSensor.favorite = UDs.bool(forKey: ccSensor.key)
             ccSensor.characteristics = primaryMatch
@@ -97,7 +97,7 @@ public struct Graphics {
                                            type: "IOAcc",
                                            sensorType: .gpuIO_memoryClock,
                                            title: "Memory Clock".locale,
-                                           canPlot: false)
+                                           canPlot: AppSd.sensorsInited ? false : true)
             
             mcSensor.favorite = UDs.bool(forKey: mcSensor.key)
             mcSensor.characteristics = primaryMatch
@@ -118,7 +118,7 @@ public struct Graphics {
                                            type: "IOAcc",
                                            sensorType: .gpuIO_Watts,
                                            title: "Total Power".locale,
-                                           canPlot: true)
+                                           canPlot: AppSd.sensorsInited ? false : true)
             tpSensor.favorite = UDs.bool(forKey: tpSensor.key)
             tpSensor.characteristics = primaryMatch
             tpSensor.actionType = .gpuLog
@@ -138,7 +138,7 @@ public struct Graphics {
                                              type: "IOAcc",
                                              sensorType: .gpuIO_temp,
                                              title: "Temperature".locale,
-                                             canPlot: true)
+                                             canPlot: AppSd.sensorsInited ? false : true)
             tempSensor.favorite = UDs.bool(forKey: tempSensor.key)
             tempSensor.characteristics = primaryMatch
             tempSensor.actionType = .gpuLog
@@ -158,7 +158,7 @@ public struct Graphics {
                                             type: "IOAcc",
                                             sensorType: .gpuIO_FanRPM,
                                             title: "Fan/Pump speed".locale,
-                                            canPlot: true)
+                                            canPlot: AppSd.sensorsInited ? false : true)
             
             fanSensor.favorite = UDs.bool(forKey: fanSensor.key)
             fanSensor.characteristics = primaryMatch
@@ -179,7 +179,7 @@ public struct Graphics {
                                                type: "IOAcc",
                                                sensorType: .gpuIO_percent,
                                                title: "Fan/Pump speed rate".locale,
-                                               canPlot: true)
+                                               canPlot: AppSd.sensorsInited ? false : true)
             
             fan100Sensor.favorite = UDs.bool(forKey: fan100Sensor.key)
             fan100Sensor.characteristics = primaryMatch
@@ -200,7 +200,7 @@ public struct Graphics {
                                            type: "IOAcc",
                                            sensorType: .gpuIO_percent,
                                            title: "Utilization".locale,
-                                           canPlot: true)
+                                           canPlot: AppSd.sensorsInited ? false : true)
             
             duSensor.favorite = UDs.bool(forKey: duSensor.key)
             duSensor.characteristics = primaryMatch
@@ -226,7 +226,7 @@ public struct Graphics {
                                               type: "IOAcc",
                                               sensorType: .gpuIO_percent,
                                               title: "Core Utilization".locale,
-                                              canPlot: true)
+                                              canPlot: AppSd.sensorsInited ? false : true)
               
               gcuSensor.favorite = UDs.bool(forKey: gcuSensor.key)
               gcuSensor.characteristics = primaryMatch
@@ -248,7 +248,7 @@ public struct Graphics {
                                            type: "IOAcc",
                                            sensorType: .gpuIO_percent,
                                            title: "Activity".locale,
-                                           canPlot: true)
+                                           canPlot: AppSd.sensorsInited ? false : true)
             
             gaSensor.favorite = UDs.bool(forKey: gaSensor.key)
             gaSensor.characteristics = primaryMatch
@@ -270,7 +270,7 @@ public struct Graphics {
                                              type: "IOAcc",
                                              sensorType: .gpuIO_percent,
                                              title: String(format: "Device Unit %d Utilization".locale(), i),
-                                             canPlot: true)
+                                             canPlot: AppSd.sensorsInited ? false : true)
             
             dunuSensor.favorite = UDs.bool(forKey: dunuSensor.key)
             dunuSensor.characteristics = primaryMatch
@@ -292,7 +292,7 @@ public struct Graphics {
                                                type: "IOAcc",
                                                sensorType: .gpuIO_percent,
                                                title: "Video Engine Utilization".locale,
-                                               canPlot: true)
+                                               canPlot: AppSd.sensorsInited ? false : true)
               
               gveuSensor.favorite = UDs.bool(forKey: gveuSensor.key)
               gveuSensor.characteristics = primaryMatch
@@ -371,7 +371,7 @@ public struct Graphics {
                                        type: "IOAcc",
                                        sensorType: .gpuIO_RamBytes,
                                        title: "Free VRAM".locale,
-                                       canPlot: false)
+                                       canPlot: AppSd.sensorsInited ? false : true)
       
       freeS.favorite = UDs.bool(forKey: freeS.key)
       freeS.characteristics = unique
@@ -385,7 +385,7 @@ public struct Graphics {
                                   type: "IOAcc",
                                   sensorType: .gpuIO_RamBytes,
                                   title: "Used VRAM".locale,
-                                  canPlot: false)
+                                  canPlot: AppSd.sensorsInited ? false : true)
       
       usedS.favorite = UDs.bool(forKey: usedS.key)
       usedS.characteristics = unique

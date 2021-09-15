@@ -66,7 +66,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
     
     newGraph.paddingTop    = 1.0
     newGraph.paddingBottom = 1.0
-    newGraph.paddingLeft   = 0.0
+    newGraph.paddingLeft   = 15.0
     newGraph.paddingRight  = 0.0
     
     newGraph.plotAreaFrame?.paddingTop    = 1.0
@@ -135,20 +135,27 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
   }
   
   @objc func updateLineStyle() {
-    self.lineStyle = dataSourceLinePlot.dataLineStyle?.mutableCopy() as? CPTMutableLineStyle
+    self.lineStyle = self.dataSourceLinePlot.dataLineStyle?.mutableCopy() as? CPTMutableLineStyle
     switch AppSd.mainViewSize {
     case .normal:
-      self.lineStyle?.lineWidth              = 1.3
+      self.lineStyle?.lineWidth              = 1.2
     case .medium:
-      self.lineStyle?.lineWidth              = 1.7
+      self.lineStyle?.lineWidth              = 2.2
     case .large:
-      self.lineStyle?.lineWidth              = 2.0
+      self.lineStyle?.lineWidth              = 2.8
     }
     
     let color : NSColor = (getAppearance().name == .vibrantDark) ? UDs.darkPlotColor() : UDs.lightPlotColor()
     
     self.lineStyle?.lineColor              = CPTColor.init(nsColor: color)
     self.dataSourceLinePlot.dataLineStyle = lineStyle
+    
+    let area = CPTColor.init(nsColor: (getAppearance().name == .vibrantDark) ? .gray : self.lineStyle!.lineColor!.nsColor)
+    let gradient = CPTGradient(beginning: area, ending: .clear())
+    gradient.angle = 180.0
+    let fill = CPTFill(gradient: gradient)
+    dataSourceLinePlot.areaFill = fill
+    dataSourceLinePlot.areaBaseValue = 1.5
   }
   
   func newData(value: Double) {
@@ -169,7 +176,11 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
           let newRange : CPTPlotRange = CPTPlotRange(location: NSNumber(value: location),
                                                      length: NSNumber(value: self.kMaxDataPoints - 2))
           
-          CPTAnimation.animate(plotSpace, property: "xRange", from: oldRange, to: newRange, duration: CGFloat(1.0 / self.kFrameRate))
+          CPTAnimation.animate(plotSpace,
+                               property: "xRange",
+                               from: oldRange,
+                               to: newRange,
+                               duration: CGFloat(1.0 / self.kFrameRate))
           
           self.currentIndex += 1
           
@@ -201,13 +212,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
           case .cpuPowerWatt:       fallthrough
           case .igpuPowerWatt:      fallthrough
           case .intelWatt:
-            conformedVal = (value * 100) / AppSd.cpuTDP
-            /*
-             We need the TDP and no problem using Intel Power Gadget,
-             but what to do if we don't have the it? let the user set this value!
-             */
-            self.plotSpace?.yRange = CPTPlotRange(location: NSNumber(value: 0.0),
-                                                  length: NSNumber(value: 35.0 ))
+            conformedVal = (value * 100) / (AppSd.cpuTDP)
             
           case .voltage:            conformedVal = (value * 100) / 20
             
@@ -230,7 +235,7 @@ class PlotView: NSView, CPTPlotDataSource, CPTPlotDelegate {
           
           
           //DispatchQueue.main.async {
-          if conformedVal > 100 { conformedVal = 100 }
+          if conformedVal > 100 { conformedVal = 100 } //max
           self.plotData.append(conformedVal)
           thePlot.insertData(at: UInt(self.plotData.count - 1), numberOfRecords: 1)
           //}

@@ -68,6 +68,7 @@
 
 /* Class = "NSButtonCell"; title = "Reset"; ObjectID = "wsU-ie-0D9"; */
 "wsU-ie-0D9.title" = "Сброс";
+"EvK-oN-SbB.title" = "сброс";
 
 /* Class = "NSButtonCell"; title = "Fan Control"; ObjectID = "Ure-9y-2ms"; */
 "Ure-9y-2ms.title" = "Управление вентиляторами и помпами";

@@ -159,6 +159,16 @@ class HWOulineView: NSOutlineView, NSPopoverDelegate {
       self.appearanceObserver = nil
     }
   }
+  
+  override func mouseDown(with event: NSEvent) {
+    super.mouseDown(with: event)
+
+    let selectedRow = row(at: convert(event.locationInWindow, from: nil))
+    
+    if selectedRow < 0 {
+      deselectAll(nil)
+    }
+  }
 
   override func makeView(withIdentifier identifier: NSUserInterfaceItemIdentifier,
                          owner: Any?) -> NSView? {
@@ -177,7 +187,7 @@ class HWOulineView: NSOutlineView, NSPopoverDelegate {
     return view as? NSView
   }
   
-  func update() {
+  public func update() {
     let appearance = getAppearance()
     for win in NSApplication.shared.windows {
       if let views = win.contentView?.subviews {
@@ -232,19 +242,44 @@ class HWOulineView: NSOutlineView, NSPopoverDelegate {
       }
     }
     
-    let column1 : NSTableColumn? = self.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "column1"))
+    let column0 = self.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "column0"))
+    let column1 = self.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "column1"))
+    let column2 = self.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "column2"))
+    
+    var widthC0 : CGFloat = 66
+    var widthC1 : CGFloat = 200
+    var widthC2 : CGFloat = 80
+    var padding : CGFloat = 20
     switch AppSd.mainViewSize {
     case .normal:
       self.rowSizeStyle = .small
-      column1?.width = 202
     case .medium:
       self.rowSizeStyle = .medium
-      column1?.width = 215
+      widthC0 = 70
+      widthC1 = 215
+      widthC2 = 80
     case .large:
       self.rowSizeStyle = .large
-      column1?.width = 215
+      widthC0 = 90
+      widthC1 = 240
+      widthC2 = 100
+      padding = 10
     }
     
+    column0?.width = widthC0
+    column1?.width = widthC1
+    column2?.width = widthC2
+    
+    AppSd.WinMinWidth = widthC0 + widthC1 + widthC2 + padding
+    self.window?.minSize = NSMakeSize(AppSd.WinMinWidth, AppSd.WinMinHeight)
+  
+    if let winWidth = self.window?.frame.size.width {
+      if winWidth < AppSd.WinMinWidth {
+        var frame = self.window!.frame
+        frame.size.width = AppSd.WinMinWidth
+        self.window?.setFrame(frame, display: true, animate: true)
+      }
+    }
     self.reloadData()
     NotificationCenter.default.post(name: NSNotification.Name.appearanceDidChange, object: self)
   }

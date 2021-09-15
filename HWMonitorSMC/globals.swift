@@ -13,6 +13,7 @@ let kTestVersion            = ""
 let kLinceseAccepted        = "LinceseAcceptedWithWarning"
 let kRunAtLogin             = "runAtLogin"
 let kUseIPG                 = "UseIPG"
+let kUseIPGPMU              = "UseIPGPMU"
 let kShowGadget             = "ShowGadget"
 let kHideVerticalScroller   = "hideVerticalScroller"
 let kAppleInterfaceStyle    = "AppleInterfaceStyle"
@@ -64,8 +65,6 @@ let asAdmin : String        = "with administrator privileges"
 
 let AppSd = NSApplication.shared.delegate as! AppDelegate
 let UDs = UserDefaults.standard
-let kMinWidth  : CGFloat = 370
-let kMinHeight : CGFloat = 270
 
 let gPopOverFont : NSFont = NSFont(name: "Lucida Grande Bold", size: 9.0) ?? NSFont.systemFont(ofSize:  9.0)
 let gLogFont     : NSFont = NSFont(name: "Lucida Grande", size: 10.0)     ?? NSFont.systemFont(ofSize: 10.0)

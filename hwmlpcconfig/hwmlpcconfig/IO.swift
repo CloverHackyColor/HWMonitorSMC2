@@ -43,8 +43,7 @@ func getFirmawareVendor() -> String? {
         cleanedData.append(data[i])
       }
     }
-    cleanedData.append(0x00)
-    return String(bytes: cleanedData, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
+    return String(bytes: cleanedData, encoding: .utf8)
   }
   
   return nil
@@ -79,7 +78,7 @@ fileprivate func getEFIPlatform() -> NSDictionary? {
 /// Get OEMVendor string.
 func getOEMVendor() -> String? {
   if let data = getEFIPlatform()?.object(forKey: "OEMVendor") as? Data {
-    return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
+    return String(bytes: data, encoding: .utf8)
   }
   
   let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-vendor"
@@ -89,7 +88,7 @@ func getOEMVendor() -> String? {
 /// Get OEMProduct string.
 func getOEMProduct() -> String? {
   if let data = getEFIPlatform()?.object(forKey: "OEMProduct") as? Data {
-    return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
+    return String(bytes: data, encoding: .utf8)
   }
   
   let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-product"
@@ -99,7 +98,7 @@ func getOEMProduct() -> String? {
 /// Get OEMBoard string.
 func getOEMBoard() -> String? {
   if let data = getEFIPlatform()?.object(forKey: "OEMBoard") as? Data {
-    return String(bytes: data, encoding: .utf8)?.replacingOccurrences(of: "\0", with: "")
+    return String(bytes: data, encoding: .utf8)
   }
   
   let ockey = "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:oem-board"
@@ -149,6 +148,7 @@ func getOEMVendorShort() -> String? {
     case "LENOVO":
       return "Lenovo"
     case "Micro-Star International": fallthrough
+    case "Micro-Star International Co., Ltd.": fallthrough
     case "MICRO-STAR INTERNATIONAL CO., LTD": fallthrough
     case "MICRO-STAR INTERNATIONAL CO.,LTD": fallthrough
     case "MSI":

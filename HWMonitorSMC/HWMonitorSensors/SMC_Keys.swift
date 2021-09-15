@@ -42,6 +42,7 @@ let SMC_GPU_MEMORY_FREQ_F       = "CG%@M"
 let SMC_GPU_VOLT                = "VC%@G"
 let SMC_GPU_BOARD_TEMP          = "TG%@H"
 let SMC_GPU_PROXIMITY_TEMP      = "TG%@P"
+let SMC_GPU_DIE_TEMP            = "TG%@D"
 
 // IGPU
 let SMC_IGPU_PACKAGE_WATT       = "PCPG"

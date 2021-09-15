@@ -43,6 +43,7 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
   @IBOutlet var useGPUAccelerator       : NSButton!
   
   @IBOutlet var useIntelPowerGadget     : NSButton!
+  @IBOutlet var useIntelPowerGadgetPMU  : NSButton!
   
   @IBOutlet var sliderCPU               : NSSlider!
   @IBOutlet var sliderGPU               : NSSlider!
@@ -313,11 +314,14 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
   func getPreferences() {
     self.useIntelPowerGadget.state = UDs.bool(forKey: kUseIPG) ? .on : .off
     
+    let useIPGPMU : Bool = (UDs.object(forKey: kUseIPGPMU) == nil || UDs.bool(forKey: kUseIPGPMU))
+    self.useIntelPowerGadgetPMU.state = useIPGPMU ? .on : .off
+    
     /*
      The TDP is used only for CPU plots axis and can be greater of the CPU default declared
      by the CPU vendor (i.e. overclock).
      So the user should be able to set an higer value and save it to the preferences.
-     If a value is not already let Intel Power Gadget to set the default value,
+     If a value is not available, let Intel Power Gadget to detect it,
      otherwise set a "common" value of 100 Watts
      */
     var tdp : Double = UDs.double(forKey: kCPU_TDP_MAX)
@@ -555,6 +559,11 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
     self.synchronize()
   }
   
+  @IBAction func useIntelPowerGadgetPMU(_ sender: NSButton) { // Performance Monitoring Unit (PMU)
+    // AppSd.ipg?.pmu(on: sender.state == .on) // needs a restart
+    UDs.set((sender.state == .on), forKey: kUseIPGPMU)
+  }
+  
   @IBAction func viewSizePressed(_ sender: NSPopUpButton) {
     UDs.set(sender.selectedItem?.representedObject as! String, forKey: kViewSize)
     self.synchronize()
@@ -757,6 +766,7 @@ class PreferencesVC: NSViewController, NSTextFieldDelegate, NSFontChanging, NSTa
   @IBAction func startDark(_ sender: NSButton) {
     UDs.set(sender.state == NSControl.StateValue.on, forKey: kDark)
     self.synchronize()
+    self.viewSizePressed(self.viewSizePop)
   }
   
   @IBAction func translateUnits(_ sender: NSButton) {

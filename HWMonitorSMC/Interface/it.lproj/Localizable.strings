@@ -89,6 +89,7 @@
 "Ambient" = "Ambiente"; // Motherboard
 "GPU %d Board" = "Scheda GPU %d";
 "GPU %d Proximity" = "Prossimità GPU %d";
+"GPU %d Die" = "Die GPU %d";
 "Core %d" = "Core %d";   // CPU or GPU
 "Diode %d" = "Diodo %d"; // CPU or GPU
 "CPU %d" = "CPU %d";

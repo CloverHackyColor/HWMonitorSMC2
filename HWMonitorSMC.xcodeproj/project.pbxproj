@@ -94,7 +94,7 @@
 		95CE19DA2043585A00E73446 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95CE19DC2043585A00E73446 /* Localizable.strings */; };
 		95CE19DF20435CD200E73446 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CE19E120435CD200E73446 /* Preferences.storyboard */; };
 		95D535F9216F684200289BD7 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D535F8216F684200289BD7 /* CorePlot.framework */; };
-		95D535FB216F68D700289BD7 /* CorePlot.framework in Copy CorePlot */ = {isa = PBXBuildFile; fileRef = 95D535F8216F684200289BD7 /* CorePlot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95D535FB216F68D700289BD7 /* CorePlot.framework in Copy CorePlot */ = {isa = PBXBuildFile; fileRef = 95D535F8216F684200289BD7 /* CorePlot.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		95DA9B992173BB8D00CBAB9F /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA9B982173BB8D00CBAB9F /* Plot.swift */; };
 		95DE45CF205E7F3800E4582D /* RunAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE45CE205E7F3800E4582D /* RunAtLogin.swift */; };
 		95EC3B5521AACFB400EC70AE /* LightAppearance.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EC3B5321AACFB300EC70AE /* LightAppearance.png */; };
@@ -220,7 +220,7 @@
 		951A947E217E3EB30057F687 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMC.swift; sourceTree = "<group>"; };
 		951B029E20CD8D0200C17E62 /* GPU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GPU.png; sourceTree = "<group>"; };
 		951C9DDB216A347A00CDAB92 /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Library; path = ../../../../../../Library; sourceTree = "<group>"; };
-		951C9DDD216A348D00CDAB92 /* IntelPowerGadget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntelPowerGadget.framework; path = ../../../../../../Library/Frameworks/IntelPowerGadget.framework; sourceTree = "<group>"; };
+		951C9DDD216A348D00CDAB92 /* IntelPowerGadget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntelPowerGadget.framework; path = /Library/Frameworks/IntelPowerGadget.framework; sourceTree = "<absolute>"; };
 		951C9DE0216A4A6D00CDAB92 /* IntelPowerGadget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelPowerGadget.swift; sourceTree = "<group>"; };
 		9521BD60228710E600E8ACC8 /* smcwrite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = smcwrite.xcodeproj; path = smcwrite/smcwrite.xcodeproj; sourceTree = "<group>"; };
 		952275D82184C5F700E12C3A /* freq_small_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freq_small_on.png; sourceTree = "<group>"; };
@@ -1020,7 +1020,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2.6.0;
+				CURRENT_PROJECT_VERSION = 2.6.1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1039,7 +1039,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULE_VERSION = 2.6.0;
+				MODULE_VERSION = 2.6.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
@@ -1087,7 +1087,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2.6.0;
+				CURRENT_PROJECT_VERSION = 2.6.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1100,7 +1100,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULE_VERSION = 2.6.0;
+				MODULE_VERSION = 2.6.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "";
@@ -1120,7 +1120,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2.6.0;
+				CURRENT_PROJECT_VERSION = 2.6.2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -1130,8 +1130,8 @@
 				INFOPLIST_FILE = HWMonitorSMC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2.6.0;
-				MODULE_VERSION = 2.5.2;
+				MARKETING_VERSION = 2.6.2;
+				MODULE_VERSION = 2.6.1;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.slice.HWMonitorSMC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1150,7 +1150,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2.6.0;
+				CURRENT_PROJECT_VERSION = 2.6.2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -1161,8 +1161,8 @@
 				INFOPLIST_FILE = HWMonitorSMC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2.6.0;
-				MODULE_VERSION = 2.5.2;
+				MARKETING_VERSION = 2.6.2;
+				MODULE_VERSION = 2.6.1;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.slice.HWMonitorSMC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
