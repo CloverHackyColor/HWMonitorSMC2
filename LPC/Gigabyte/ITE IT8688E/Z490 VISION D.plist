@@ -6,54 +6,36 @@
 	<dict>
 		<key>name</key>
 		<string>CPU_FAN</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>FAN2</key>
 	<dict>
 		<key>name</key>
 		<string>SYS_FAN1</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>FAN3</key>
 	<dict>
 		<key>name</key>
 		<string>SYS_FAN2</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>FAN4</key>
 	<dict>
 		<key>name</key>
 		<string>SYS_FAN3</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>FAN5</key>
 	<dict>
 		<key>name</key>
 		<string>SYS_FAN4</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VBAT</key>
 	<dict>
-		<key>multi</key>
-		<integer>1</integer>
 		<key>name</key>
 		<string>VBAT</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN0</key>
 	<dict>
-		<key>multi</key>
-		<integer>1</integer>
 		<key>name</key>
 		<string>Vcore</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN1</key>
 	<dict>
@@ -61,8 +43,6 @@
 		<real>1.6487804878</real>
 		<key>name</key>
 		<string>+3.3V</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN2</key>
 	<dict>
@@ -70,8 +50,6 @@
 		<integer>6</integer>
 		<key>name</key>
 		<string>+12V</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN3</key>
 	<dict>
@@ -79,35 +57,21 @@
 		<real>2.5</real>
 		<key>name</key>
 		<string>+5V</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN4</key>
 	<dict>
-		<key>multi</key>
-		<integer>1</integer>
 		<key>name</key>
 		<string>iGPU VAXG</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN5</key>
 	<dict>
-		<key>multi</key>
-		<integer>1</integer>
 		<key>name</key>
 		<string>VCCSA</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN6</key>
 	<dict>
-		<key>multi</key>
-		<integer>1</integer>
 		<key>name</key>
 		<string>DDR</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 	<key>VIN7</key>
 	<dict>
@@ -115,8 +79,6 @@
 		<integer>2</integer>
 		<key>name</key>
 		<string>3VSB</string>
-		<key>skip</key>
-		<false/>
 	</dict>
 </dict>
 </plist>
