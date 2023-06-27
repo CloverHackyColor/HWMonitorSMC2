@@ -5,16 +5,16 @@
         <key>3VCC</key>
         <dict>
             <key>multi</key>
-            <integer>1</integer>
+            <integer>2</integer>
             <key>name</key>
-            <string>3VCC</string>
+            <string>+3.3V</string>
             <key>skip</key>
             <false/>
         </dict>
         <key>3VSB</key>
         <dict>
             <key>multi</key>
-            <integer>1</integer>
+            <integer>2</integer>
             <key>name</key>
             <string>3VSB</string>
             <key>skip</key>
@@ -58,7 +58,7 @@
         <key>AVSB</key>
         <dict>
             <key>multi</key>
-            <integer>1</integer>
+            <integer>2</integer>
             <key>name</key>
             <string>AVSB</string>
             <key>skip</key>
@@ -94,23 +94,23 @@
             <key>name</key>
             <string>VBAT</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN0</key>
         <dict>
             <key>multi</key>
-            <integer>1</integer>
+            <integer>12</integer>
             <key>name</key>
-            <string>VIN0</string>
+            <string>+12V</string>
             <key>skip</key>
             <false/>
         </dict>
         <key>VIN1</key>
         <dict>
             <key>multi</key>
-            <integer>1</integer>
+            <integer>5</integer>
             <key>name</key>
-            <string>VIN1</string>
+            <string>+5V</string>
             <key>skip</key>
             <false/>
         </dict>
@@ -121,7 +121,7 @@
             <key>name</key>
             <string>VIN2</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN3</key>
         <dict>
@@ -130,14 +130,14 @@
             <key>name</key>
             <string>VIN3</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN4</key>
         <dict>
             <key>multi</key>
-            <integer>1</integer>
+            <integer>2</integer>
             <key>name</key>
-            <string>VIN4</string>
+            <string>VDDIO</string>
             <key>skip</key>
             <false/>
         </dict>
@@ -148,7 +148,7 @@
             <key>name</key>
             <string>VIN5</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN6</key>
         <dict>
@@ -157,7 +157,7 @@
             <key>name</key>
             <string>VIN6</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN7</key>
         <dict>
@@ -166,7 +166,7 @@
             <key>name</key>
             <string>VIN7</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN8</key>
         <dict>
@@ -175,7 +175,7 @@
             <key>name</key>
             <string>VIN8</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VIN9</key>
         <dict>
@@ -184,7 +184,7 @@
             <key>name</key>
             <string>VIN9</string>
             <key>skip</key>
-            <false/>
+            <true/>
         </dict>
         <key>VTT</key>
         <dict>
